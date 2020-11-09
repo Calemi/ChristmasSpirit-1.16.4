@@ -1,4 +1,5 @@
-# Calemi's Utilities
-Utilities that make your Minecraft experience better!
+# Christmas Spirit
 
-We are still in beta so expect this code to be inefficient and buggy. If you have any issues or features you would like to send my way, you can do so by clicking on the Issues tab and submitting one.
+♫ Deck the mines with boughs of holly! ♫  
+Wrap presents, eat holiday sweets, and decorate your Minecraft world with Christmas-themed features! 
+And...who knows? You might even get to see Santa... 
