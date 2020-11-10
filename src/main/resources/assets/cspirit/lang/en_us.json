@@ -9,6 +9,15 @@
 
   "_comment" : "WEARABLES",
 
+  "_comment" : "DISCS",
+
+  "item.cspirit.disc_wishbackground": "Music Disc",
+  "item.cspirit.disc_wishbackground.desc": "Wish Background - Kevin Macleod",
+  "item.cspirit.disc_jared": "Music Disc",
+  "item.cspirit.disc_jared.desc": "It's Beginning to Look a Lot Like Christmas - Wilfred The Pig",
+  "item.cspirit.disc_mcchristmas": "Music Disc",
+  "item.cspirit.disc_mcchristmas.desc": "Minecraft Christmas - Area 11 feat Simon",
+
   "_comment" : "OTHER",
 
   "_comment" : "-----NAUGHTY ITEMS------",
@@ -17,5 +26,16 @@
 
   "_comment" : "CROPS",
 
-  "_comment" : "DECORATIONS"
+  "_comment" : "DECORATIONS",
+
+
+  "_comment" : "-----CREATIVE TABS------",
+
+  "itemGroup.cspirit.tabMain": "Christmas Spirit - Main",
+
+  "_comment" : "-----SOUNDS------",
+
+  "disc.wishbackground.sub": "Insert Christmas Disc",
+  "disc.mcchristmas.sub": "Insert Christmas Disc",
+  "disc.jared.sub": "Insert Christmas Disc"
 }

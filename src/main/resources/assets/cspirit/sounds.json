@@ -1,0 +1,32 @@
+{
+  "disc.wishbackground": {
+    "category": "item",
+    "subtitle": "disc.wishbackground.sub",
+    "sounds": [
+      {
+        "name": "cspirit:disc/wishbackground",
+        "stream": true
+      }
+    ]
+  },
+  "disc.mcchristmas": {
+    "category": "item",
+    "subtitle": "disc.mcchristmas.sub",
+    "sounds": [
+      {
+        "name": "cspirit:disc/mcchristmas",
+        "stream": true
+      }
+    ]
+  },
+  "disc.jared": {
+    "category": "item",
+    "subtitle": "disc.jared.sub",
+    "sounds": [
+      {
+        "name": "cspirit:disc/jared",
+        "stream": true
+      }
+    ]
+  }
+}

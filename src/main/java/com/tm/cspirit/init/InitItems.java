@@ -1,6 +1,7 @@
 package com.tm.cspirit.init;
 
 import com.tm.cspirit.block.base.BlockItemBase;
+import com.tm.cspirit.item.base.ItemDiscBase;
 import com.tm.cspirit.main.CSReference;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -31,6 +32,11 @@ public class InitItems {
     //FOOD
 
     //WEARABLES
+
+    //DISCS
+    public static final RegistryObject<Item> DISC_WISHBACKGROUND = ITEMS.register("disc_wishbackground", () -> new ItemDiscBase(InitSounds.WISHBACKGROUND));
+    public static final RegistryObject<Item> DISC_MCCHRISTMAS = ITEMS.register("disc_mcchristmas", () -> new ItemDiscBase(InitSounds.MCCHRISTMAS));
+    public static final RegistryObject<Item> DISC_JARED = ITEMS.register("disc_jared", () -> new ItemDiscBase(InitSounds.JARED));
 
     //OTHER
 
