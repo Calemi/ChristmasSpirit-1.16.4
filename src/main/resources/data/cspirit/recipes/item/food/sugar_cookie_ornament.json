@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {"item": "cspirit:icing"},
+    {"item": "cspirit:sugar_cookie_sheet"},
+    {"item": "cspirit:cookie_cutter_ornament"}
+  ],
+  "result": {
+    "item": "cspirit:sugar_cookie_ornament",
+    "count": 1
+  }
+}

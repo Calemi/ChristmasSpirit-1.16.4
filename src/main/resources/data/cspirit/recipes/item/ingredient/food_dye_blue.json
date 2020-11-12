@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {"item": "minecraft:sugar"},
+    {"item": "minecraft:light_blue_dye"}
+  ],
+  "result": {
+    "item": "cspirit:food_dye_blue",
+    "count": 1
+  }
+}

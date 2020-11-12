@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "cspirit:peppermint_candy_mix"
+  },
+  "result": {
+    "item": "cspirit:peppermint_candy_red",
+    "count": 2,
+    "experience": 2.0,
+    "cookingtime": 200
+  }
+}

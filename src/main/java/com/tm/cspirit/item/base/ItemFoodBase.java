@@ -7,6 +7,6 @@ import net.minecraft.item.Item;
 public class ItemFoodBase extends ItemBase {
 
     public ItemFoodBase(int hunger, float saturation) {
-        super(new Item.Properties().group(ChristmasSpirit.TAB_MAIN).food(new Food.Builder().hunger(hunger).saturation(saturation).setAlwaysEdible().build()));
+        super(new Item.Properties().group(ChristmasSpirit.TAB_BAKING).food(new Food.Builder().hunger(hunger).saturation(saturation).setAlwaysEdible().build()));
     }
 }

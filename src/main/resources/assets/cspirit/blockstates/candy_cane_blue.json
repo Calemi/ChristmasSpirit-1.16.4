@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": {"model": "cspirit:block/candy_cane_blue"},
+    "facing=south": {"model": "cspirit:block/candy_cane_blue", "y": 180},
+    "facing=west": {"model": "cspirit:block/candy_cane_blue", "y": 270},
+    "facing=east": {"model": "cspirit:block/candy_cane_blue", "y": 90}
+  }
+}

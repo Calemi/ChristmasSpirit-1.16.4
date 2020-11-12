@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "age=0": {"model": "cspirit:block/peppermint_0"},
+    "age=1": {"model": "cspirit:block/peppermint_0"},
+    "age=2": {"model": "cspirit:block/peppermint_1"},
+    "age=3": {"model": "cspirit:block/peppermint_1"},
+    "age=4": {"model": "cspirit:block/peppermint_2"},
+    "age=5": {"model": "cspirit:block/peppermint_2"},
+    "age=6": {"model": "cspirit:block/peppermint_2"},
+    "age=7": {"model": "cspirit:block/peppermint_3"}
+  }
+}

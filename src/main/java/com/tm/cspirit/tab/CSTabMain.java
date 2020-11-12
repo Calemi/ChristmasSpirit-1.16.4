@@ -1,5 +1,6 @@
 package com.tm.cspirit.tab;
 
+import com.tm.cspirit.init.InitItems;
 import com.tm.cspirit.main.CSReference;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -13,7 +14,7 @@ public class CSTabMain extends ItemGroup {
 
     @Override
     public ItemStack createIcon () {
-        ItemStack stack = new ItemStack(Items.SNOWBALL);
+        ItemStack stack = new ItemStack(InitItems.PEPPERMINT_LEAF.get());
         stack.setDamage(14);
         return stack;
     }

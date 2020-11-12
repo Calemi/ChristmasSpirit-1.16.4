@@ -1,4 +1,14 @@
 {
+  "congrats": {
+    "category": "item",
+    "subtitle": "congrats",
+    "sounds": [
+      {
+        "name": "cspirit:congrats",
+        "stream": true
+      }
+    ]
+  },
   "disc.wishbackground": {
     "category": "item",
     "subtitle": "disc.wishbackground.sub",

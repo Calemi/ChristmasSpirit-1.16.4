@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "cspirit:gingerbread_dough"
+  },
+  "result": {
+    "item": "cspirit:gingerbread_sheet",
+    "experience": 2.0,
+    "cookingtime": 200
+  }
+}

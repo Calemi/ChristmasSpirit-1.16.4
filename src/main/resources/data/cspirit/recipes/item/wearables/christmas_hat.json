@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {"item": "minecraft:leather_helmet"},
+    {"item": "minecraft:red_dye"},
+    {"item": "minecraft:white_wool"}
+  ],
+  "result": {
+    "item": "cspirit:christmas_hat",
+    "count": 1
+  }
+}

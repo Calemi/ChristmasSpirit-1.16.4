@@ -7,7 +7,11 @@ import net.minecraft.item.ItemGroup;
 
 public class BlockItemBase extends BlockItem {
 
+    public BlockItemBase(Block block, Item.Properties properties) {
+        super(block, properties);
+    }
+
     public BlockItemBase(Block block, ItemGroup tab) {
-        super(block , new Item.Properties().group(tab));
+        super(block, new Item.Properties().group(tab));
     }
 }

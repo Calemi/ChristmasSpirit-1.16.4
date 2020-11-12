@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {"item": "minecraft:wheat"}
+  ],
+  "result": {
+    "item": "cspirit:flour",
+    "count": 1
+  }
+}

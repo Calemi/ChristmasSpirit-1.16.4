@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {"item": "cspirit:ginger"}
+  ],
+  "result": {
+    "item": "cspirit:ginger_ground",
+    "count": 1
+  }
+}

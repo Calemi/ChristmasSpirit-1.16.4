@@ -1,21 +1,86 @@
 {
-  "_comment" : "-----ITEMS------",
+  "_comment" : "DECORATIONS",
 
-  "_comment" : "CROPS",
+  "_comment" : "-----ITEMS------",
 
   "_comment" : "INGREDIENTS",
 
+  "item.cspirit.flour": "Flour",
+  "item.cspirit.icing": "Decorating Icing",
+
+  "item.cspirit.food_dye_red": "Red Food Dye",
+  "item.cspirit.food_dye_green": "Green Food Dye",
+  "item.cspirit.food_dye_blue": "Blue Food Dye",
+
+  "item.cspirit.peppermint_leaf": "Peppermint Leaf",
+  "item.cspirit.peppermint_candy_mix": "Peppermint Candy Mix",
+
+  "item.cspirit.sugar_cookie_dough": "Sugar Cookie Dough",
+  "item.cspirit.sugar_cookie_sheet": "Sugar Cookie Sheet",
+  "item.cspirit.ginger_ground": "Ground Ginger",
+  "item.cspirit.gingerbread_dough": "Gingerbread Dough",
+  "item.cspirit.gingerbread_sheet": "Gingerbread Sheet",
+
+
+  "item.cspirit.cookie_cutter_circle": "Cookie Cutter (Circle)",
+  "item.cspirit.cookie_cutter_ornament": "Cookie Cutter (Ornament)",
+  "item.cspirit.cookie_cutter_star": "Cookie Cutter (Star)",
+  "item.cspirit.cookie_cutter_man": "Cookie Cutter (Man)",
+  "item.cspirit.cookie_cutter_snowman": "Cookie Cutter (Snowman)",
+
   "_comment" : "FOOD",
+
+  "item.cspirit.chocolate_bar": "Chocolate Bar",
+  "item.cspirit.peppermint_bark": "Peppermint Bark",
+
+  "item.cspirit.peppermint_candy_red": "Peppermint Candy",
+  "item.cspirit.peppermint_candy_green": "Green Peppermint Candy",
+  "item.cspirit.peppermint_candy_blue": "Blue Peppermint Candy",
+
+  "block.cspirit.candy_cane_red": "Candy Cane",
+  "block.cspirit.candy_cane_green": "Green Candy Cane",
+  "block.cspirit.candy_cane_blue": "Blue Candy Cane",
+
+  "item.cspirit.sugar_cookie_santa": "Santa Cookie",
+
+  "item.cspirit.sugar_cookie_circle": "Sugar Cookie",
+  "item.cspirit.sugar_cookie_ornament": "Sugar Cookie Ornament",
+  "item.cspirit.sugar_cookie_star": "Sugar Cookie Star",
+  "item.cspirit.sugar_cookie_man": "Sugar Cookie Man",
+  "item.cspirit.sugar_cookie_snowman": "Sugar Cookie Snowman",
+
+  "item.cspirit.gingerbread_cookie_circle": "Gingerbread Cookie",
+  "item.cspirit.gingerbread_cookie_ornament": "Gingerbread Ornament",
+  "item.cspirit.gingerbread_cookie_star": "Gingerbread Star",
+  "item.cspirit.gingerbread_cookie_man": "Gingerbread Man",
+  "item.cspirit.gingerbread_cookie_snowman": "Gingerbread Snowman",
+
+  "item.cspirit.mug_milk": "Warm Milk",
+  "item.cspirit.mug_hot_chocolate": "Hot Chocolate",
+  "item.cspirit.mug_eggnog": "Eggnog",
 
   "_comment" : "WEARABLES",
 
+  "item.cspirit.christmas_hat": "Christmas Hat",
+  "item.cspirit.beanie_black": "Black Beanie",
+  "item.cspirit.beanie_red": "Red Beanie",
+  "item.cspirit.beanie_green": "Green Beanie",
+
+  "item.cspirit.sweater_black": "Black Sweater",
+  "item.cspirit.sweater_red": "Red Sweater",
+  "item.cspirit.sweater_green": "Green Sweater",
+
+  "item.cspirit.winter_jeans": "Winter Jeans",
+
+  "item.cspirit.winter_boots": "Winter Boots",
+
   "_comment" : "DISCS",
 
-  "item.cspirit.disc_wishbackground": "Music Disc",
+  "item.cspirit.disc_wishbackground": "Holiday Music Disc",
   "item.cspirit.disc_wishbackground.desc": "Wish Background - Kevin Macleod",
-  "item.cspirit.disc_jared": "Music Disc",
+  "item.cspirit.disc_jared": "Holiday Music Disc",
   "item.cspirit.disc_jared.desc": "It's Beginning to Look a Lot Like Christmas - Wilfred The Pig",
-  "item.cspirit.disc_mcchristmas": "Music Disc",
+  "item.cspirit.disc_mcchristmas": "Holiday Music Disc",
   "item.cspirit.disc_mcchristmas.desc": "Minecraft Christmas - Area 11 feat Simon",
 
   "_comment" : "OTHER",
@@ -25,13 +90,13 @@
   "_comment" : "-----BLOCKS------",
 
   "_comment" : "CROPS",
-
-  "_comment" : "DECORATIONS",
-
+  "block.cspirit.ginger": "Ginger Root",
+  "block.cspirit.peppermint": "Peppermint Seeds",
 
   "_comment" : "-----CREATIVE TABS------",
 
   "itemGroup.cspirit.tabMain": "Christmas Spirit - Main",
+  "itemGroup.cspirit.tabBaking": "Christmas Spirit - Baking",
 
   "_comment" : "-----SOUNDS------",
 
