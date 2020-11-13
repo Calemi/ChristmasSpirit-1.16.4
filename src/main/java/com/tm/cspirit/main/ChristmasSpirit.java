@@ -2,10 +2,7 @@ package com.tm.cspirit.main;
 
 import com.tm.cspirit.command.CSCommandBase;
 import com.tm.cspirit.data.SantaGiftListFile;
-import com.tm.cspirit.event.IceSkatesEvent;
-import com.tm.cspirit.event.JaredDiscEvent;
-import com.tm.cspirit.event.MobArmorEvent;
-import com.tm.cspirit.event.PresentResetEvent;
+import com.tm.cspirit.event.*;
 import com.tm.cspirit.gui.ScreenPresentUnwrapped;
 import com.tm.cspirit.init.*;
 import com.tm.cspirit.packet.PacketWrapPresent;
@@ -64,6 +61,7 @@ public class ChristmasSpirit {
         MinecraftForge.EVENT_BUS.register(new PresentResetEvent());
         MinecraftForge.EVENT_BUS.register(new IceSkatesEvent());
         MinecraftForge.EVENT_BUS.register(new MobArmorEvent());
+        MinecraftForge.EVENT_BUS.register(new SpriteCranberryEvent());
     }
 
     private void onClientSetup(final FMLClientSetupEvent event) {

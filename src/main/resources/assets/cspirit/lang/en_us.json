@@ -59,6 +59,10 @@
   "item.cspirit.mug_hot_chocolate": "Hot Chocolate",
   "item.cspirit.mug_eggnog": "Eggnog",
 
+  "item.cspirit.soda_cola": "Winter Spiced Cola",
+  "item.cspirit.soda_ginger_ale": "Ginger Ale",
+  "item.cspirit.soda_sprite_cranberry": "Sprite Cranberry",
+
   "_comment" : "WEARABLES",
 
   "item.cspirit.christmas_hat": "Christmas Hat",

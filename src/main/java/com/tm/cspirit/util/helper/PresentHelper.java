@@ -36,7 +36,7 @@ public class PresentHelper {
 
         //Visuals
         FireworkHelper.spawnFirework(player, (byte)1, true, true, DyeColor.RED, DyeColor.GREEN);
-        player.connection.sendPacket(new SPlaySoundPacket(InitSounds.CONGRATS.get().getName(), SoundCategory.AMBIENT, player.getPositionVec(), 1, 1));
+        SoundHelper.sendSoundToClient(player, InitSounds.CONGRATS.get());
         ChatHelper.broadcastMessage(world, TextFormatting.RED + "" + TextFormatting.BOLD + player.getDisplayName().getString() + " has received their daily present!");
     }
 

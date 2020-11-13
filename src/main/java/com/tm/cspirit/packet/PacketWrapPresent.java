@@ -3,6 +3,7 @@ package com.tm.cspirit.packet;
 import com.tm.cspirit.init.InitSounds;
 import com.tm.cspirit.present.PresentConstructor;
 import com.tm.cspirit.util.Location;
+import com.tm.cspirit.util.helper.SoundHelper;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.play.server.SPlaySoundPacket;
@@ -45,7 +46,7 @@ public class PacketWrapPresent {
             if (player != null) {
                 Location location = new Location(player.world, pos);
                 constructor.toBlock(location);
-                player.connection.sendPacket(new SPlaySoundPacket(InitSounds.PRESENT_WRAP.get().getName(), SoundCategory.AMBIENT, player.getPositionVec(), 1, 1));
+                SoundHelper.sendSoundToClient(player, InitSounds.PRESENT_WRAP.get());
             }
         });
 

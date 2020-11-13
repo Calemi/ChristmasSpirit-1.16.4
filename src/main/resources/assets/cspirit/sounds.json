@@ -37,6 +37,36 @@
       }
     ]
   },
+  "can.open": {
+    "category": "item",
+    "subtitle": "can.open",
+    "sounds": [
+      {
+        "name": "cspirit:can_open",
+        "stream": true
+      }
+    ]
+  },
+  "wanna.sprite.cranberry": {
+    "category": "item",
+    "subtitle": "wanna.sprite.cranberry",
+    "sounds": [
+      {
+        "name": "cspirit:wanna_sprite_cranberry",
+        "stream": true
+      }
+    ]
+  },
+  "the.answer.is.clear": {
+    "category": "item",
+    "subtitle": "the.answer.is.clear",
+    "sounds": [
+      {
+        "name": "cspirit:the_answer_is_clear",
+        "stream": true
+      }
+    ]
+  },
   "disc.wishbackground": {
     "category": "item",
     "subtitle": "disc.wishbackground.sub",

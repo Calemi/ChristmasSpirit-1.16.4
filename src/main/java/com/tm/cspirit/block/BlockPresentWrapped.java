@@ -7,6 +7,7 @@ import com.tm.cspirit.tileentity.TileEntityPresentWrapped;
 import com.tm.cspirit.util.Location;
 import com.tm.cspirit.util.helper.ItemHelper;
 import com.tm.cspirit.util.helper.PresentHelper;
+import com.tm.cspirit.util.helper.SoundHelper;
 import com.tm.cspirit.util.helper.TimeHelper;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -105,7 +106,7 @@ public class BlockPresentWrapped extends BlockPresentUnwrapped {
                         ItemHelper.spawnStack(world, pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F, stack);
                         location.setBlockToAir();
 
-                        ((ServerPlayerEntity)player).connection.sendPacket(new SPlaySoundPacket(InitSounds.PRESENT_UNWRAP.get().getName(), SoundCategory.AMBIENT, player.getPositionVec(), 1, 1));
+                        SoundHelper.sendSoundToClient((ServerPlayerEntity)player, InitSounds.PRESENT_UNWRAP.get());
                     }
 
                     else {
