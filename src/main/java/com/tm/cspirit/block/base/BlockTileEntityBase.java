@@ -21,6 +21,7 @@ public abstract class BlockTileEntityBase extends ContainerBlock {
         return true;
     }
 
+    @Override
     public BlockRenderType getRenderType (BlockState state) {
         return BlockRenderType.MODEL;
     }

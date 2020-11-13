@@ -1,9 +1,6 @@
 package com.tm.cspirit.init;
 
-import com.tm.cspirit.block.BlockCandyCane;
-import com.tm.cspirit.block.BlockItemPresentWrapped;
-import com.tm.cspirit.block.BlockPresentUnwrapped;
-import com.tm.cspirit.block.BlockPresentWrapped;
+import com.tm.cspirit.block.*;
 import com.tm.cspirit.block.base.BlockCropBase;
 import com.tm.cspirit.block.base.BlockItemBase;
 import com.tm.cspirit.item.*;
@@ -113,10 +110,11 @@ public class InitItems {
     public static final RegistryObject<Item> DISC_JARED =                  regItem("disc_jared", () -> new ItemDisc(InitSounds.JARED));
 
     //OTHER
-    public static final RegistryObject<Item> CHRISTMAS_BELL =              regItem("christmas_bell", () -> new ItemDisc(InitSounds.JARED));
+
 
 
     //------NAUGHTY ITEMS------\\
+    public static final RegistryObject<Item> LUMP_OF_COAL =                regItem("lump_of_coal", () -> new ItemBase().setTag("naughty"));
 
     //------BLOCKS------\\
 
@@ -134,6 +132,8 @@ public class InitItems {
     public static final RegistryObject<Block> PEPPERMINT =            regBlockAndItem("peppermint", ChristmasSpirit.TAB_MAIN, () -> new BlockCropBase(PEPPERMINT_LEAF));
 
     //DECORATIONS
+    public static final RegistryObject<Block> ICICLES =               regBlockAndItem("icicles", ChristmasSpirit.TAB_MAIN, BlockIcicles::new);
+    public static final RegistryObject<Block> FROSTED_GLASS =         regBlockAndItem("frosted_glass", ChristmasSpirit.TAB_MAIN, BlockFrostedGlass::new);
 
     public static void init() {
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());

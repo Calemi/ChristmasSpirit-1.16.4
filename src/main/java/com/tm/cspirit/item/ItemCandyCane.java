@@ -3,9 +3,11 @@ package com.tm.cspirit.item;
 import com.tm.cspirit.block.base.BlockItemBase;
 import com.tm.cspirit.init.InitEffects;
 import com.tm.cspirit.main.ChristmasSpirit;
+import com.tm.cspirit.util.helper.EffectHelper;
 import net.minecraft.block.Block;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -31,15 +33,7 @@ public class ItemCandyCane extends BlockItemBase {
     @Override
     public ItemStack onItemUseFinish(ItemStack stack, World world, LivingEntity entityLiving) {
 
-        int spiritStack = 0;
-
-        if (entityLiving.getActivePotionEffect(InitEffects.CHRISTMAS_SPIRIT.get()) != null) {
-            spiritStack = entityLiving.getActivePotionEffect(InitEffects.CHRISTMAS_SPIRIT.get()).getAmplifier() + 1;
-        }
-
-        if (spiritStack < 2) {
-            entityLiving.addPotionEffect(new EffectInstance(InitEffects.CHRISTMAS_SPIRIT.get(), 20 * 60, spiritStack));
-        }
+        EffectHelper.giveHolidaySpiritStackEffect((PlayerEntity) entityLiving, 2);
 
         return super.onItemUseFinish(stack, world, entityLiving);
     }

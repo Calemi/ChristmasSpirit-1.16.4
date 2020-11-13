@@ -1,6 +1,7 @@
 package com.tm.cspirit.main;
 
 import com.tm.cspirit.command.CSCommandBase;
+import com.tm.cspirit.data.NaughtyListFile;
 import com.tm.cspirit.data.SantaGiftListFile;
 import com.tm.cspirit.event.*;
 import com.tm.cspirit.gui.ScreenPresentUnwrapped;
@@ -49,6 +50,7 @@ public class ChristmasSpirit {
         InitContainerTypes.CONTAINER_TYPES.register(MOD_EVENT_BUS);
         InitItems.init();
         SantaGiftListFile.init();
+        NaughtyListFile.init();
     }
 
     private void onCommonSetup(final FMLCommonSetupEvent event) {
@@ -62,6 +64,7 @@ public class ChristmasSpirit {
         MinecraftForge.EVENT_BUS.register(new IceSkatesEvent());
         MinecraftForge.EVENT_BUS.register(new MobArmorEvent());
         MinecraftForge.EVENT_BUS.register(new SpriteCranberryEvent());
+        MinecraftForge.EVENT_BUS.register(new NaughtyEvent());
     }
 
     private void onClientSetup(final FMLClientSetupEvent event) {

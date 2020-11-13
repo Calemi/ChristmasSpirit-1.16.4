@@ -1,59 +1,23 @@
 package com.tm.cspirit.data;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import com.tm.cspirit.util.helper.FileHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
-import net.minecraftforge.fml.loading.FMLPaths;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 public class SantaGiftListFile {
 
-    private static final Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().disableHtmlEscaping().create();
-    public static Map<String, GiftEntry> santaGiftList;
+    public static Map<String, GiftEntry> santaGiftList = new HashMap<>();
 
     public static void init() {
-        santaGiftList = createFile(getDefaults());
-    }
-
-    private static Map<String, GiftEntry> createFile(Map<String, GiftEntry> defaultItemsList) {
-
-        String path = FMLPaths.CONFIGDIR.get().toString();
-        File jsonConfig = new File(path, "SantaGiftList.json");
-
-        try {
-
-            // Create the config if it doesn't already exist.
-            if (!jsonConfig.exists() && jsonConfig.createNewFile()) {
-
-                // Get a default map of blocks. You could just use a blank map, however.
-                // Convert the map to JSON format. There is a built in (de)serializer for it already.
-                String json = gson.toJson(defaultItemsList, new TypeToken<Map<String, GiftEntry>>(){}.getType());
-                FileWriter writer = new FileWriter(jsonConfig);
-                // Write to the file you passed
-                writer.write(json);
-                // Always close when done.
-                writer.close();
-            }
-
-            // If the file exists (or we just made one exist), convert it from JSON format to a populated Map object
-            return gson.fromJson(new FileReader(jsonConfig), new TypeToken<Map<String, GiftEntry>>(){}.getType());
-        }
-
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return null;
+        santaGiftList = FileHelper.createFile("SantaGiftList", getDefaults(), new TypeToken<Map<String, GiftEntry>>(){});
     }
 
     private static Map<String, GiftEntry> getDefaults() {

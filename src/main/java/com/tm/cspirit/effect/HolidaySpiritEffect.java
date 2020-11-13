@@ -7,15 +7,15 @@ import net.minecraft.potion.EffectType;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NaughtyEffect extends Effect {
+public class HolidaySpiritEffect extends Effect {
 
-    public NaughtyEffect() {
-        super(EffectType.HARMFUL, 0);
+    public HolidaySpiritEffect() {
+        super(EffectType.BENEFICIAL, 0);
     }
 
     @Override
     public String getName() {
-        return "Naughty";
+        return "Holiday Spirit";
     }
 
     @Override

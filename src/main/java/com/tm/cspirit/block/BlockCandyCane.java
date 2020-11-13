@@ -1,10 +1,7 @@
 package com.tm.cspirit.block;
 
 import com.tm.cspirit.block.base.BlockBase;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.HorizontalBlock;
-import net.minecraft.block.SoundType;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.DirectionProperty;
@@ -54,5 +51,10 @@ public class BlockCandyCane extends BlockBase {
     @Override
     public VoxelShape getCollisionShape (BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
         return getCandyCane(state);
+    }
+
+    @Override
+    public BlockRenderType getRenderType (BlockState state) {
+        return BlockRenderType.MODEL;
     }
 }

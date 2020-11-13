@@ -21,7 +21,7 @@
   },
   "present.unwrap": {
     "category": "item",
-    "subtitle": "present.wrap",
+    "subtitle": "present.unwrap",
     "sounds": [
       {
         "name": "cspirit:present_unwrap_1",
@@ -69,7 +69,7 @@
   },
   "disc.wishbackground": {
     "category": "item",
-    "subtitle": "disc.wishbackground.sub",
+    "subtitle": "disc.sub",
     "sounds": [
       {
         "name": "cspirit:disc/wishbackground",
@@ -79,7 +79,7 @@
   },
   "disc.mcchristmas": {
     "category": "item",
-    "subtitle": "disc.mcchristmas.sub",
+    "subtitle": "disc.sub",
     "sounds": [
       {
         "name": "cspirit:disc/mcchristmas",
@@ -89,7 +89,7 @@
   },
   "disc.jared": {
     "category": "item",
-    "subtitle": "disc.jared.sub",
+    "subtitle": "disc.sub",
     "sounds": [
       {
         "name": "cspirit:disc/jared",

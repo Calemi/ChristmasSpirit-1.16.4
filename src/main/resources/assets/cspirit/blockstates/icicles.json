@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "": [
+      {"model": "cspirit:block/icicles"},
+      {"model": "cspirit:block/icicles", "y": 90},
+      {"model": "cspirit:block/icicles", "y": 180},
+      {"model": "cspirit:block/icicles", "y": 270}
+    ]
+  }
+}

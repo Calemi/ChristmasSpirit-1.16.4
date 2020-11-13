@@ -1,8 +1,10 @@
 package com.tm.cspirit.util.helper;
 
 import com.tm.cspirit.block.BlockPresentWrapped;
+import com.tm.cspirit.data.NaughtyListFile;
 import com.tm.cspirit.data.SantaGiftListFile;
 import com.tm.cspirit.init.InitEffects;
+import com.tm.cspirit.init.InitItems;
 import com.tm.cspirit.init.InitSounds;
 import com.tm.cspirit.present.PresentConstructor;
 import com.tm.cspirit.util.Location;
@@ -10,9 +12,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.DyeColor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.play.server.SPlaySoundPacket;
 import net.minecraft.potion.EffectInstance;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
@@ -44,22 +44,35 @@ public class PresentHelper {
 
         Random random = new Random();
 
+        if (NaughtyListFile.isOnNaughtyList(player)) {
+
+            int naughtyEffectStack = 0;
+
+            EffectInstance naughtyEffect = player.getActivePotionEffect(InitEffects.NAUGHTY.get());
+
+            if (naughtyEffect != null) {
+                naughtyEffectStack = naughtyEffect.getAmplifier() + 1;
+            }
+
+            return new ItemStack(InitItems.LUMP_OF_COAL.get(), random.nextInt(naughtyEffectStack * 2 + 1) + 1);
+        }
+
         List<SantaGiftListFile.GiftEntry> allGiftEntries = new ArrayList<>(SantaGiftListFile.santaGiftList.values());
         List<SantaGiftListFile.GiftEntry> availableGifts = new ArrayList<>();
 
-        int effectStack = 0;
+        int spiritEffectStack = 0;
 
-        EffectInstance effect = player.getActivePotionEffect(InitEffects.CHRISTMAS_SPIRIT.get());
+        EffectInstance spiritEffect = player.getActivePotionEffect(InitEffects.HOLIDAY_SPIRIT.get());
 
-        if (effect != null) {
-            effectStack = effect.getAmplifier() + 1;
+        if (spiritEffect != null) {
+            spiritEffectStack = spiritEffect.getAmplifier() + 1;
         }
 
         int firstRarity = 50;
-        int secondRarity = 20 + (effectStack * 2);
-        int thirdRarity = 15 + (effectStack * 5);
-        int fourthRarity = 10 + (effectStack * 10);
-        int fifthRarity = 5 + (effectStack * 20);
+        int secondRarity = 20 + (spiritEffectStack * 2);
+        int thirdRarity = 15 + (spiritEffectStack * 5);
+        int fourthRarity = 10 + (spiritEffectStack * 10);
+        int fifthRarity = 5 + (spiritEffectStack * 20);
 
         int giftRarityIndex = RandomHelper.getWeightedRandom(firstRarity, secondRarity, thirdRarity, fourthRarity, fifthRarity);
 

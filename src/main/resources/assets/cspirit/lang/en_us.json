@@ -91,6 +91,7 @@
   "_comment" : "OTHER",
 
   "_comment" : "-----NAUGHTY ITEMS------",
+  "item.cspirit.lump_of_coal": "Lump of Coal",
 
   "_comment" : "-----BLOCKS------",
 
@@ -103,6 +104,10 @@
   "block.cspirit.ginger": "Ginger Root",
   "block.cspirit.peppermint": "Peppermint Seeds",
 
+  "_comment" : "DECORATIONS",
+  "block.cspirit.icicles": "Icicles",
+  "block.cspirit.frosted_glass": "Frosted Glass",
+
   "_comment" : "-----CREATIVE TABS------",
 
   "itemGroup.cspirit.tabMain": "Christmas Spirit - Main",
@@ -110,7 +115,12 @@
 
   "_comment" : "-----SOUNDS------",
 
-  "disc.wishbackground.sub": "Insert Christmas Disc",
-  "disc.mcchristmas.sub": "Insert Christmas Disc",
-  "disc.jared.sub": "Insert Christmas Disc"
+
+  "congrats": "Congrats!",
+  "present.wrap": "Wrapping Present",
+  "present.unwrap": "Unwrapping Present",
+  "can.open": "Can Opening",
+  "wanna.sprite.cranberry" : "Wanna Sprite Cranberry?",
+  "the.answer.is.clear" : "The answer is clear!",
+  "disc.sub": "Insert Christmas Disc"
 }

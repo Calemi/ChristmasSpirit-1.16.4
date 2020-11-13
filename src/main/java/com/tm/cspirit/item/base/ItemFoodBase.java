@@ -2,8 +2,10 @@ package com.tm.cspirit.item.base;
 
 import com.tm.cspirit.init.InitEffects;
 import com.tm.cspirit.main.ChristmasSpirit;
+import com.tm.cspirit.util.helper.EffectHelper;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -42,16 +44,7 @@ public class ItemFoodBase extends ItemBase {
 
     @Override
     public ItemStack onItemUseFinish(ItemStack stack, World world, LivingEntity entityLiving) {
-
-        int spiritStack = 0;
-
-        if (entityLiving.getActivePotionEffect(InitEffects.CHRISTMAS_SPIRIT.get()) != null) {
-            spiritStack = entityLiving.getActivePotionEffect(InitEffects.CHRISTMAS_SPIRIT.get()).getAmplifier() + 1;
-        }
-
-        if (spiritStack < maxSpiritStack) {
-            entityLiving.addPotionEffect(new EffectInstance(InitEffects.CHRISTMAS_SPIRIT.get(), 20 * 60, spiritStack));
-        }
+        EffectHelper.giveHolidaySpiritStackEffect((PlayerEntity)entityLiving, maxSpiritStack);
 
         return super.onItemUseFinish(stack, world, entityLiving);
     }
