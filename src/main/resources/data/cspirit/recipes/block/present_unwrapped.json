@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "PSP",
+    "PCP",
+    "PPP"
+  ],
+  "key":
+  {
+    "P":
+    {
+      "item": "minecraft:paper"
+    },
+    "S":
+    {
+      "item": "minecraft:string"
+    },
+    "C":
+    {
+      "item": "minecraft:chest"
+    }
+  },
+  "result":
+  {
+    "item": "cspirit:present_unwrapped",
+    "count": 1
+  }
+}

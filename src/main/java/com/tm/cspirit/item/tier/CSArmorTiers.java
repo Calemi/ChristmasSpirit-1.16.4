@@ -22,7 +22,8 @@ public enum CSArmorTiers implements IArmorMaterial {
     SWEATER_RED(CSReference.MOD_ID + ":sweater_red", 5, new int[]{2, 5, 6, 3}, 15, 0.0F, () -> {return Ingredient.fromItems(Items.LEATHER);}),
     SWEATER_GREEN(CSReference.MOD_ID + ":sweater_green", 5, new int[]{2, 5, 6, 3}, 15, 0.0F, () -> {return Ingredient.fromItems(Items.LEATHER);}),
     WINTER_JEANS(CSReference.MOD_ID + ":winter_jeans", 5, new int[]{2, 5, 6, 3}, 15, 0.0F, () -> {return Ingredient.fromItems(Items.LEATHER);}),
-    WINTER_BOOTS(CSReference.MOD_ID + ":winter_boots", 5, new int[]{2, 5, 6, 3}, 15, 0.0F, () -> {return Ingredient.fromItems(Items.LEATHER);});
+    WINTER_BOOTS(CSReference.MOD_ID + ":winter_boots", 5, new int[]{2, 5, 6, 3}, 15, 0.0F, () -> {return Ingredient.fromItems(Items.LEATHER);}),
+    ICE_SKATES(CSReference.MOD_ID + ":ice_skates", 5, new int[]{2, 5, 6, 3}, 15, 0.0F, () -> {return Ingredient.fromItems(Items.LEATHER);});
 
     private static final int[] MAX_DAMAGE_ARRAY = new int[]{11, 16, 15, 13};
     private final String name;

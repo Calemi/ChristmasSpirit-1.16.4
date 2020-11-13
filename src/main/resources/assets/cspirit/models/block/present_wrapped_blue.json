@@ -1,0 +1,7 @@
+{
+	"parent": "cspirit:block/present_wrapped_base",
+	"textures": {
+		"0": "cspirit:models/present_wrapped_blue",
+		"particle": "cspirit:models/present_wrapped_blue"
+	}
+}

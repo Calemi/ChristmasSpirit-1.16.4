@@ -73,6 +73,7 @@
   "item.cspirit.winter_jeans": "Winter Jeans",
 
   "item.cspirit.winter_boots": "Winter Boots",
+  "item.cspirit.ice_skates": "Ice Skates",
 
   "_comment" : "DISCS",
 
@@ -88,6 +89,11 @@
   "_comment" : "-----NAUGHTY ITEMS------",
 
   "_comment" : "-----BLOCKS------",
+
+  "block.cspirit.present_unwrapped": "Unwrapped Present",
+  "block.cspirit.present_wrapped_red": "Red Present",
+  "block.cspirit.present_wrapped_green": "Green Present",
+  "block.cspirit.present_wrapped_blue": "Blue Present",
 
   "_comment" : "CROPS",
   "block.cspirit.ginger": "Ginger Root",

@@ -9,6 +9,34 @@
       }
     ]
   },
+  "present.wrap": {
+    "category": "item",
+    "subtitle": "present.wrap",
+    "sounds": [
+      {
+        "name": "cspirit:present_wrap",
+        "stream": true
+      }
+    ]
+  },
+  "present.unwrap": {
+    "category": "item",
+    "subtitle": "present.wrap",
+    "sounds": [
+      {
+        "name": "cspirit:present_unwrap_1",
+        "stream": true
+      },
+      {
+        "name": "cspirit:present_unwrap_2",
+        "stream": true
+      },
+      {
+        "name": "cspirit:present_unwrap_3",
+        "stream": true
+      }
+    ]
+  },
   "disc.wishbackground": {
     "category": "item",
     "subtitle": "disc.wishbackground.sub",

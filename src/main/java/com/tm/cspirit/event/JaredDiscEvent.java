@@ -1,7 +1,7 @@
 package com.tm.cspirit.event;
 
 import com.tm.cspirit.init.InitItems;
-import com.tm.cspirit.util.ItemHelper;
+import com.tm.cspirit.util.helper.ItemHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;

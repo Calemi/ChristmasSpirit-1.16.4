@@ -1,6 +1,9 @@
 package com.tm.cspirit.init;
 
 import com.tm.cspirit.block.BlockCandyCane;
+import com.tm.cspirit.block.BlockItemPresentWrapped;
+import com.tm.cspirit.block.BlockPresentUnwrapped;
+import com.tm.cspirit.block.BlockPresentWrapped;
 import com.tm.cspirit.block.base.BlockCropBase;
 import com.tm.cspirit.block.base.BlockItemBase;
 import com.tm.cspirit.item.ItemCandyCane;
@@ -100,6 +103,7 @@ public class InitItems {
     public static final RegistryObject<Item> WINTER_JEANS =                regItem("winter_jeans", () -> new ItemArmorBase(CSArmorTiers.WINTER_JEANS, EquipmentSlotType.LEGS));
 
     public static final RegistryObject<Item> WINTER_BOOTS =                regItem("winter_boots", () -> new ItemArmorBase(CSArmorTiers.WINTER_BOOTS, EquipmentSlotType.FEET));
+    public static final RegistryObject<Item> ICE_SKATES =                  regItem("ice_skates", () -> new ItemArmorBase(CSArmorTiers.ICE_SKATES, EquipmentSlotType.FEET));
 
     //DISCS
     public static final RegistryObject<Item> DISC_WISHBACKGROUND =         regItem("disc_wishbackground", () -> new ItemDisc(InitSounds.WISHBACKGROUND, ChristmasSpirit.TAB_MAIN));
@@ -114,9 +118,18 @@ public class InitItems {
 
     //------BLOCKS------\\
 
+    public static final RegistryObject<Block> PRESENT_UNWRAPPED =     regBlockAndItem("present_unwrapped", ChristmasSpirit.TAB_MAIN, BlockPresentUnwrapped::new);
+
+    public static final RegistryObject<Block> PRESENT_WRAPPED_RED =          regBlock("present_wrapped_red", BlockPresentWrapped::new);
+    public static final RegistryObject<Item> PRESENT_WRAPPED_RED_ITEM =       regItem("present_wrapped_red", () -> new BlockItemPresentWrapped(PRESENT_WRAPPED_RED.get()));
+    public static final RegistryObject<Block> PRESENT_WRAPPED_GREEN =        regBlock("present_wrapped_green", BlockPresentWrapped::new);
+    public static final RegistryObject<Item> PRESENT_WRAPPED_GREEN_ITEM =     regItem("present_wrapped_green", () -> new BlockItemPresentWrapped(PRESENT_WRAPPED_GREEN.get()));
+    public static final RegistryObject<Block> PRESENT_WRAPPED_BLUE =         regBlock("present_wrapped_blue", BlockPresentWrapped::new);
+    public static final RegistryObject<Item> PRESENT_WRAPPED_BLUE_ITEM =      regItem("present_wrapped_blue", () -> new BlockItemPresentWrapped(PRESENT_WRAPPED_BLUE.get()));
+
     //CROPS
-    public static final RegistryObject<Block> GINGER =                    regBlockAndItem("ginger", ChristmasSpirit.TAB_MAIN, BlockCropBase::new);
-    public static final RegistryObject<Block> PEPPERMINT =                regBlockAndItem("peppermint", ChristmasSpirit.TAB_MAIN, () -> new BlockCropBase(PEPPERMINT_LEAF));
+    public static final RegistryObject<Block> GINGER =                regBlockAndItem("ginger", ChristmasSpirit.TAB_MAIN, BlockCropBase::new);
+    public static final RegistryObject<Block> PEPPERMINT =            regBlockAndItem("peppermint", ChristmasSpirit.TAB_MAIN, () -> new BlockCropBase(PEPPERMINT_LEAF));
 
     //DECORATIONS
 

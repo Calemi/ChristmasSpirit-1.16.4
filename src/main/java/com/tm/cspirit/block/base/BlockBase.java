@@ -1,6 +1,6 @@
 package com.tm.cspirit.block.base;
 
-import com.tm.cspirit.util.ItemHelper;
+import com.tm.cspirit.util.helper.ItemHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.PistonBlock;

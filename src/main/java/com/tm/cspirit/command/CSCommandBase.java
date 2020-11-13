@@ -4,9 +4,12 @@ import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.ArgumentBuilder;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
-import com.tm.cspirit.gift.Gift;
+import com.tm.cspirit.data.PresentWorldSavedData;
+import com.tm.cspirit.util.helper.PresentHelper;
+import com.tm.cspirit.util.helper.ChatHelper;
 import net.minecraft.command.CommandSource;
 import net.minecraft.command.Commands;
+import net.minecraft.util.text.TextFormatting;
 
 public class CSCommandBase {
 
@@ -14,16 +17,32 @@ public class CSCommandBase {
      * Registers all of the commands.
      */
     public static void register (CommandDispatcher<CommandSource> dispatcher) {
-        LiteralArgumentBuilder<CommandSource> cuCommand = Commands.literal("cspirit");
-        cuCommand.requires(commandSource -> true).then(gift());
-        dispatcher.register(cuCommand);
+        LiteralArgumentBuilder<CommandSource> csCommand = Commands.literal("cspirit");
+        csCommand.requires(commandSource -> true)
+                .then(gift().requires((player) -> player.hasPermissionLevel(2)))
+                .then(removePresentData().requires((player) -> player.hasPermissionLevel(2)));
+        dispatcher.register(csCommand);
     }
 
     private static ArgumentBuilder<CommandSource, ?> gift () {
 
-        return Commands.literal("gift").requires((player) -> player.hasPermissionLevel(2)).executes(ctx -> {
+        return Commands.literal("gift").executes(ctx -> {
 
-            Gift.giveGift(ctx.getSource().asPlayer(), 1);
+            PresentHelper.giveSantaPresent(ctx.getSource().asPlayer(), 1);
+            return Command.SINGLE_SUCCESS;
+        });
+    }
+
+    private static ArgumentBuilder<CommandSource, ?> removePresentData () {
+
+        return Commands.literal("removePresentData").requires((player) -> player.hasPermissionLevel(2)).executes(ctx -> {
+
+            PresentWorldSavedData data = PresentWorldSavedData.get(ctx.getSource().getWorld());
+            data.playerGiftData.clear();
+            data.markDirty();
+
+            ChatHelper.broadcastMessage(ctx.getSource().getWorld(), TextFormatting.RED + "" + TextFormatting.BOLD + "All players can now receive gifts for this day!");
+
             return Command.SINGLE_SUCCESS;
         });
     }
