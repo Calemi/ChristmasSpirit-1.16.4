@@ -37,7 +37,7 @@ public class CSConfig {
 
             builder.push("Misc");
 
-            mobArmorRarity = builder.comment("Mob Armor Rarity", NEEDED_FOR_SERVERS, "Determines how rare of a chance for Zombies & Skeletons to wear warm cloths", "The higher the value, the more rare").defineInRange("mobArmorRarity", 10, 0, 256);
+            mobArmorRarity = builder.comment("Mob Armor Rarity", NEEDED_FOR_SERVERS, "Determines how rare of a chance for Zombies & Skeletons to wear warm cloths", "The higher the value, the more rare").defineInRange("mobArmorRarity", 50, 0, 256);
 
             builder.pop();
         }

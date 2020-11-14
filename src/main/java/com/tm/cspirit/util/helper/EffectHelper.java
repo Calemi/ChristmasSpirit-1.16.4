@@ -12,31 +12,34 @@ public class EffectHelper {
     public static void giveHolidaySpiritStackEffect(PlayerEntity player, int maxStackSize) {
 
         if (player.getActivePotionEffect(InitEffects.NAUGHTY.get()) == null) {
-            stackEffect(player, InitEffects.HOLIDAY_SPIRIT.get(), maxStackSize);
+            stackEffect(player, InitEffects.HOLIDAY_SPIRIT.get(), 5, maxStackSize);
         }
     }
 
     public static void giveNaughtyStackEffect(PlayerEntity player) {
         player.removePotionEffect(InitEffects.HOLIDAY_SPIRIT.get());
-        stackEffect(player, InitEffects.NAUGHTY.get(), 5);
+        stackEffect(player, InitEffects.NAUGHTY.get(), 30, 5);
 
-        int naughtyStacks = player.getActivePotionEffect(InitEffects.NAUGHTY.get()).getAmplifier();
+        if (!NaughtyListFile.isOnNaughtyList(player)) {
 
-        if (naughtyStacks == 2) {
-            ChatHelper.printModMessage(TextFormatting.RED,"Be careful! You've been pretty naughty!", player);
-            ChatHelper.printModMessage(TextFormatting.RED,"Do a few more naughty deeds, and you'll be marked on the Naughty List!", player);
-        }
+            int naughtyStacks = player.getActivePotionEffect(InitEffects.NAUGHTY.get()).getAmplifier();
 
-        if (naughtyStacks >= 4) {
+            if (naughtyStacks == 2) {
+                ChatHelper.printModMessage(TextFormatting.RED,"Be careful! You've been pretty naughty!", player);
+                ChatHelper.printModMessage(TextFormatting.RED,"Do a few more naughty deeds, and you'll be marked on the Naughty List!", player);
+            }
 
-            NaughtyListFile.addToNaughtyList(player);
+            if (naughtyStacks >= 4) {
 
-            ChatHelper.printModMessage(TextFormatting.RED,"You've been very naughty! You are now on the Naughty List!", player);
-            ChatHelper.printModMessage(TextFormatting.RED,"Eat a Santa Cookie to be removed.", player);
+                NaughtyListFile.addToNaughtyList(player);
+
+                ChatHelper.printModMessage(TextFormatting.RED,"You've been very naughty! You are now on the Naughty List!", player);
+                ChatHelper.printModMessage(TextFormatting.RED,"Eat a Santa Cookie to be removed.", player);
+            }
         }
     }
 
-    public static void stackEffect(PlayerEntity player, Effect effect, int maxStackSize) {
+    public static void stackEffect(PlayerEntity player, Effect effect, int minutes, int maxStackSize) {
 
         int spiritStack = 0;
 
@@ -45,9 +48,9 @@ public class EffectHelper {
         }
 
         if (spiritStack < maxStackSize) {
-            player.addPotionEffect(new EffectInstance(effect, 20 * 60, spiritStack));
+            player.addPotionEffect(new EffectInstance(effect, 20 * 60 * minutes, spiritStack));
         }
 
-        else player.addPotionEffect(new EffectInstance(effect, 20 * 60, maxStackSize - 1));
+        else player.addPotionEffect(new EffectInstance(effect, 20 * 60 * minutes, maxStackSize - 1));
     }
 }

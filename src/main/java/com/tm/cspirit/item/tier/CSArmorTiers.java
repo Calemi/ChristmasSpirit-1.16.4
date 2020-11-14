@@ -2,6 +2,7 @@ package com.tm.cspirit.item.tier;
 
 import com.tm.cspirit.main.CSReference;
 import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
@@ -25,9 +26,9 @@ public enum CSArmorTiers implements IArmorMaterial {
     WINTER_BOOTS(CSReference.MOD_ID + ":winter_boots", 5, new int[]{2, 5, 6, 3}, 15, 0.0F, () -> {return Ingredient.fromItems(Items.LEATHER);}),
     ICE_SKATES(CSReference.MOD_ID + ":ice_skates", 5, new int[]{2, 5, 6, 3}, 15, 0.0F, () -> {return Ingredient.fromItems(Items.LEATHER);});
 
-    private static final int[] MAX_DAMAGE_ARRAY = new int[]{11, 16, 15, 13};
+    private static final int[] MAX_DURABILITY_ARRAY = new int[]{11, 16, 15, 13};
     private final String name;
-    private final int maxDamageFactor;
+    private final int maxDurabilityFactor;
     private final int[] reductionAmountArray;
     private final int enchantability;
     private final SoundEvent soundEvent;
@@ -36,7 +37,7 @@ public enum CSArmorTiers implements IArmorMaterial {
 
     CSArmorTiers(String name, int maxDamageFactor, int[] reductionAmountArray, int enchantability, float toughness, Supplier<Ingredient> repairMaterial) {
         this.name = name;
-        this.maxDamageFactor = maxDamageFactor;
+        this.maxDurabilityFactor = maxDamageFactor;
         this.reductionAmountArray = reductionAmountArray;
         this.enchantability = enchantability;
         this.soundEvent = SoundEvents.ITEM_ARMOR_EQUIP_LEATHER;
@@ -44,9 +45,19 @@ public enum CSArmorTiers implements IArmorMaterial {
         this.repairMaterial = repairMaterial;
     }
 
+    CSArmorTiers(String name, ArmorMaterial base, int durabilityFactor) {
+        this.name = name;
+        this.maxDurabilityFactor = durabilityFactor;
+        this.reductionAmountArray = new int[]{base.getDamageReductionAmount(EquipmentSlotType.FEET), base.getDamageReductionAmount(EquipmentSlotType.LEGS), base.getDamageReductionAmount(EquipmentSlotType.CHEST), base.getDamageReductionAmount(EquipmentSlotType.HEAD)};
+        this.enchantability = base.getEnchantability();
+        this.soundEvent = base.getSoundEvent();
+        this.toughness = base.getToughness();
+        this.repairMaterial = base::getRepairMaterial;
+    }
+
     @Override
     public int getDurability(EquipmentSlotType slotIn) {
-        return MAX_DAMAGE_ARRAY[slotIn.getIndex()] * this.maxDamageFactor;
+        return MAX_DURABILITY_ARRAY[slotIn.getIndex()] * this.maxDurabilityFactor;
     }
 
     @Override

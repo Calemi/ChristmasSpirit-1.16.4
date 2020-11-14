@@ -4,6 +4,7 @@ import com.tm.cspirit.data.NaughtyListFile;
 import com.tm.cspirit.init.InitEffects;
 import com.tm.cspirit.item.base.ItemFoodBase;
 import com.tm.cspirit.main.ChristmasSpirit;
+import com.tm.cspirit.util.helper.ChatHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Food;
@@ -12,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Rarity;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 public class ItemSantaCookie extends ItemFoodBase {
@@ -29,13 +31,22 @@ public class ItemSantaCookie extends ItemFoodBase {
     @Override
     public ItemStack onItemUseFinish(ItemStack stack, World world, LivingEntity entityLiving) {
 
-        entityLiving.removePotionEffect(InitEffects.NAUGHTY.get());
+        if (entityLiving instanceof PlayerEntity) {
 
-        entityLiving.addPotionEffect(new EffectInstance(InitEffects.HOLIDAY_SPIRIT.get(), 20 * 60, 4));
-        entityLiving.addPotionEffect(new EffectInstance(Effects.ABSORPTION, 20 * 60, 2));
-        entityLiving.addPotionEffect(new EffectInstance(Effects.REGENERATION, 20 * 60, 2));
+            PlayerEntity player = (PlayerEntity) entityLiving;
 
-        NaughtyListFile.removeFromNaughtyList((PlayerEntity) entityLiving);
+            player.removePotionEffect(InitEffects.NAUGHTY.get());
+
+            player.addPotionEffect(new EffectInstance(InitEffects.HOLIDAY_SPIRIT.get(), 20 * 60, 4));
+            player.addPotionEffect(new EffectInstance(Effects.ABSORPTION, 20 * 60, 2));
+            player.addPotionEffect(new EffectInstance(Effects.REGENERATION, 20 * 60, 2));
+
+            if (NaughtyListFile.isOnNaughtyList(player)) {
+
+                NaughtyListFile.removeFromNaughtyList(player);
+                ChatHelper.printModMessage(TextFormatting.GREEN,"You've been removed from the naughty list!", player);
+            }
+        }
 
         return this.isFood() ? entityLiving.onFoodEaten(world, stack) : stack;
     }

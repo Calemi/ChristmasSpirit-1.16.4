@@ -29,7 +29,7 @@ public class IceSkatesEvent {
                 double slipperiness = world.getBlockState(pos).getSlipperiness(world, pos, entity);
 
                 if (slipperiness > 0.7D) {
-                    Vector3d movement = new Vector3d(entity.getMotion().x * 5, entity.getMotion().y, entity.getMotion().z * 5);
+                    Vector3d movement = new Vector3d(entity.getMotion().x * 4, entity.getMotion().y, entity.getMotion().z * 4);
                     entity.move(MoverType.SELF, movement);
                 }
             }
