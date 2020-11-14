@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "B B",
+    "B B",
+    "B B"
+  ],
+  "key":
+  {
+    "B":
+    {
+      "item": "minecraft:brick"
+    }
+  },
+  "result":
+  {
+    "item": "cspirit:chimney",
+    "count": 8
+  }
+}

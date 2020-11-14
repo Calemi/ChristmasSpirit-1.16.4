@@ -132,8 +132,13 @@ public class InitItems {
     public static final RegistryObject<Block> PEPPERMINT =            regBlockAndItem("peppermint", ChristmasSpirit.TAB_MAIN, () -> new BlockCropBase(PEPPERMINT_LEAF));
 
     //DECORATIONS
+    public static final RegistryObject<Block> GINGERBREAD_HOUSE =     regBlockAndItem("gingerbread_house", ChristmasSpirit.TAB_MAIN, BlockGingerbreadHouse::new);
+    public static final RegistryObject<Block> FRUITCAKE =             regBlockAndItem("fruitcake", ChristmasSpirit.TAB_MAIN, BlockFruitCake::new);
+    public static final RegistryObject<Block> MISTLETOE =             regBlockAndItem("mistletoe", ChristmasSpirit.TAB_MAIN, BlockMistletoe::new);
+    public static final RegistryObject<Block> CHIMNEY =               regBlockAndItem("chimney", ChristmasSpirit.TAB_MAIN, BlockChimney::new);
     public static final RegistryObject<Block> ICICLES =               regBlockAndItem("icicles", ChristmasSpirit.TAB_MAIN, BlockIcicles::new);
     public static final RegistryObject<Block> FROSTED_GLASS =         regBlockAndItem("frosted_glass", ChristmasSpirit.TAB_MAIN, BlockFrostedGlass::new);
+    public static final RegistryObject<Block> FROSTED_GLASS_PANE =    regBlockAndItem("frosted_glass_pane", ChristmasSpirit.TAB_MAIN, BlockFrostedGlassPane::new);
 
     public static void init() {
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());

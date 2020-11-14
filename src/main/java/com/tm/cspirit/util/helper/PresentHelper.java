@@ -25,14 +25,7 @@ public class PresentHelper {
     public static void giveSantaPresent(ServerPlayerEntity player, int day) {
 
         World world = player.world;
-
-        PresentConstructor constructor = new PresentConstructor();
-        constructor.setDay(TimeHelper.getCurrentDay() - 1);
-        constructor.setFromPlayerName("Santa");
-        constructor.setToPlayerName(player.getDisplayName().getString());
-        constructor.setStyleIndex(0);
-
-        BlockPresentWrapped.spawnPresent(new Location(world, player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ()), constructor, ItemStack.EMPTY);
+        BlockPresentWrapped.spawnPresent(new Location(world, player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ()), getSantaPresent(player.getDisplayName().getString()), ItemStack.EMPTY);
 
         //Visuals
         FireworkHelper.spawnFirework(player, (byte)1, true, true, DyeColor.RED, DyeColor.GREEN);
@@ -40,7 +33,16 @@ public class PresentHelper {
         ChatHelper.broadcastMessage(world, TextFormatting.RED + "" + TextFormatting.BOLD + player.getDisplayName().getString() + " has received their daily present!");
     }
 
-    public static ItemStack getSantaGiftStack(PlayerEntity player, int day) {
+    public static PresentConstructor getSantaPresent(String toPlayerName) {
+        PresentConstructor constructor = new PresentConstructor();
+        constructor.setDay(TimeHelper.getCurrentDay() - 1);
+        constructor.setFromPlayerName("Santa");
+        constructor.setToPlayerName(toPlayerName);
+        constructor.setStyleIndex(0);
+        return constructor;
+    }
+
+    public static ItemStack getSantaGiftedStack(PlayerEntity player, int day) {
 
         Random random = new Random();
 
@@ -87,7 +89,7 @@ public class PresentHelper {
         }
 
         if (availableGifts.size() == 0) {
-            return getSantaGiftStack(player, day);
+            return getSantaGiftedStack(player, day);
         }
 
         SantaGiftListFile.GiftEntry giftEntry = availableGifts.get(random.nextInt(availableGifts.size()));

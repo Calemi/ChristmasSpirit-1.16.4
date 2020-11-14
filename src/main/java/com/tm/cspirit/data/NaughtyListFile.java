@@ -13,7 +13,7 @@ public class NaughtyListFile {
     public static List<UUID> naughtyList;
 
     public static void init() {
-        naughtyList = FileHelper.createFile("NaughtyList", new ArrayList<>(), new TypeToken<List<UUID>>(){});
+        naughtyList = FileHelper.readFileOrCreate("NaughtyList", new ArrayList<>(), new TypeToken<List<UUID>>(){});
     }
 
     public static void addToNaughtyList(PlayerEntity player) {

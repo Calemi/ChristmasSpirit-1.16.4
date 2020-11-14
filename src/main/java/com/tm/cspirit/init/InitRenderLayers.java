@@ -18,7 +18,11 @@ public class InitRenderLayers {
         RenderTypeLookup.setRenderLayer(InitItems.GINGER.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(InitItems.PEPPERMINT.get(), RenderType.getCutout());
 
+        RenderTypeLookup.setRenderLayer(InitItems.GINGERBREAD_HOUSE.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(InitItems.GINGERBREAD_HOUSE.get(), RenderType.getTranslucent());
+        RenderTypeLookup.setRenderLayer(InitItems.MISTLETOE.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(InitItems.ICICLES.get(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(InitItems.FROSTED_GLASS.get(), RenderType.getTranslucent());
+        RenderTypeLookup.setRenderLayer(InitItems.FROSTED_GLASS_PANE.get(), RenderType.getTranslucent());
     }
 }

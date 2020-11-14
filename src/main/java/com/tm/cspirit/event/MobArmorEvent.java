@@ -2,6 +2,7 @@ package com.tm.cspirit.event;
 
 import com.tm.cspirit.init.InitItems;
 import com.tm.cspirit.main.CSConfig;
+import com.tm.cspirit.util.helper.PresentHelper;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.monster.SkeletonEntity;
 import net.minecraft.entity.monster.ZombieEntity;
@@ -42,6 +43,13 @@ public class MobArmorEvent {
                     mob.setItemStackToSlot(EquipmentSlotType.CHEST, new ItemStack(chest));
                     mob.setItemStackToSlot(EquipmentSlotType.LEGS, new ItemStack(legs));
                     mob.setItemStackToSlot(EquipmentSlotType.FEET, new ItemStack(boots));
+
+                    ItemStack giftStack = new ItemStack(InitItems.PRESENT_WRAPPED_RED.get());
+                    PresentHelper.getSantaPresent("Anybody").toStack(giftStack);
+
+                    mob.setItemStackToSlot(EquipmentSlotType.MAINHAND, giftStack);
+
+                    mob.setDropChance(EquipmentSlotType.MAINHAND, 1);
                 }
             }
         }

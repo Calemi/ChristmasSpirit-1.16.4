@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "GGG",
+    "GGG"
+  ],
+  "key":
+  {
+    "G":
+    {
+      "item": "cspirit:frosted_glass"
+    }
+  },
+  "result":
+  {
+    "item": "cspirit:frosted_glass_pane",
+    "count": 16
+  }
+}

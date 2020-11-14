@@ -16,12 +16,10 @@ import net.minecraft.fluid.FluidState;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.network.play.server.SPlaySoundPacket;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.NonNullList;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.text.TextFormatting;
@@ -61,10 +59,11 @@ public class BlockPresentWrapped extends BlockPresentUnwrapped {
 
                 TileEntityPresentWrapped present = (TileEntityPresentWrapped) tileEntity;
 
+                boolean isAnybody = present.getConstructor().getToPlayerName().equalsIgnoreCase("anybody");
                 boolean isToPlayer = player.getDisplayName().getString().equalsIgnoreCase(present.getConstructor().getToPlayerName());
                 boolean isFromPlayer = player.getDisplayName().getString().equalsIgnoreCase(present.getConstructor().getFromPlayerName());
 
-                if (isToPlayer || isFromPlayer || player.isCreative()) {
+                if (isAnybody|| isToPlayer || isFromPlayer || player.isCreative()) {
                     spawnPresent(location, present.getConstructor(), present.getInventory().getStackInSlot(0));
                     location.setBlockToAir();
                 }
@@ -93,14 +92,14 @@ public class BlockPresentWrapped extends BlockPresentUnwrapped {
                     present.getUnitName(player).printMessage(TextFormatting.WHITE, "Open on the " + TimeHelper.getFormattedDay(present.getConstructor().getActualDay()));
                 }
 
-                else if (player.getDisplayName().getString().equalsIgnoreCase(present.getConstructor().getToPlayerName())) {
+                else if (player.getDisplayName().getString().equalsIgnoreCase(present.getConstructor().getToPlayerName()) || present.getConstructor().getToPlayerName().equalsIgnoreCase("anybody")) {
 
                     if (TimeHelper.getCurrentDay() >= present.getConstructor().getActualDay()) {
 
                         ItemStack stack = present.getInventory().getStackInSlot(0);
 
                         if (present.getConstructor().getFromPlayerName().equalsIgnoreCase("santa")) {
-                            stack = PresentHelper.getSantaGiftStack(player, present.getConstructor().getDay());
+                            stack = PresentHelper.getSantaGiftedStack(player, present.getConstructor().getDay());
                         }
 
                         ItemHelper.spawnStack(world, pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F, stack);

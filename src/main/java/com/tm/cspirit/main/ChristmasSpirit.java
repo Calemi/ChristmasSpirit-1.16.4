@@ -1,6 +1,7 @@
 package com.tm.cspirit.main;
 
 import com.tm.cspirit.command.CSCommandBase;
+import com.tm.cspirit.data.DailyPresentDataFile;
 import com.tm.cspirit.data.NaughtyListFile;
 import com.tm.cspirit.data.SantaGiftListFile;
 import com.tm.cspirit.event.*;
@@ -43,12 +44,13 @@ public class ChristmasSpirit {
         MOD_EVENT_BUS.addListener(this::onClientSetup);
         MOD_EVENT_BUS.addListener(this::onLoadComplete);
 
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CSConfig.spec, "ChristmasSpirit.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CSConfig.spec, CSReference.CONFIG_DIR + "/ChristmasSpirit.toml");
         InitSounds.SOUNDS.register(MOD_EVENT_BUS);
         InitEffects.POTION_TYPES.register(MOD_EVENT_BUS);
         InitTileEntityTypes.TILE_ENTITY_TYPES.register(MOD_EVENT_BUS);
         InitContainerTypes.CONTAINER_TYPES.register(MOD_EVENT_BUS);
         InitItems.init();
+        DailyPresentDataFile.init();
         SantaGiftListFile.init();
         NaughtyListFile.init();
     }

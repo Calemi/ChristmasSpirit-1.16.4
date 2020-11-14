@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=south": {"model": "cspirit:block/gingerbread_house"},
+    "facing=north": {"model": "cspirit:block/gingerbread_house", "y": 180},
+    "facing=east": {"model": "cspirit:block/gingerbread_house", "y": 270},
+    "facing=west": {"model": "cspirit:block/gingerbread_house", "y": 90}
+  }
+}

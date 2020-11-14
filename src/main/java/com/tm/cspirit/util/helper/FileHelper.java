@@ -3,21 +3,26 @@ package com.tm.cspirit.util.helper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import net.minecraftforge.fml.loading.FMLPaths;
+import com.tm.cspirit.main.CSReference;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Map;
 
 public class FileHelper {
 
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().serializeNulls().disableHtmlEscaping().create();
 
-    public static <T> T createFile(String fileName, T defaultItemsList, TypeToken<?> token) {
+    public static <T> T readFileOrCreate(String fileName, T defaultItemsList, TypeToken<?> token) {
 
-        File jsonConfig = new File(FMLPaths.CONFIGDIR.get().toString(), fileName + ".json");
+        String path = CSReference.CONFIG_DIR;
+        File directory = new File(path);
+        File jsonConfig = new File(path, fileName + ".json");
+
+        if (!directory.exists()) {
+            directory.mkdir();
+        }
 
         try {
 
@@ -48,7 +53,7 @@ public class FileHelper {
     public static <T> void saveToFile(String fileName, T data) {
 
         try {
-            File jsonConfig = new File(FMLPaths.CONFIGDIR.get().toString(), fileName + ".json");
+            File jsonConfig = new File(CSReference.CONFIG_DIR, fileName + ".json");
             String json = GSON.toJson(data, new TypeToken<T>() {}.getType());
             FileWriter writer = new FileWriter(jsonConfig);
             writer.write(json);

@@ -105,8 +105,13 @@
   "block.cspirit.peppermint": "Peppermint Seeds",
 
   "_comment" : "DECORATIONS",
+  "block.cspirit.gingerbread_house": "Gingerbread House",
+  "block.cspirit.fruitcake": "Fruitcake",
+  "block.cspirit.mistletoe": "Mistletoe",
+  "block.cspirit.chimney": "Chimney",
   "block.cspirit.icicles": "Icicles",
   "block.cspirit.frosted_glass": "Frosted Glass",
+  "block.cspirit.frosted_glass_pane": "Frosted Glass Pane",
 
   "_comment" : "-----CREATIVE TABS------",
 

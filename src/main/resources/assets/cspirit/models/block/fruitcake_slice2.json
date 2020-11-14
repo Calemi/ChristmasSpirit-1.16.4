@@ -1,0 +1,22 @@
+{
+    "textures": {
+        "particle": "cspirit:block/fruitcake_side",
+        "bottom": "cspirit:block/fruitcake_bottom",
+        "top": "cspirit:block/fruitcake_top",
+        "side": "cspirit:block/fruitcake_side",
+        "inside": "cspirit:block/fruitcake_inner"
+    },
+    "elements": [
+        {   "from": [ 5, 0, 4 ],
+            "to": [ 15, 8, 12 ],
+            "faces": {
+                "down":  { "texture": "#bottom", "cullface": "down" },
+                "up":    { "texture": "#top" },
+                "north": { "texture": "#side" },
+                "south": { "texture": "#side" },
+                "west":  { "texture": "#inside" },
+                "east":  { "texture": "#side" }
+            }
+        }
+    ]
+}

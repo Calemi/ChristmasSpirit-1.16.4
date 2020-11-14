@@ -1,0 +1,25 @@
+{
+  "variants": {
+    "bites=0": {
+      "model": "cspirit:block/fruitcake"
+    },
+    "bites=1": {
+      "model": "cspirit:block/fruitcake_slice1"
+    },
+    "bites=2": {
+      "model": "cspirit:block/fruitcake_slice2"
+    },
+    "bites=3": {
+      "model": "cspirit:block/fruitcake_slice3"
+    },
+    "bites=4": {
+      "model": "cspirit:block/fruitcake_slice4"
+    },
+    "bites=5": {
+      "model": "cspirit:block/fruitcake_slice5"
+    },
+    "bites=6": {
+      "model": "cspirit:block/fruitcake_slice6"
+    }
+  }
+}

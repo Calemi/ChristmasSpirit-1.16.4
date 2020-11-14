@@ -4,7 +4,7 @@ import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.ArgumentBuilder;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
-import com.tm.cspirit.data.PresentWorldSavedData;
+import com.tm.cspirit.data.DailyPresentDataFile;
 import com.tm.cspirit.util.helper.PresentHelper;
 import com.tm.cspirit.util.helper.ChatHelper;
 import net.minecraft.command.CommandSource;
@@ -37,10 +37,7 @@ public class CSCommandBase {
 
         return Commands.literal("removePresentData").requires((player) -> player.hasPermissionLevel(2)).executes(ctx -> {
 
-            PresentWorldSavedData data = PresentWorldSavedData.get(ctx.getSource().getWorld());
-            data.playerGiftData.clear();
-            data.markDirty();
-
+            DailyPresentDataFile.clearEntries();
             ChatHelper.broadcastMessage(ctx.getSource().getWorld(), TextFormatting.RED + "" + TextFormatting.BOLD + "All players can now receive gifts for this day!");
 
             return Command.SINGLE_SUCCESS;

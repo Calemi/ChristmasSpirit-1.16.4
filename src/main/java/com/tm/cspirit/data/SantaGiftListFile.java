@@ -8,16 +8,14 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 public class SantaGiftListFile {
 
     public static Map<String, GiftEntry> santaGiftList = new HashMap<>();
 
     public static void init() {
-        santaGiftList = FileHelper.createFile("SantaGiftList", getDefaults(), new TypeToken<Map<String, GiftEntry>>(){});
+        santaGiftList = FileHelper.readFileOrCreate("SantaGiftList", getDefaults(), new TypeToken<Map<String, GiftEntry>>(){});
     }
 
     private static Map<String, GiftEntry> getDefaults() {
