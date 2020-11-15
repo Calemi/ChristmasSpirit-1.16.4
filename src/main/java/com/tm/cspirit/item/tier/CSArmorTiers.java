@@ -4,95 +4,79 @@ import com.tm.cspirit.main.CSReference;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.IArmorMaterial;
-import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-import java.util.function.Supplier;
-
 public enum CSArmorTiers implements IArmorMaterial {
 
-    CHRISTMAS_HAT (CSReference.MOD_ID + ":christmas_hat", 5, new int[]{2, 5, 6, 3}, 15, 0.0F, () -> {return Ingredient.fromItems(Items.LEATHER);}),
-    BEANIE_BLACK(CSReference.MOD_ID + ":beanie_black", 5, new int[]{2, 5, 6, 3}, 15, 0.0F, () -> {return Ingredient.fromItems(Items.LEATHER);}),
-    BEANIE_RED(CSReference.MOD_ID + ":beanie_red", 5, new int[]{2, 5, 6, 3}, 15, 0.0F, () -> {return Ingredient.fromItems(Items.LEATHER);}),
-    BEANIE_GREEN(CSReference.MOD_ID + ":beanie_green", 5, new int[]{2, 5, 6, 3}, 15, 0.0F, () -> {return Ingredient.fromItems(Items.LEATHER);}),
-    SWEATER_BLACK(CSReference.MOD_ID + ":sweater_black", 5, new int[]{2, 5, 6, 3}, 15, 0.0F, () -> {return Ingredient.fromItems(Items.LEATHER);}),
-    SWEATER_RED(CSReference.MOD_ID + ":sweater_red", 5, new int[]{2, 5, 6, 3}, 15, 0.0F, () -> {return Ingredient.fromItems(Items.LEATHER);}),
-    SWEATER_GREEN(CSReference.MOD_ID + ":sweater_green", 5, new int[]{2, 5, 6, 3}, 15, 0.0F, () -> {return Ingredient.fromItems(Items.LEATHER);}),
-    WINTER_JEANS(CSReference.MOD_ID + ":winter_jeans", 5, new int[]{2, 5, 6, 3}, 15, 0.0F, () -> {return Ingredient.fromItems(Items.LEATHER);}),
-    WINTER_BOOTS(CSReference.MOD_ID + ":winter_boots", 5, new int[]{2, 5, 6, 3}, 15, 0.0F, () -> {return Ingredient.fromItems(Items.LEATHER);}),
-    ICE_SKATES(CSReference.MOD_ID + ":ice_skates", 5, new int[]{2, 5, 6, 3}, 15, 0.0F, () -> {return Ingredient.fromItems(Items.LEATHER);});
+    CHRISTMAS_HAT ("christmas_hat", ArmorMaterial.LEATHER,  100),
+    BEANIE_BLACK("beanie_black", ArmorMaterial.LEATHER,100),
+    BEANIE_RED("beanie_red", ArmorMaterial.LEATHER,100),
+    BEANIE_GREEN("beanie_green", ArmorMaterial.LEATHER, 100),
+    SWEATER_BLACK("sweater_black", ArmorMaterial.LEATHER,100),
+    SWEATER_RED("sweater_red", ArmorMaterial.LEATHER,150),
+    SWEATER_GREEN("sweater_green", ArmorMaterial.LEATHER,150),
+    WINTER_JEANS("winter_jeans", ArmorMaterial.LEATHER,150),
+    WINTER_BOOTS("winter_boots", ArmorMaterial.LEATHER,150),
+    ICE_SKATES("ice_skates", ArmorMaterial.LEATHER, 200),
+    FROST("frost_armor", ArmorMaterial.DIAMOND, 250, 1);
 
-    private static final int[] MAX_DURABILITY_ARRAY = new int[]{11, 16, 15, 13};
+    private final IArmorMaterial base;
     private final String name;
-    private final int maxDurabilityFactor;
-    private final int[] reductionAmountArray;
-    private final int enchantability;
-    private final SoundEvent soundEvent;
-    private final float toughness;
-    private final Supplier<Ingredient> repairMaterial;
+    private final int durabilityAddition;
+    private final int protectionAddition;
 
-    CSArmorTiers(String name, int maxDamageFactor, int[] reductionAmountArray, int enchantability, float toughness, Supplier<Ingredient> repairMaterial) {
+    CSArmorTiers(String name, IArmorMaterial base, int durabilityAddition, int protectionAddition) {
+        this.base = base;
         this.name = name;
-        this.maxDurabilityFactor = maxDamageFactor;
-        this.reductionAmountArray = reductionAmountArray;
-        this.enchantability = enchantability;
-        this.soundEvent = SoundEvents.ITEM_ARMOR_EQUIP_LEATHER;
-        this.toughness = toughness;
-        this.repairMaterial = repairMaterial;
+        this.durabilityAddition = durabilityAddition;
+        this.protectionAddition = protectionAddition;
     }
 
-    CSArmorTiers(String name, ArmorMaterial base, int durabilityFactor) {
-        this.name = name;
-        this.maxDurabilityFactor = durabilityFactor;
-        this.reductionAmountArray = new int[]{base.getDamageReductionAmount(EquipmentSlotType.FEET), base.getDamageReductionAmount(EquipmentSlotType.LEGS), base.getDamageReductionAmount(EquipmentSlotType.CHEST), base.getDamageReductionAmount(EquipmentSlotType.HEAD)};
-        this.enchantability = base.getEnchantability();
-        this.soundEvent = base.getSoundEvent();
-        this.toughness = base.getToughness();
-        this.repairMaterial = base::getRepairMaterial;
-    }
-
-    @Override
-    public int getDurability(EquipmentSlotType slotIn) {
-        return MAX_DURABILITY_ARRAY[slotIn.getIndex()] * this.maxDurabilityFactor;
-    }
-
-    @Override
-    public int getDamageReductionAmount(EquipmentSlotType slotIn) {
-        return this.reductionAmountArray[slotIn.getIndex()];
-    }
-
-    @Override
-    public int getEnchantability() {
-        return this.enchantability;
-    }
-
-    @Override
-    public SoundEvent getSoundEvent() {
-        return this.soundEvent;
-    }
-
-    @Override
-    public Ingredient getRepairMaterial() {
-        return this.repairMaterial.get();
+    CSArmorTiers(String name, IArmorMaterial base, int durabilityAddition) {
+        this(name, base, durabilityAddition, 0);
     }
 
     @OnlyIn(Dist.CLIENT)
     @Override
     public String getName() {
-        return this.name;
+        return CSReference.MOD_ID + ":" + name;
+    }
+
+    @Override
+    public int getDurability(EquipmentSlotType slot) {
+        return base.getDurability(slot) + durabilityAddition;
+    }
+
+    @Override
+    public int getDamageReductionAmount(EquipmentSlotType slot) {
+        return base.getDamageReductionAmount(slot) + protectionAddition;
+    }
+
+    @Override
+    public int getEnchantability() {
+        return base.getEnchantability();
+    }
+
+    @Override
+    public SoundEvent getSoundEvent() {
+        return base.getSoundEvent();
+    }
+
+    @Override
+    public Ingredient getRepairMaterial() {
+        return base.getRepairMaterial();
     }
 
     @Override
     public float getToughness() {
-        return this.toughness;
+        return base.getToughness();
     }
 
     @Override
     public float getKnockbackResistance() {
-        return 0;
+        return base.getKnockbackResistance();
     }
 }

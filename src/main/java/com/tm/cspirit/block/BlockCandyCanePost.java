@@ -14,13 +14,13 @@ import net.minecraft.world.IBlockReader;
 
 import java.util.Optional;
 
-public class BlockCandyCane extends BlockBase {
+public class BlockCandyCanePost extends BlockBase {
 
     public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
     public static final VoxelShape SHAPE_NS = Optional.of(Block.makeCuboidShape(4, 0, 7, 12, 13, 9)).get();
     public static final VoxelShape SHAPE_EW = Optional.of(Block.makeCuboidShape(7, 0, 4, 9, 13, 12)).get();
 
-    public BlockCandyCane() {
+    public BlockCandyCanePost() {
         super(Block.Properties.create(Material.ROCK).hardnessAndResistance(0.5F).sound(SoundType.LANTERN).notSolid());
         setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
     }
@@ -35,7 +35,7 @@ public class BlockCandyCane extends BlockBase {
         builder.add(FACING);
     }
 
-    public VoxelShape getCandyCane(BlockState state) {
+    public VoxelShape getCandyCaneShape(BlockState state) {
         switch (state.get(FACING)) {
             case EAST:
             case WEST: return SHAPE_EW;
@@ -45,16 +45,21 @@ public class BlockCandyCane extends BlockBase {
 
     @Override
     public VoxelShape getShape (BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context){
-        return getCandyCane(state);
+        return getCandyCaneShape(state);
     }
 
     @Override
     public VoxelShape getCollisionShape (BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
-        return getCandyCane(state);
+        return getCandyCaneShape(state);
     }
 
     @Override
     public BlockRenderType getRenderType (BlockState state) {
         return BlockRenderType.MODEL;
+    }
+
+    @Override
+    public boolean propagatesSkylightDown(BlockState state, IBlockReader reader, BlockPos pos) {
+        return true;
     }
 }

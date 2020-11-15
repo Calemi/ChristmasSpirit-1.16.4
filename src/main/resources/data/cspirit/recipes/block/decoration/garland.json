@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "LSL",
+    "SLS"
+  ],
+  "key":
+  {
+    "S":
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    "L":
+    {
+      "item": "minecraft:spruce_leaves"
+    }
+  },
+  "result":
+  {
+    "item": "cspirit:garland",
+    "count": 8
+  }
+}

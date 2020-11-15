@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 public class BlockFrostedGlassPane extends PaneBlock {
 
     public BlockFrostedGlassPane() {
-        super(Properties.create(Material.GLASS).hardnessAndResistance(0.5F).sound(SoundType.GLASS).notSolid().variableOpacity().notSolid());
+        super(Properties.create(Material.GLASS).hardnessAndResistance(0.5F).sound(SoundType.GLASS).notSolid().variableOpacity());
     }
 
     @Override

@@ -67,6 +67,7 @@ public class ChristmasSpirit {
         MinecraftForge.EVENT_BUS.register(new MobArmorEvent());
         MinecraftForge.EVENT_BUS.register(new SpriteCranberryEvent());
         MinecraftForge.EVENT_BUS.register(new NaughtyEvent());
+        MinecraftForge.EVENT_BUS.register(new FrozenEvent());
     }
 
     private void onClientSetup(final FMLClientSetupEvent event) {

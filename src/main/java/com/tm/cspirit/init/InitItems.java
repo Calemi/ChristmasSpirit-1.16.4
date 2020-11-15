@@ -1,6 +1,7 @@
 package com.tm.cspirit.init;
 
 import com.tm.cspirit.block.*;
+import com.tm.cspirit.block.base.BlockBase;
 import com.tm.cspirit.block.base.BlockCropBase;
 import com.tm.cspirit.block.base.BlockItemBase;
 import com.tm.cspirit.item.*;
@@ -10,10 +11,14 @@ import com.tm.cspirit.item.base.ItemFoodBase;
 import com.tm.cspirit.item.tier.CSArmorTiers;
 import com.tm.cspirit.main.CSReference;
 import com.tm.cspirit.main.ChristmasSpirit;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -59,9 +64,9 @@ public class InitItems {
     public static final RegistryObject<Item> PEPPERMINT_CANDY_GREEN =      regItem("peppermint_candy_green", () -> new ItemFoodBase(2, 2, 2, false));
     public static final RegistryObject<Item> PEPPERMINT_CANDY_BLUE =       regItem("peppermint_candy_blue", () -> new ItemFoodBase(2, 2, 2, false));
 
-    public static final RegistryObject<Block> CANDY_CANE_POST_RED =       regBlock("candy_cane_red", BlockCandyCane::new);
-    public static final RegistryObject<Block> CANDY_CANE_POST_GREEN =     regBlock("candy_cane_green", BlockCandyCane::new);
-    public static final RegistryObject<Block> CANDY_CANE_POST_BLUE =      regBlock("candy_cane_blue", BlockCandyCane::new);
+    public static final RegistryObject<Block> CANDY_CANE_POST_RED =       regBlock("candy_cane_red", BlockCandyCanePost::new);
+    public static final RegistryObject<Block> CANDY_CANE_POST_GREEN =     regBlock("candy_cane_green", BlockCandyCanePost::new);
+    public static final RegistryObject<Block> CANDY_CANE_POST_BLUE =      regBlock("candy_cane_blue", BlockCandyCanePost::new);
 
     public static final RegistryObject<Item> CANDY_CANE_RED =              regItem("candy_cane_red", () -> new ItemCandyCane(CANDY_CANE_POST_RED.get()));
     public static final RegistryObject<Item> CANDY_CANE_GREEN =            regItem("candy_cane_green", () -> new ItemCandyCane(CANDY_CANE_POST_GREEN.get()));
@@ -116,29 +121,45 @@ public class InitItems {
     //------NAUGHTY ITEMS------\\
     public static final RegistryObject<Item> LUMP_OF_COAL =                regItem("lump_of_coal", () -> new ItemBase().setTag("naughty"));
 
+    public static final RegistryObject<Item> FROST_HELMET =                regItem("frost_helmet", () -> new ItemFrostArmor(EquipmentSlotType.HEAD));
+    public static final RegistryObject<Item> FROST_CHESTPLATE =            regItem("frost_chestplate", () -> new ItemFrostArmor(EquipmentSlotType.CHEST));
+    public static final RegistryObject<Item> FROST_LEGGINGS =              regItem("frost_leggings", () -> new ItemFrostArmor(EquipmentSlotType.LEGS));
+    public static final RegistryObject<Item> FROST_BOOTS =                 regItem("frost_boots", () -> new ItemFrostArmor(EquipmentSlotType.FEET));
+
+    public static final RegistryObject<Item> FROSTMOURNE =                 regItem("frostmourne", ItemFrostmourne::new);
+
     //------BLOCKS------\\
 
-    public static final RegistryObject<Block> PRESENT_UNWRAPPED =     regBlockAndItem("present_unwrapped", ChristmasSpirit.TAB_MAIN, BlockPresentUnwrapped::new);
+    public static final RegistryObject<Block> PRESENT_UNWRAPPED =      regBlockAndItem("present_unwrapped", ChristmasSpirit.TAB_MAIN, BlockPresentUnwrapped::new);
 
-    public static final RegistryObject<Block> PRESENT_WRAPPED_RED =          regBlock("present_wrapped_red", BlockPresentWrapped::new);
-    public static final RegistryObject<Item> PRESENT_WRAPPED_RED_ITEM =       regItem("present_wrapped_red", () -> new BlockItemPresentWrapped(PRESENT_WRAPPED_RED.get()));
-    public static final RegistryObject<Block> PRESENT_WRAPPED_GREEN =        regBlock("present_wrapped_green", BlockPresentWrapped::new);
-    public static final RegistryObject<Item> PRESENT_WRAPPED_GREEN_ITEM =     regItem("present_wrapped_green", () -> new BlockItemPresentWrapped(PRESENT_WRAPPED_GREEN.get()));
-    public static final RegistryObject<Block> PRESENT_WRAPPED_BLUE =         regBlock("present_wrapped_blue", BlockPresentWrapped::new);
-    public static final RegistryObject<Item> PRESENT_WRAPPED_BLUE_ITEM =      regItem("present_wrapped_blue", () -> new BlockItemPresentWrapped(PRESENT_WRAPPED_BLUE.get()));
+    public static final RegistryObject<Block> PRESENT_WRAPPED_RED =           regBlock("present_wrapped_red", BlockPresentWrapped::new);
+    public static final RegistryObject<Item> PRESENT_WRAPPED_RED_ITEM =        regItem("present_wrapped_red", () -> new BlockItemPresentWrapped(PRESENT_WRAPPED_RED.get()));
+    public static final RegistryObject<Block> PRESENT_WRAPPED_GREEN =         regBlock("present_wrapped_green", BlockPresentWrapped::new);
+    public static final RegistryObject<Item> PRESENT_WRAPPED_GREEN_ITEM =       regItem("present_wrapped_green", () -> new BlockItemPresentWrapped(PRESENT_WRAPPED_GREEN.get()));
+    public static final RegistryObject<Block> PRESENT_WRAPPED_BLUE =          regBlock("present_wrapped_blue", BlockPresentWrapped::new);
+    public static final RegistryObject<Item> PRESENT_WRAPPED_BLUE_ITEM =       regItem("present_wrapped_blue", () -> new BlockItemPresentWrapped(PRESENT_WRAPPED_BLUE.get()));
 
     //CROPS
-    public static final RegistryObject<Block> GINGER =                regBlockAndItem("ginger", ChristmasSpirit.TAB_MAIN, BlockCropBase::new);
-    public static final RegistryObject<Block> PEPPERMINT =            regBlockAndItem("peppermint", ChristmasSpirit.TAB_MAIN, () -> new BlockCropBase(PEPPERMINT_LEAF));
+    public static final RegistryObject<Block> GINGER =                 regBlockAndItem("ginger", ChristmasSpirit.TAB_MAIN, BlockCropBase::new);
+    public static final RegistryObject<Block> PEPPERMINT =             regBlockAndItem("peppermint", ChristmasSpirit.TAB_MAIN, () -> new BlockCropBase(PEPPERMINT_LEAF));
 
     //DECORATIONS
-    public static final RegistryObject<Block> GINGERBREAD_HOUSE =     regBlockAndItem("gingerbread_house", ChristmasSpirit.TAB_MAIN, BlockGingerbreadHouse::new);
-    public static final RegistryObject<Block> FRUITCAKE =             regBlockAndItem("fruitcake", ChristmasSpirit.TAB_MAIN, BlockFruitCake::new);
-    public static final RegistryObject<Block> MISTLETOE =             regBlockAndItem("mistletoe", ChristmasSpirit.TAB_MAIN, BlockMistletoe::new);
-    public static final RegistryObject<Block> CHIMNEY =               regBlockAndItem("chimney", ChristmasSpirit.TAB_MAIN, BlockChimney::new);
-    public static final RegistryObject<Block> ICICLES =               regBlockAndItem("icicles", ChristmasSpirit.TAB_MAIN, BlockIcicles::new);
-    public static final RegistryObject<Block> FROSTED_GLASS =         regBlockAndItem("frosted_glass", ChristmasSpirit.TAB_MAIN, BlockFrostedGlass::new);
-    public static final RegistryObject<Block> FROSTED_GLASS_PANE =    regBlockAndItem("frosted_glass_pane", ChristmasSpirit.TAB_MAIN, BlockFrostedGlassPane::new);
+    public static final RegistryObject<Block> CANDY_CANE_BLOCK_RED =   regBlockAndItem("candy_cane_block_red", ChristmasSpirit.TAB_MAIN, () -> new BlockBase(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.NETHERRACK).hardnessAndResistance(1).harvestTool(ToolType.PICKAXE)));
+    public static final RegistryObject<Block> CANDY_CANE_BLOCK_GREEN = regBlockAndItem("candy_cane_block_green", ChristmasSpirit.TAB_MAIN, () -> new BlockBase(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.NETHERRACK).hardnessAndResistance(1).harvestTool(ToolType.PICKAXE)));
+    public static final RegistryObject<Block> CANDY_CANE_BLOCK_BLUE =  regBlockAndItem("candy_cane_block_blue", ChristmasSpirit.TAB_MAIN, () -> new BlockBase(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.NETHERRACK).hardnessAndResistance(1).harvestTool(ToolType.PICKAXE)));
+
+    public static final RegistryObject<Block> CANDY_CANE_BRICK_RED =   regBlockAndItem("candy_cane_brick_red", ChristmasSpirit.TAB_MAIN, () -> new BlockBase(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.NETHER_BRICK).hardnessAndResistance(1).harvestTool(ToolType.PICKAXE)));
+    public static final RegistryObject<Block> CANDY_CANE_BRICK_GREEN = regBlockAndItem("candy_cane_brick_green", ChristmasSpirit.TAB_MAIN, () -> new BlockBase(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.NETHER_BRICK).hardnessAndResistance(1).harvestTool(ToolType.PICKAXE)));
+    public static final RegistryObject<Block> CANDY_CANE_BRICK_BLUE =  regBlockAndItem("candy_cane_brick_blue", ChristmasSpirit.TAB_MAIN, () -> new BlockBase(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.NETHER_BRICK).hardnessAndResistance(1).harvestTool(ToolType.PICKAXE)));
+
+    public static final RegistryObject<Block> GARLAND =                regBlockAndItem("garland", ChristmasSpirit.TAB_MAIN, BlockGarland::new);
+    public static final RegistryObject<Block> GINGERBREAD_HOUSE =      regBlockAndItem("gingerbread_house", ChristmasSpirit.TAB_MAIN, BlockGingerbreadHouse::new);
+    public static final RegistryObject<Block> FRUITCAKE =              regBlockAndItem("fruitcake", ChristmasSpirit.TAB_MAIN, BlockFruitCake::new);
+    public static final RegistryObject<Block> MISTLETOE =              regBlockAndItem("mistletoe", ChristmasSpirit.TAB_MAIN, BlockMistletoe::new);
+    public static final RegistryObject<Block> CHIMNEY =                regBlockAndItem("chimney", ChristmasSpirit.TAB_MAIN, BlockChimney::new);
+    public static final RegistryObject<Block> ICICLES =                regBlockAndItem("icicles", ChristmasSpirit.TAB_MAIN, BlockIcicles::new);
+    public static final RegistryObject<Block> FROSTED_GLASS =          regBlockAndItem("frosted_glass", ChristmasSpirit.TAB_MAIN, BlockFrostedGlass::new);
+    public static final RegistryObject<Block> FROSTED_GLASS_PANE =     regBlockAndItem("frosted_glass_pane", ChristmasSpirit.TAB_MAIN, BlockFrostedGlassPane::new);
 
     public static void init() {
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());

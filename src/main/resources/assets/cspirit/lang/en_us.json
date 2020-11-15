@@ -93,6 +93,13 @@
   "_comment" : "-----NAUGHTY ITEMS------",
   "item.cspirit.lump_of_coal": "Lump of Coal",
 
+  "item.cspirit.frost_helmet": "Frost Helmet",
+  "item.cspirit.frost_chestplate": "Frost Chestplate",
+  "item.cspirit.frost_leggings": "Frost Leggings",
+  "item.cspirit.frost_boots": "Frost Boots",
+
+  "item.cspirit.frostmourne": "Frostmourne",
+
   "_comment" : "-----BLOCKS------",
 
   "block.cspirit.present_unwrapped": "Unwrapped Present",
@@ -105,6 +112,15 @@
   "block.cspirit.peppermint": "Peppermint Seeds",
 
   "_comment" : "DECORATIONS",
+  "block.cspirit.candy_cane_block_red": "Red Candy Cane Block",
+  "block.cspirit.candy_cane_block_green": "Green Candy Cane Block",
+  "block.cspirit.candy_cane_block_blue": "Blue Candy Cane Block",
+
+  "block.cspirit.candy_cane_brick_red": "Red Candy Cane Brick",
+  "block.cspirit.candy_cane_brick_green": "Green Candy Cane Brick",
+  "block.cspirit.candy_cane_brick_blue": "Blue Candy Cane Brick",
+
+  "block.cspirit.garland": "Garland",
   "block.cspirit.gingerbread_house": "Gingerbread House",
   "block.cspirit.fruitcake": "Fruitcake",
   "block.cspirit.mistletoe": "Mistletoe",

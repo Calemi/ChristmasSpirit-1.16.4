@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": {"model": "cspirit:block/garland"},
+    "facing=south": {"model": "cspirit:block/garland", "y": 180},
+    "facing=west": {"model": "cspirit:block/garland", "y": 270},
+    "facing=east": {"model": "cspirit:block/garland", "y": 90}
+  }
+}

@@ -2,12 +2,19 @@ package com.tm.cspirit.util.helper;
 
 import com.tm.cspirit.data.NaughtyListFile;
 import com.tm.cspirit.init.InitEffects;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.TextFormatting;
 
 public class EffectHelper {
+
+    public static void giveFrozenEffect(LivingEntity entity, int seconds) {
+        entity.addPotionEffect(new EffectInstance(InitEffects.FROZEN.get(), seconds * 20));
+        entity.playSound(SoundEvents.ENTITY_ZOMBIE_VILLAGER_CURE, 1, 1);
+    }
 
     public static void giveHolidaySpiritStackEffect(PlayerEntity player, int maxStackSize) {
 

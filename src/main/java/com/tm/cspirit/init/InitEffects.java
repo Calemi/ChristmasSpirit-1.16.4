@@ -1,5 +1,6 @@
 package com.tm.cspirit.init;
 
+import com.tm.cspirit.effect.FrozenEffect;
 import com.tm.cspirit.effect.HolidaySpiritEffect;
 import com.tm.cspirit.effect.NaughtyEffect;
 import com.tm.cspirit.main.CSReference;
@@ -14,4 +15,5 @@ public class InitEffects {
 
     public static final RegistryObject<Effect> HOLIDAY_SPIRIT = POTION_TYPES.register("holiday_spirit", HolidaySpiritEffect::new);
     public static final RegistryObject<Effect> NAUGHTY = POTION_TYPES.register("naughty", NaughtyEffect::new);
+    public static final RegistryObject<Effect> FROZEN = POTION_TYPES.register("frozen", FrozenEffect::new);
 }

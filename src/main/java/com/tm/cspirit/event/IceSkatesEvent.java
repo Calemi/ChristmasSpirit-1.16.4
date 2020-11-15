@@ -25,11 +25,19 @@ public class IceSkatesEvent {
 
             if (bootsStack.getItem() == InitItems.ICE_SKATES.get()) {
 
-                BlockPos pos = new BlockPos(entity.getPositionVec().x, entity.getBoundingBox().minY - 0.5000000D, entity.getPositionVec().z);
+                BlockPos pos = new BlockPos(entity.getPositionVec().x, entity.getBoundingBox().minY - 0.5D, entity.getPositionVec().z);
+
                 double slipperiness = world.getBlockState(pos).getSlipperiness(world, pos, entity);
 
                 if (slipperiness > 0.7D) {
-                    Vector3d movement = new Vector3d(entity.getMotion().x * 4, entity.getMotion().y, entity.getMotion().z * 4);
+
+                    float movementMultiplier = 2;
+
+                    if (entity.isSprinting()) {
+                        movementMultiplier = 4;
+                    }
+
+                    Vector3d movement = new Vector3d(entity.getMotion().x * movementMultiplier, entity.getMotion().y, entity.getMotion().z * movementMultiplier);
                     entity.move(MoverType.SELF, movement);
                 }
             }

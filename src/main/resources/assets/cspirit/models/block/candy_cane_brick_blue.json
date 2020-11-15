@@ -1,0 +1,6 @@
+{
+	"parent": "block/cube_all",
+	"textures": {
+		"all": "cspirit:block/candy_cane_brick_blue"
+	}
+}

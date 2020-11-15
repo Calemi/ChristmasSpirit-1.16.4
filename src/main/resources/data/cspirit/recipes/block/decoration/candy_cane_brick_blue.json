@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "CC",
+    "CC"
+  ],
+  "key":
+  {
+    "C":
+    {
+      "item": "cspirit:candy_cane_block_blue"
+    }
+  },
+  "result":
+  {
+    "item": "cspirit:candy_cane_brick_blue",
+    "count": 4
+  }
+}

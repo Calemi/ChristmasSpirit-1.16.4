@@ -18,7 +18,7 @@ public class BlockMistletoe extends BlockBase {
     public static final VoxelShape SHAPE = Optional.of(Block.makeCuboidShape(3, 4, 3, 13, 16, 13)).get();
 
     public BlockMistletoe() {
-        super(Block.Properties.create(Material.PLANTS).hardnessAndResistance(0.5F).sound(SoundType.PLANT).notSolid().variableOpacity());
+        super(Block.Properties.create(Material.PLANTS).hardnessAndResistance(0).sound(SoundType.PLANT).notSolid().variableOpacity());
     }
 
     @Override
