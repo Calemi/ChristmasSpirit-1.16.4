@@ -1,22 +1,25 @@
 package com.tm.cspirit.main;
 
+import com.tm.cspirit.client.render.RenderJackFrost;
 import com.tm.cspirit.command.CSCommandBase;
 import com.tm.cspirit.data.DailyPresentDataFile;
 import com.tm.cspirit.data.NaughtyListFile;
 import com.tm.cspirit.data.SantaGiftListFile;
-import com.tm.cspirit.event.*;
+import com.tm.cspirit.entity.EntityJackFrost;
 import com.tm.cspirit.gui.ScreenPresentUnwrapped;
 import com.tm.cspirit.init.*;
 import com.tm.cspirit.packet.PacketWrapPresent;
 import com.tm.cspirit.tab.CSTabBaking;
 import com.tm.cspirit.tab.CSTabMain;
 import net.minecraft.client.gui.ScreenManager;
+import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -31,6 +34,8 @@ import net.minecraftforge.fml.network.simple.SimpleChannel;
 @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 public class ChristmasSpirit {
 
+    public static ChristmasSpirit instance;
+
     public static IEventBus MOD_EVENT_BUS;
     public static SimpleChannel network;
 
@@ -38,6 +43,8 @@ public class ChristmasSpirit {
     public static final ItemGroup TAB_BAKING = new CSTabBaking();
 
     public ChristmasSpirit() {
+
+        instance = this;
 
         MOD_EVENT_BUS = FMLJavaModLoadingContext.get().getModEventBus();
         MOD_EVENT_BUS.addListener(this::onCommonSetup);
@@ -49,6 +56,7 @@ public class ChristmasSpirit {
         InitEffects.POTION_TYPES.register(MOD_EVENT_BUS);
         InitTileEntityTypes.TILE_ENTITY_TYPES.register(MOD_EVENT_BUS);
         InitContainerTypes.CONTAINER_TYPES.register(MOD_EVENT_BUS);
+        InitEntityTypes.ENTITY_TYPES.register(MOD_EVENT_BUS);
         InitItems.init();
         DailyPresentDataFile.init();
         SantaGiftListFile.init();
@@ -60,20 +68,17 @@ public class ChristmasSpirit {
         network = NetworkRegistry.newSimpleChannel(new ResourceLocation(CSReference.MOD_ID, CSReference.MOD_ID), () -> "1.0", s -> true, s -> true);
         network.registerMessage(0, PacketWrapPresent.class, PacketWrapPresent::toBytes, PacketWrapPresent::new, PacketWrapPresent::handle);
 
-        MinecraftForge.EVENT_BUS.register(this);
-        MinecraftForge.EVENT_BUS.register(new JaredDiscEvent());
-        MinecraftForge.EVENT_BUS.register(new PresentResetEvent());
-        MinecraftForge.EVENT_BUS.register(new IceSkatesEvent());
-        MinecraftForge.EVENT_BUS.register(new MobArmorEvent());
-        MinecraftForge.EVENT_BUS.register(new SpriteCranberryEvent());
-        MinecraftForge.EVENT_BUS.register(new NaughtyEvent());
-        MinecraftForge.EVENT_BUS.register(new FrozenEvent());
+        InitEvents.init();
+
+        DeferredWorkQueue.runLater(() -> GlobalEntityTypeAttributes.put(InitEntityTypes.JACK_FROST.get(), EntityJackFrost.setCustomAttributes().create()));
     }
 
     private void onClientSetup(final FMLClientSetupEvent event) {
         InitRenderLayers.init();
 
         ScreenManager.registerFactory(InitContainerTypes.PRESENT_UNWRAPPED.get(), ScreenPresentUnwrapped::new);
+
+        RenderingRegistry.registerEntityRenderingHandler(InitEntityTypes.JACK_FROST.get(), RenderJackFrost::new);
     }
 
     private void onLoadComplete(final FMLLoadCompleteEvent event) {
