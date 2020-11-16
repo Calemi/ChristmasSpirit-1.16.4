@@ -23,13 +23,13 @@ public class ItemHelper {
     }
 
     public static void spawnStackAtEntity(World world, Entity entity, ItemStack stack) {
-        spawnStack(world, (float) entity.getPosition().getX() + 0.5F, (float) entity.getPosition().getY() + 0.5F, (float) entity.getPosition().getZ() + 0.5F, stack);
+        spawnStack(world, (float) entity.getPosX(), (float) entity.getPosY(), (float) entity.getPosZ(), stack);
     }
 
     public static ItemEntity spawnStack(World world, float x, float y, float z, ItemStack stack) {
         ItemEntity item = new ItemEntity(world, x, y, z, stack);
         item.setNoPickupDelay();
-        item.setMotion(0, 0, 0);
+        item.setMotion(0, 0.2D, 0);
         world.addEntity(item);
         return item;
     }

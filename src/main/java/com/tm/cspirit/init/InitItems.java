@@ -121,6 +121,7 @@ public class InitItems {
     //------NAUGHTY ITEMS------\\
     public static final RegistryObject<Item> LUMP_OF_COAL =                regItem("lump_of_coal", () -> new ItemBase().setTag("naughty"));
 
+    public static final RegistryObject<Item> FROST_INGOT =                 regItem("frost_ingot", () -> new ItemBase().setTag("naughty"));
     public static final RegistryObject<Item> FROST_HELMET =                regItem("frost_helmet", () -> new ItemFrostArmor(EquipmentSlotType.HEAD));
     public static final RegistryObject<Item> FROST_CHESTPLATE =            regItem("frost_chestplate", () -> new ItemFrostArmor(EquipmentSlotType.CHEST));
     public static final RegistryObject<Item> FROST_LEGGINGS =              regItem("frost_leggings", () -> new ItemFrostArmor(EquipmentSlotType.LEGS));

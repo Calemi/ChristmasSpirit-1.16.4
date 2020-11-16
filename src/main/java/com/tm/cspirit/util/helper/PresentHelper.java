@@ -30,7 +30,7 @@ public class PresentHelper {
         //Visuals
         FireworkHelper.spawnFirework(player, (byte)1, true, true, DyeColor.RED, DyeColor.GREEN);
         SoundHelper.sendSoundToClient(player, InitSounds.CONGRATS.get());
-        ChatHelper.broadcastMessage(world, TextFormatting.RED + "" + TextFormatting.BOLD + player.getDisplayName().getString() + " has received their daily present!");
+        ChatHelper.broadcastMessage(world, TextFormatting.GREEN + "" + TextFormatting.BOLD + player.getDisplayName().getString() + " has received their daily present!");
     }
 
     public static PresentConstructor getSantaPresent(String toPlayerName) {

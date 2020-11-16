@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "F F",
+    "FFF",
+    "FFF"
+  ],
+  "key":
+  {
+    "F":
+    {
+      "item": "cspirit:frost_ingot"
+    }
+  },
+  "result":
+  {
+    "item": "cspirit:frost_chestplate",
+    "count": 1
+  }
+}

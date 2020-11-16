@@ -1,7 +1,9 @@
 package com.tm.cspirit.entity;
 
 import com.tm.cspirit.data.NaughtyListFile;
+import com.tm.cspirit.init.InitEntityTypes;
 import com.tm.cspirit.init.InitItems;
+import com.tm.cspirit.util.helper.ItemHelper;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
@@ -10,6 +12,8 @@ import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
 import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -22,6 +26,7 @@ import java.util.UUID;
 public class EntityJackFrost extends CreatureEntity implements IAngerable {
 
     private int attackTimer;
+    private int tradeCooldown;
 
     private static final RangedInteger randomTime = TickRangeConverter.convertRange(20, 39);
     private int angerTime;
@@ -29,6 +34,12 @@ public class EntityJackFrost extends CreatureEntity implements IAngerable {
 
     public EntityJackFrost(EntityType<? extends CreatureEntity> type, World world) {
         super(type, world);
+        setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(InitItems.FROSTMOURNE.get()));
+    }
+
+    public EntityJackFrost(World world, int x, int y, int z) {
+        super(InitEntityTypes.JACK_FROST.get(), world);
+        setLocationAndAngles(x, y, z, 0, 0);
         setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(InitItems.FROSTMOURNE.get()));
     }
 
@@ -53,6 +64,26 @@ public class EntityJackFrost extends CreatureEntity implements IAngerable {
     @Override
     public void livingTick() {
         super.livingTick();
+
+        if (world.isDaytime()) addPotionEffect(new EffectInstance(Effects.LEVITATION, 20, 4));
+        else addPotionEffect(new EffectInstance(Effects.SLOW_FALLING, 20));
+
+        if (getPosY() > 300) {
+            remove();
+        }
+
+        if (getItemStackFromSlot(EquipmentSlotType.OFFHAND).getItem() == InitItems.LUMP_OF_COAL.get()) {
+
+            if (this.tradeCooldown > 0) {
+                --this.tradeCooldown;
+            }
+
+            else {
+                setItemStackToSlot(EquipmentSlotType.OFFHAND, ItemStack.EMPTY);
+                ItemHelper.spawnStackAtEntity(world, this, new ItemStack(InitItems.FROST_INGOT.get()));
+            }
+        }
+
         if (this.attackTimer > 0) {
             --this.attackTimer;
         }
@@ -72,6 +103,33 @@ public class EntityJackFrost extends CreatureEntity implements IAngerable {
                 break;
             }
         }
+    }
+
+    @Override
+    protected ActionResultType func_230254_b_(PlayerEntity player, Hand hand) {
+
+        if (NaughtyListFile.isOnNaughtyList(player)) {
+
+            if (getItemStackFromSlot(EquipmentSlotType.OFFHAND).isEmpty()) {
+
+                ItemStack heldStack = player.getHeldItemMainhand();
+
+                if (heldStack.getItem() == InitItems.LUMP_OF_COAL.get()) {
+
+                    if (heldStack.getCount() >= 5) {
+
+                        heldStack.shrink(5);
+
+                        setItemStackToSlot(EquipmentSlotType.OFFHAND, new ItemStack(InitItems.LUMP_OF_COAL.get()));
+                        tradeCooldown = 60;
+
+                        return ActionResultType.SUCCESS;
+                    }
+                }
+            }
+        }
+
+        return ActionResultType.FAIL;
     }
 
     @Override

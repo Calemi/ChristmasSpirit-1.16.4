@@ -14,7 +14,7 @@ public class InitEntityTypes {
     public static DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES, CSReference.MOD_ID);
 
     public static final RegistryObject<EntityType<EntityJackFrost>> JACK_FROST = ENTITY_TYPES.register("jack_frost",
-            () -> EntityType.Builder.create(EntityJackFrost::new, EntityClassification.MONSTER)
+            () -> EntityType.Builder.<EntityJackFrost>create(EntityJackFrost::new, EntityClassification.MONSTER)
                     .size(0.8F, 1.8F)
                     .build(new ResourceLocation(CSReference.MOD_ID, "jack_frost").toString()));
 }

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "F",
+    "F",
+    "S"
+  ],
+  "key":
+  {
+    "F":
+    {
+      "item": "cspirit:frost_ingot"
+    },
+    "S":
+    {
+      "item": "minecraft:stick"
+    }
+  },
+  "result":
+  {
+    "item": "cspirit:frostmourne",
+    "count": 1
+  }
+}
