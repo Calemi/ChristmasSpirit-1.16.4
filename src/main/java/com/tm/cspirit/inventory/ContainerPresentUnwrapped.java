@@ -1,6 +1,7 @@
 package com.tm.cspirit.inventory;
 
 import com.tm.cspirit.init.InitContainerTypes;
+import com.tm.cspirit.inventory.base.ContainerBase;
 import com.tm.cspirit.tileentity.TileEntityPresentUnwrapped;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.network.PacketBuffer;

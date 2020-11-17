@@ -1,4 +1,4 @@
-package com.tm.cspirit.gui.base;
+package com.tm.cspirit.client.gui.base;
 
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.widget.TextFieldWidget;

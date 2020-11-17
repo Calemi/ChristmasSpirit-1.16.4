@@ -11,13 +11,18 @@ public class InitRenderLayers {
     public static void init() {
 
         RenderTypeLookup.setRenderLayer(InitItems.PRESENT_UNWRAPPED.get(), RenderType.getCutout());
+
         RenderTypeLookup.setRenderLayer(InitItems.PRESENT_WRAPPED_RED.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(InitItems.PRESENT_WRAPPED_GREEN.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(InitItems.PRESENT_WRAPPED_BLUE.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(InitItems.STOCKING_RED.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(InitItems.STOCKING_GREEN.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(InitItems.STOCKING_BLUE.get(), RenderType.getCutout());
 
         RenderTypeLookup.setRenderLayer(InitItems.GINGER.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(InitItems.PEPPERMINT.get(), RenderType.getCutout());
 
+        RenderTypeLookup.setRenderLayer(InitItems.REEF.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(InitItems.GARLAND.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(InitItems.GINGERBREAD_HOUSE.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(InitItems.GINGERBREAD_HOUSE.get(), RenderType.getTranslucent());
@@ -25,5 +30,6 @@ public class InitRenderLayers {
         RenderTypeLookup.setRenderLayer(InitItems.ICICLES.get(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(InitItems.FROSTED_GLASS.get(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(InitItems.FROSTED_GLASS_PANE.get(), RenderType.getTranslucent());
+        RenderTypeLookup.setRenderLayer(InitItems.SNOW_GLOBE.get(), RenderType.getCutout());
     }
 }

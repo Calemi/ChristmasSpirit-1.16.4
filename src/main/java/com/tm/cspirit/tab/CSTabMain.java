@@ -4,7 +4,6 @@ import com.tm.cspirit.init.InitItems;
 import com.tm.cspirit.main.CSReference;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 
 public class CSTabMain extends ItemGroup {
 
@@ -14,8 +13,6 @@ public class CSTabMain extends ItemGroup {
 
     @Override
     public ItemStack createIcon () {
-        ItemStack stack = new ItemStack(InitItems.PEPPERMINT_LEAF.get());
-        stack.setDamage(14);
-        return stack;
+        return new ItemStack(InitItems.CHRISTMAS_HAT.get());
     }
 }

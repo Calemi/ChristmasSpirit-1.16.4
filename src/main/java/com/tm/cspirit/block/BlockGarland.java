@@ -42,11 +42,6 @@ public class BlockGarland extends BlockBase {
     }
 
     @Override
-    public VoxelShape getCollisionShape (BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
-        return getGarlandShape(state);
-    }
-
-    @Override
     public BlockState getStateForPlacement(BlockItemUseContext context) {
         return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing());
     }

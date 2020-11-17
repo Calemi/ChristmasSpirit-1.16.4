@@ -1,7 +1,7 @@
-package com.tm.cspirit.gui.base;
+package com.tm.cspirit.client.gui.base;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
-import com.tm.cspirit.inventory.ContainerBase;
+import com.tm.cspirit.inventory.base.ContainerBase;
 import com.tm.cspirit.tileentity.base.TileEntityInventoryBase;
 import com.tm.cspirit.util.helper.ScreenHelper;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;

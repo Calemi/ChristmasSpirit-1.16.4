@@ -14,4 +14,8 @@ public class BlockItemBase extends BlockItem {
     public BlockItemBase(Block block, ItemGroup tab) {
         super(block, new Item.Properties().group(tab));
     }
+
+    public BlockItemBase(Block block) {
+        super(block, new Item.Properties());
+    }
 }

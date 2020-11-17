@@ -1,9 +1,9 @@
-package com.tm.cspirit.gui;
+package com.tm.cspirit.client.gui;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
-import com.tm.cspirit.gui.base.ButtonRect;
-import com.tm.cspirit.gui.base.ContainerScreenBase;
-import com.tm.cspirit.gui.base.TextFieldRect;
+import com.tm.cspirit.client.gui.base.ButtonRect;
+import com.tm.cspirit.client.gui.base.ContainerScreenBase;
+import com.tm.cspirit.client.gui.base.TextFieldRect;
 import com.tm.cspirit.inventory.ContainerPresentUnwrapped;
 import com.tm.cspirit.main.ChristmasSpirit;
 import com.tm.cspirit.packet.PacketWrapPresent;

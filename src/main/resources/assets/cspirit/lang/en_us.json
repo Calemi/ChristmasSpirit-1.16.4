@@ -28,6 +28,12 @@
   "item.cspirit.cookie_cutter_man": "Cookie Cutter (Man)",
   "item.cspirit.cookie_cutter_snowman": "Cookie Cutter (Snowman)",
 
+  "item.cspirit.christmas_light_white": "White Christmas Light",
+  "item.cspirit.christmas_light_red": "Red Christmas Light",
+  "item.cspirit.christmas_light_green": "Green Christmas Light",
+  "item.cspirit.christmas_light_blue": "Blue Christmas Light",
+
+
   "_comment" : "FOOD",
 
   "item.cspirit.chocolate_bar": "Chocolate Bar",
@@ -103,16 +109,31 @@
 
   "_comment" : "-----BLOCKS------",
 
+  "block.cspirit.fruitcake": "Fruitcake",
+
   "block.cspirit.present_unwrapped": "Unwrapped Present",
+
   "block.cspirit.present_wrapped_red": "Red Present",
   "block.cspirit.present_wrapped_green": "Green Present",
   "block.cspirit.present_wrapped_blue": "Blue Present",
+
+  "block.cspirit.stocking_red": "Red Stocking",
+  "block.cspirit.stocking_green": "Green Stocking",
+  "block.cspirit.stocking_blue": "Blue Stocking",
 
   "_comment" : "CROPS",
   "block.cspirit.ginger": "Ginger Root",
   "block.cspirit.peppermint": "Peppermint Seeds",
 
   "_comment" : "DECORATIONS",
+  "block.cspirit.christmas_lights_multicolor": "Multicolor Christmas Lights",
+  "block.cspirit.christmas_lights_multicolor_flickering": "Flickering Multicolor Christmas Lights",
+  "block.cspirit.christmas_lights_white": "White Christmas Lights",
+  "block.cspirit.christmas_lights_white_flickering": "Flickering White Christmas Lights",
+  "block.cspirit.christmas_lights_red": "Red Christmas Lights",
+  "block.cspirit.christmas_lights_green": "Green Christmas Lights",
+  "block.cspirit.christmas_lights_blue": "Blue Christmas Lights",
+
   "block.cspirit.candy_cane_block_red": "Red Candy Cane Block",
   "block.cspirit.candy_cane_block_green": "Green Candy Cane Block",
   "block.cspirit.candy_cane_block_blue": "Blue Candy Cane Block",
@@ -121,9 +142,11 @@
   "block.cspirit.candy_cane_brick_green": "Green Candy Cane Brick",
   "block.cspirit.candy_cane_brick_blue": "Blue Candy Cane Brick",
 
+  "block.cspirit.cookie_tray": "Cookie Tray",
+  "block.cspirit.snow_globe": "Snow Globe",
+  "block.cspirit.reef": "Garland",
   "block.cspirit.garland": "Garland",
   "block.cspirit.gingerbread_house": "Gingerbread House",
-  "block.cspirit.fruitcake": "Fruitcake",
   "block.cspirit.mistletoe": "Mistletoe",
   "block.cspirit.chimney": "Chimney",
   "block.cspirit.icicles": "Icicles",
@@ -133,6 +156,7 @@
   "_comment" : "-----CREATIVE TABS------",
 
   "itemGroup.cspirit.tabMain": "Christmas Spirit - Main",
+  "itemGroup.cspirit.tabDecoration": "Christmas Spirit - Decorations",
   "itemGroup.cspirit.tabBaking": "Christmas Spirit - Baking",
 
   "_comment" : "-----SOUNDS------",

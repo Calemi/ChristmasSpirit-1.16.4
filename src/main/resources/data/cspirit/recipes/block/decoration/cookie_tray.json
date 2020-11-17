@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "PP"
+  ],
+  "key":
+  {
+    "P":
+    {
+      "item": "minecraft:heavy_weighted_pressure_plate"
+    }
+  },
+  "result":
+  {
+    "item": "cspirit:cookie_tray",
+    "count": 1
+  }
+}

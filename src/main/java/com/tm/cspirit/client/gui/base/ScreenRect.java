@@ -1,4 +1,4 @@
-package com.tm.cspirit.gui.base;
+package com.tm.cspirit.client.gui.base;
 
 public class ScreenRect {
 

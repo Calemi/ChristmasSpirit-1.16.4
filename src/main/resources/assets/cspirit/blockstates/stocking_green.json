@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": {"model": "cspirit:block/stocking_green"},
+    "facing=south": {"model": "cspirit:block/stocking_green", "y": 180},
+    "facing=west": {"model": "cspirit:block/stocking_green", "y": 270},
+    "facing=east": {"model": "cspirit:block/stocking_green", "y": 90}
+  }
+}

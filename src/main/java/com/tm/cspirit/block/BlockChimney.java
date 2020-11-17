@@ -27,7 +27,7 @@ public class BlockChimney extends BlockBase {
     }
 
     public BlockChimney() {
-        super(Properties.create(Material.ROCK).hardnessAndResistance(1).harvestLevel(1).harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).notSolid().variableOpacity().notSolid());
+        super(Properties.create(Material.ROCK).hardnessAndResistance(1).harvestLevel(1).harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).notSolid().variableOpacity());
     }
 
     @Override

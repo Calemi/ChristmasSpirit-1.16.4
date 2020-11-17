@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    " L ",
+    "LSL",
+    " L "
+  ],
+  "key":
+  {
+    "S":
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    "L":
+    {
+      "item": "minecraft:spruce_leaves"
+    }
+  },
+  "result":
+  {
+    "item": "cspirit:reef",
+    "count": 1
+  }
+}

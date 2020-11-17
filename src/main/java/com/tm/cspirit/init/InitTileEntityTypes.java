@@ -2,6 +2,7 @@ package com.tm.cspirit.init;
 
 import com.google.common.collect.Sets;
 import com.tm.cspirit.main.CSReference;
+import com.tm.cspirit.tileentity.TileEntityCookieTray;
 import com.tm.cspirit.tileentity.TileEntityPresentUnwrapped;
 import com.tm.cspirit.tileentity.TileEntityPresentWrapped;
 import net.minecraft.tileentity.TileEntityType;
@@ -18,4 +19,7 @@ public class InitTileEntityTypes {
 
     public static final RegistryObject<TileEntityType<TileEntityPresentWrapped>> PRESENT_WRAPPED = TILE_ENTITY_TYPES.register(
             "present_wrapped", () -> new TileEntityType<>(TileEntityPresentWrapped::new, Sets.newHashSet(InitItems.PRESENT_WRAPPED_RED.get()), null));
+
+    public static final RegistryObject<TileEntityType<TileEntityCookieTray>> COOKIE_TRAY = TILE_ENTITY_TYPES.register(
+            "cookie_tray", () -> new TileEntityType<>(TileEntityCookieTray::new, Sets.newHashSet(InitItems.COOKIE_TRAY.get()), null));
 }

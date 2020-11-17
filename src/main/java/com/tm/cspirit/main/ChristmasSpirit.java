@@ -1,15 +1,18 @@
 package com.tm.cspirit.main;
 
+import com.tm.cspirit.client.render.RenderCookieTray;
 import com.tm.cspirit.client.render.RenderJackFrost;
 import com.tm.cspirit.command.CSCommandBase;
 import com.tm.cspirit.data.DailyPresentDataFile;
 import com.tm.cspirit.data.NaughtyListFile;
 import com.tm.cspirit.data.SantaGiftListFile;
 import com.tm.cspirit.entity.EntityJackFrost;
-import com.tm.cspirit.gui.ScreenPresentUnwrapped;
+import com.tm.cspirit.client.gui.ScreenCookieTray;
+import com.tm.cspirit.client.gui.ScreenPresentUnwrapped;
 import com.tm.cspirit.init.*;
 import com.tm.cspirit.packet.PacketWrapPresent;
 import com.tm.cspirit.tab.CSTabBaking;
+import com.tm.cspirit.tab.CSTabDecoration;
 import com.tm.cspirit.tab.CSTabMain;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
@@ -19,6 +22,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -40,6 +44,7 @@ public class ChristmasSpirit {
     public static SimpleChannel network;
 
     public static final ItemGroup TAB_MAIN = new CSTabMain();
+    public static final ItemGroup TAB_DECORATION = new CSTabDecoration();
     public static final ItemGroup TAB_BAKING = new CSTabBaking();
 
     public ChristmasSpirit() {
@@ -77,8 +82,11 @@ public class ChristmasSpirit {
         InitRenderLayers.init();
 
         ScreenManager.registerFactory(InitContainerTypes.PRESENT_UNWRAPPED.get(), ScreenPresentUnwrapped::new);
+        ScreenManager.registerFactory(InitContainerTypes.COOKIE_TRAY.get(), ScreenCookieTray::new);
 
         RenderingRegistry.registerEntityRenderingHandler(InitEntityTypes.JACK_FROST.get(), RenderJackFrost::new);
+
+        ClientRegistry.bindTileEntityRenderer(InitTileEntityTypes.COOKIE_TRAY.get(), RenderCookieTray::new);
     }
 
     private void onLoadComplete(final FMLLoadCompleteEvent event) {

@@ -1,4 +1,4 @@
-package com.tm.cspirit.inventory;
+package com.tm.cspirit.inventory.base;
 
 import com.tm.cspirit.tileentity.base.CSItemHandler;
 import com.tm.cspirit.tileentity.base.TileEntityInventoryBase;
@@ -105,7 +105,7 @@ public class ContainerBase extends Container {
     public ItemStack transferStackInSlot (PlayerEntity playerIn, int index) {
 
         ItemStack itemstack = ItemStack.EMPTY;
-        Slot slot = this.inventorySlots.get(index);
+        /*Slot slot = this.inventorySlots.get(index);
 
         //Checks if the slot exists and it has an Item in it.
         if (slot != null && slot.getHasStack()) {
@@ -118,6 +118,13 @@ public class ContainerBase extends Container {
 
                 //Transfers: Player's inventory -> New inventory.
                 if (index <= 35) {
+
+                    System.out.println(itemStack1.getCount());
+                    System.out.println(slot);
+
+                    if (itemStack1.getCount() > slot.getItemStackLimit(itemStack1)) {
+                        return ItemStack.EMPTY;
+                    }
 
                     if (mergeIfPossible(slot, itemStack1, itemstack, 36, 36 + getTileEntitySlotAmount())) {
 
@@ -156,7 +163,7 @@ public class ContainerBase extends Container {
             }
 
             slot.onTake(playerInventory.player, itemStack1);
-        }
+        }*/
 
         return itemstack;
     }
@@ -166,7 +173,7 @@ public class ContainerBase extends Container {
      */
     private boolean mergeIfPossible (Slot slot, ItemStack is, ItemStack is2, int id, int maxId) {
 
-        if (!this.mergeItemStack(is, id, maxId, false)) {
+        if (!this.mergeItemStack(is, id, maxId, false) || is.getCount() > slot.getItemStackLimit(is)) {
             return true;
         }
 

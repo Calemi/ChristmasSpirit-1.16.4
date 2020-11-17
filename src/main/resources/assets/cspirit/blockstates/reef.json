@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": {"model": "cspirit:block/reef"},
+    "facing=south": {"model": "cspirit:block/reef", "y": 180},
+    "facing=west": {"model": "cspirit:block/reef", "y": 270},
+    "facing=east": {"model": "cspirit:block/reef", "y": 90}
+  }
+}

@@ -1,0 +1,6 @@
+{
+	"parent": "cspirit:item/christmas_light_red",
+	"textures": {
+		"0": "cspirit:models/christmas_lights_blue"
+	}
+}

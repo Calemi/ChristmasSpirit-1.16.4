@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": {"model": "cspirit:block/christmas_lights_multicolor"},
+    "facing=south": {"model": "cspirit:block/christmas_lights_multicolor", "y": 180},
+    "facing=west": {"model": "cspirit:block/christmas_lights_multicolor", "y": 270},
+    "facing=east": {"model": "cspirit:block/christmas_lights_multicolor", "y": 90}
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {"item": "minecraft:white_stained_glass"},
+    {"item": "minecraft:torch"}
+  ],
+  "result": {
+    "item": "cspirit:christmas_light_white",
+    "count": 4
+  }
+}

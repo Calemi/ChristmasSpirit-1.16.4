@@ -1,0 +1,7 @@
+{
+	"parent": "cspirit:block/christmas_lights_multicolor",
+	"textures": {
+		"0": "cspirit:models/christmas_lights_white_flickering",
+		"particle": "cspirit:models/christmas_lights_white_flickering"
+	}
+}

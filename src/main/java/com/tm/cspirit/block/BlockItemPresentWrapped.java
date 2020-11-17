@@ -23,7 +23,7 @@ import java.util.List;
 public class BlockItemPresentWrapped extends BlockItemBase {
 
     public BlockItemPresentWrapped(Block block) {
-        super(block, ChristmasSpirit.TAB_MAIN);
+        super(block);
     }
 
     @Override

@@ -14,8 +14,6 @@ public class CSTabBaking extends ItemGroup {
 
     @Override
     public ItemStack createIcon () {
-        ItemStack stack = new ItemStack(InitItems.SUGAR_COOKIE_CIRCLE.get());
-        stack.setDamage(14);
-        return stack;
+        return new ItemStack(InitItems.SUGAR_COOKIE_CIRCLE.get());
     }
 }

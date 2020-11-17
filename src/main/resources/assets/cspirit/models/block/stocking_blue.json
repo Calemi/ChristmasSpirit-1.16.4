@@ -1,0 +1,8 @@
+{
+
+  "parent": "cspirit:block/stocking_red",
+  "textures": {
+    "1": "cspirit:models/stocking_blue",
+	"particle": "cspirit:models/stocking_blue"
+  }
+}
