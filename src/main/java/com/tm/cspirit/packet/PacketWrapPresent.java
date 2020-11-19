@@ -3,8 +3,11 @@ package com.tm.cspirit.packet;
 import com.tm.cspirit.init.InitSounds;
 import com.tm.cspirit.present.PresentConstructor;
 import com.tm.cspirit.util.Location;
+import com.tm.cspirit.util.helper.SoundHelper;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.network.PacketBuffer;
+import net.minecraft.network.play.server.SPlaySoundPacket;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.fml.network.NetworkEvent;
 
@@ -43,7 +46,7 @@ public class PacketWrapPresent {
             if (player != null) {
                 Location location = new Location(player.world, pos);
                 constructor.toBlock(location);
-                player.playSound(InitSounds.PRESENT_WRAP.get(), 1, 1);
+                SoundHelper.sendSoundToClient(player, InitSounds.PRESENT_WRAP.get());
             }
         });
 

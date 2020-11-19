@@ -4,7 +4,6 @@ import com.tm.cspirit.data.NaughtyListFile;
 import com.tm.cspirit.init.InitEffects;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.util.SoundEvents;
@@ -13,31 +12,20 @@ import net.minecraft.util.text.TextFormatting;
 public class EffectHelper {
 
     public static void giveFrozenEffect(LivingEntity entity, int seconds) {
-
         entity.addPotionEffect(new EffectInstance(InitEffects.FROZEN.get(), seconds * 20));
-
-        if (!entity.world.isRemote) {
-            if (entity instanceof PlayerEntity) SoundHelper.sendSoundToClient((ServerPlayerEntity) entity, SoundEvents.ENTITY_ZOMBIE_VILLAGER_CURE);
-        }
-
-        else entity.playSound(SoundEvents.ENTITY_ZOMBIE_VILLAGER_CURE, 0.7F, 1);
+        entity.playSound(SoundEvents.ENTITY_ZOMBIE_VILLAGER_CURE, 1, 1);
     }
 
     public static void giveHolidaySpiritStackEffect(PlayerEntity player, int maxStackSize) {
-        giveHolidaySpiritStackEffect(player, maxStackSize, 60 * 5);
-    }
 
-    public static void giveHolidaySpiritStackEffect(PlayerEntity player, int maxStackSize, int seconds) {
-
-        if (player.getActivePotionEffect(InitEffects.NAUGHTY.get()) == null && !NaughtyListFile.isOnNaughtyList(player)) {
-            stackEffect(player, InitEffects.HOLIDAY_SPIRIT.get(), seconds, maxStackSize);
+        if (player.getActivePotionEffect(InitEffects.NAUGHTY.get()) == null) {
+            stackEffect(player, InitEffects.HOLIDAY_SPIRIT.get(), 5, maxStackSize);
         }
     }
 
-
     public static void giveNaughtyStackEffect(PlayerEntity player) {
         player.removePotionEffect(InitEffects.HOLIDAY_SPIRIT.get());
-        stackEffect(player, InitEffects.NAUGHTY.get(), 30 * 60, 5);
+        stackEffect(player, InitEffects.NAUGHTY.get(), 30, 5);
 
         if (!NaughtyListFile.isOnNaughtyList(player)) {
 
@@ -58,7 +46,7 @@ public class EffectHelper {
         }
     }
 
-    public static void stackEffect(PlayerEntity player, Effect effect, int seconds, int maxStackSize) {
+    public static void stackEffect(PlayerEntity player, Effect effect, int minutes, int maxStackSize) {
 
         int spiritStack = 0;
 
@@ -67,9 +55,9 @@ public class EffectHelper {
         }
 
         if (spiritStack < maxStackSize) {
-            player.addPotionEffect(new EffectInstance(effect, 20 * seconds, spiritStack));
+            player.addPotionEffect(new EffectInstance(effect, 20 * 60 * minutes, spiritStack));
         }
 
-        else player.addPotionEffect(new EffectInstance(effect, 20 * seconds, maxStackSize - 1));
+        else player.addPotionEffect(new EffectInstance(effect, 20 * 60 * minutes, maxStackSize - 1));
     }
 }

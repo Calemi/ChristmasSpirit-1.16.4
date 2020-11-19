@@ -13,21 +13,23 @@ public class SpriteCranberryEvent {
     @SubscribeEvent
     public void theAnswerIsClear(PlayerEvent.ItemPickupEvent event) {
 
-        if (event.getStack().getItem() == InitItems.SODA_SPRITE_CRANBERRY.get()) {
+        if (!event.getEntity().getEntityWorld().isRemote && event.getEntity() instanceof ServerPlayerEntity) {
 
-            if (!event.getEntityLiving().getEntityWorld().isRemote) SoundHelper.sendSoundToClient((ServerPlayerEntity) event.getPlayer(), InitSounds.THE_ANSWER_IS_CLEAR.get());
-            event.getPlayer().playSound(InitSounds.THE_ANSWER_IS_CLEAR.get(), 1, 1);
+            if (event.getStack().getItem() == InitItems.SODA_SPRITE_CRANBERRY.get()) {
+                SoundHelper.sendSoundToClient((ServerPlayerEntity)event.getEntity(), InitSounds.THE_ANSWER_IS_CLEAR.get());
+            }
         }
     }
 
     @SubscribeEvent
     public void wannaSpriteCranberry(ItemTossEvent event) {
 
-        if (!event.getEntity().getEntityWorld().isRemote) {
+        if (!event.getEntity().getEntityWorld().isRemote && event.getPlayer() instanceof ServerPlayerEntity) {
 
             if (event.getEntityItem().getItem().getItem() == InitItems.SODA_SPRITE_CRANBERRY.get()) {
-                event.getEntity().playSound(InitSounds.WANNA_SPRITE_CRANBERRY.get(), 1, 1);
+                SoundHelper.sendSoundToClient((ServerPlayerEntity)event.getPlayer(), InitSounds.WANNA_SPRITE_CRANBERRY.get());
             }
+
         }
     }
 }
