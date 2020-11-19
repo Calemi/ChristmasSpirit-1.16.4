@@ -1,7 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"1": "cspirit:models/cookie_tray"
+		"1": "cspirit:models/cookie_tray",
+		"particle": "cspirit:models/cookie_tray"
 	},
 	"elements": [
 		{

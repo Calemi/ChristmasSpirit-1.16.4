@@ -1,7 +1,6 @@
 package com.tm.cspirit.main;
 
-import com.tm.cspirit.client.render.RenderCookieTray;
-import com.tm.cspirit.client.render.RenderJackFrost;
+import com.tm.cspirit.client.render.*;
 import com.tm.cspirit.command.CSCommandBase;
 import com.tm.cspirit.data.DailyPresentDataFile;
 import com.tm.cspirit.data.NaughtyListFile;
@@ -9,6 +8,7 @@ import com.tm.cspirit.data.SantaGiftListFile;
 import com.tm.cspirit.entity.EntityJackFrost;
 import com.tm.cspirit.client.gui.ScreenCookieTray;
 import com.tm.cspirit.client.gui.ScreenPresentUnwrapped;
+import com.tm.cspirit.entity.data.CSDataSerializers;
 import com.tm.cspirit.init.*;
 import com.tm.cspirit.packet.PacketWrapPresent;
 import com.tm.cspirit.tab.CSTabBaking;
@@ -17,6 +17,7 @@ import com.tm.cspirit.tab.CSTabMain;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -57,6 +58,7 @@ public class ChristmasSpirit {
         MOD_EVENT_BUS.addListener(this::onLoadComplete);
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CSConfig.spec, CSReference.CONFIG_DIR + "/ChristmasSpirit.toml");
+        DataSerializers.registerSerializer(CSDataSerializers.ITEMSTACK_ARRAY_4);
         InitSounds.SOUNDS.register(MOD_EVENT_BUS);
         InitEffects.POTION_TYPES.register(MOD_EVENT_BUS);
         InitTileEntityTypes.TILE_ENTITY_TYPES.register(MOD_EVENT_BUS);
@@ -85,6 +87,9 @@ public class ChristmasSpirit {
         ScreenManager.registerFactory(InitContainerTypes.COOKIE_TRAY.get(), ScreenCookieTray::new);
 
         RenderingRegistry.registerEntityRenderingHandler(InitEntityTypes.JACK_FROST.get(), RenderJackFrost::new);
+        RenderingRegistry.registerEntityRenderingHandler(InitEntityTypes.CANDY_CANE_PROJECTILE.get(), RenderCandyCaneProjectile::new);
+        RenderingRegistry.registerEntityRenderingHandler(InitEntityTypes.SLEIGH.get(), RenderSleigh::new);
+        RenderingRegistry.registerEntityRenderingHandler(InitEntityTypes.CHRISTMAS_TREE.get(), RenderChristmasTree::new);
 
         ClientRegistry.bindTileEntityRenderer(InitTileEntityTypes.COOKIE_TRAY.get(), RenderCookieTray::new);
     }

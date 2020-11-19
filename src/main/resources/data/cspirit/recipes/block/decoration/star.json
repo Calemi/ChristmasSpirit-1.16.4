@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    " G ",
+    "GGG",
+    "G G"
+  ],
+  "key":
+  {
+    "G":
+    {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result":
+  {
+    "item": "cspirit:star",
+    "count": 1
+  }
+}

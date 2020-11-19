@@ -63,23 +63,16 @@ public class BlockFruitCake extends CakeBlock {
 
     private ActionResultType eatSlice(IWorld world, BlockPos pos, BlockState state, PlayerEntity player) {
 
-        if (!player.canEat(false)) {
-            return ActionResultType.PASS;
-        }
+        player.addStat(Stats.EAT_CAKE_SLICE);
+        if (player.canEat(false)) player.getFoodStats().addStats(4, 0.3F);
+        EffectHelper.giveHolidaySpiritStackEffect(player, 3);
 
-        else {
-            player.addStat(Stats.EAT_CAKE_SLICE);
-            player.getFoodStats().addStats(4, 0.5F);
-            EffectHelper.giveHolidaySpiritStackEffect(player, 3);
-            int i = state.get(BITES);
-            if (i < 6) {
-                world.setBlockState(pos, state.with(BITES, i + 1), 3);
-            } else {
-                world.removeBlock(pos, false);
-            }
+        int i = state.get(BITES);
 
-            return ActionResultType.SUCCESS;
-        }
+        if (i < 6) world.setBlockState(pos, state.with(BITES, i + 1), 3);
+        else world.removeBlock(pos, false);
+
+        return ActionResultType.SUCCESS;
     }
 
     @Override

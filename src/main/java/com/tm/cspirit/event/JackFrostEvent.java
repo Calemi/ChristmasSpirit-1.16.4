@@ -33,7 +33,7 @@ public class JackFrostEvent {
 
                         Random random = new Random();
 
-                        if (random.nextInt(2) == 0) {
+                        if (random.nextInt(5) == 0) {
 
                             canSpawn = false;
 
