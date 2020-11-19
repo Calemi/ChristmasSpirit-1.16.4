@@ -1,6 +1,5 @@
 package com.tm.cspirit.tileentity.base;
 
-import com.tm.cspirit.util.UnitChatMessage;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -26,11 +25,6 @@ public abstract class TileEntityInventoryBase extends TileEntityBase implements 
         super(tileEntityType);
 
         this.inventory = new CSItemHandler(getSizeInventory());
-    }
-
-    @Override
-    public UnitChatMessage getUnitName(PlayerEntity player) {
-        return new UnitChatMessage(getDisplayName().getString(), player);
     }
 
     public abstract int getSizeInventory();

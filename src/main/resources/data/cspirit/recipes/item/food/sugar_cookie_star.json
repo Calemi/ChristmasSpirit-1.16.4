@@ -3,7 +3,7 @@
   "ingredients": [
     {"item": "cspirit:icing"},
     {"item": "cspirit:sugar_cookie_sheet"},
-    {"item": "cspirit:cookie_cutter_star"}
+    {"item": "cspirit:cookie_cutter_snowman"}
   ],
   "result": {
     "item": "cspirit:sugar_cookie_star",

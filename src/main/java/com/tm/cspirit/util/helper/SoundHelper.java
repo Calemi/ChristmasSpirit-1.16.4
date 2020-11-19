@@ -8,9 +8,6 @@ import net.minecraft.util.SoundEvent;
 public class SoundHelper {
 
     public static void sendSoundToClient(ServerPlayerEntity player, SoundEvent sound) {
-
-        if (sound.getRegistryName() != null) {
-            player.connection.sendPacket(new SPlaySoundPacket(sound.getRegistryName(), SoundCategory.AMBIENT, player.getPositionVec(), 1, 1));
-        }
+        player.connection.sendPacket(new SPlaySoundPacket(sound.getName(), SoundCategory.AMBIENT, player.getPositionVec(), 1, 1));
     }
 }

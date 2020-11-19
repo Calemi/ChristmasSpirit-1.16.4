@@ -1,6 +1,0 @@
-{
-	"parent": "cspirit:item/ornament_red",
-	"textures": {
-		"0": "cspirit:models/ornament_green"
-	}
-}
