@@ -19,13 +19,11 @@ public abstract class TileEntityBase extends TileEntity implements ITickableTile
         super(tileEntityType);
     }
 
+    public abstract UnitChatMessage getUnitName (PlayerEntity player);
+
     @Override
     public void tick () {
 
-    }
-
-    public UnitChatMessage getUnitName (PlayerEntity player) {
-        return new UnitChatMessage(getLocation().getBlock().getTranslatedName().getString(), player);
     }
 
     public Location getLocation () {

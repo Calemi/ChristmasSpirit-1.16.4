@@ -7,11 +7,10 @@ import com.tm.cspirit.tileentity.TileEntityPresentWrapped;
 import com.tm.cspirit.util.Location;
 import com.tm.cspirit.util.helper.ItemHelper;
 import com.tm.cspirit.util.helper.PresentHelper;
-import com.tm.cspirit.util.helper.SoundHelper;
 import com.tm.cspirit.util.helper.TimeHelper;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.item.ItemStack;
@@ -22,11 +21,17 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.math.shapes.ISelectionContext;
+import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
+import java.util.Optional;
+
 public class BlockPresentWrapped extends BlockPresentUnwrapped {
+
+    public static final VoxelShape SHAPE = Optional.of(Block.makeCuboidShape(1, 0, 1, 15, 13, 15)).get();
 
     @Override
     public TileEntity createNewTileEntity(IBlockReader worldIn) {
@@ -105,7 +110,7 @@ public class BlockPresentWrapped extends BlockPresentUnwrapped {
                         ItemHelper.spawnStack(world, pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F, stack);
                         location.setBlockToAir();
 
-                        SoundHelper.sendSoundToClient((ServerPlayerEntity)player, InitSounds.PRESENT_UNWRAP.get());
+                        player.playSound(InitSounds.PRESENT_UNWRAP.get(), 1, 1);
                     }
 
                     else {
@@ -121,5 +126,15 @@ public class BlockPresentWrapped extends BlockPresentUnwrapped {
         }
 
         return ActionResultType.SUCCESS;
+    }
+
+    @Override
+    public VoxelShape getShape (BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context){
+        return SHAPE;
+    }
+
+    @Override
+    public VoxelShape getCollisionShape (BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
+        return SHAPE;
     }
 }

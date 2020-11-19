@@ -4,7 +4,10 @@ import com.tm.cspirit.init.InitContainerTypes;
 import com.tm.cspirit.inventory.base.ContainerBase;
 import com.tm.cspirit.inventory.base.SlotLimitedStack;
 import com.tm.cspirit.tileentity.TileEntityCookieTray;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.container.ClickType;
+import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
 
 public class ContainerCookieTray extends ContainerBase {
@@ -18,5 +21,12 @@ public class ContainerCookieTray extends ContainerBase {
         this.addSlot(new SlotLimitedStack(tileEntity.getInventory(), 0, 62, 18, 3));
         this.addSlot(new SlotLimitedStack(tileEntity.getInventory(), 1, 80, 18, 3));
         this.addSlot(new SlotLimitedStack(tileEntity.getInventory(), 2, 98, 18, 3));
+    }
+
+    @Override
+    public ItemStack slotClick(int slotId, int dragType, ClickType clickTypeIn, PlayerEntity player) {
+        ItemStack stack = super.slotClick(slotId, dragType, clickTypeIn, player);
+        tileEntity.markForUpdate();
+        return stack;
     }
 }
