@@ -1,6 +1,5 @@
 package com.tm.cspirit.item.base;
 
-import com.tm.cspirit.init.InitEffects;
 import com.tm.cspirit.main.ChristmasSpirit;
 import com.tm.cspirit.util.helper.EffectHelper;
 import net.minecraft.client.util.ITooltipFlag;
@@ -10,7 +9,6 @@ import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.UseAction;
-import net.minecraft.potion.EffectInstance;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
