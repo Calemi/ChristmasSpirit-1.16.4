@@ -101,7 +101,7 @@ public class ScreenPresentUnwrapped extends ContainerScreenBase<ContainerPresent
 
     @Override
     protected void drawGuiForeground(MatrixStack matrixStack, int mouseX, int mouseY) {
-
+        if (minecraft != null) minecraft.fontRenderer.drawString(matrixStack, "To:", getScreenX() + 24, getScreenY() + 49, TEXT_COLOR_GRAY);
     }
 
     @Override

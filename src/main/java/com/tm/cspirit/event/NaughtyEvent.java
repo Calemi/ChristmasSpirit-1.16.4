@@ -7,6 +7,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.merchant.villager.VillagerEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.CatEntity;
+import net.minecraft.entity.passive.FoxEntity;
 import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.entity.passive.horse.HorseEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -28,13 +29,14 @@ public class NaughtyEvent {
 
             boolean killedPlayer = killedEntity instanceof PlayerEntity;
             boolean killedWolf = killedEntity instanceof WolfEntity;
+            boolean killedFox = killedEntity instanceof FoxEntity;
             boolean killedCat = killedEntity instanceof CatEntity;
             boolean killedHorse = killedEntity instanceof HorseEntity;
             boolean killedVillager = killedEntity instanceof VillagerEntity;
             boolean killedBaby = killedEntity instanceof AnimalEntity && killedEntity.isChild();
             boolean killedNamedAnimal = killedEntity instanceof AnimalEntity && killedEntity.hasCustomName();
 
-            if (killedPlayer || killedWolf || killedCat || killedHorse || killedVillager || killedBaby || killedNamedAnimal) {
+            if (killedPlayer || killedWolf || killedFox || killedCat || killedHorse || killedVillager || killedBaby || killedNamedAnimal) {
                 EffectHelper.giveNaughtyStackEffect(killer);
             }
         }

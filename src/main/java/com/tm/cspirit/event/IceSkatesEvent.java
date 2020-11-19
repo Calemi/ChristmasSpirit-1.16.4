@@ -2,14 +2,15 @@ package com.tm.cspirit.event;
 
 import com.tm.cspirit.init.InitItems;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.MoverType;
+import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+
+import java.util.Objects;
 
 public class IceSkatesEvent {
 
@@ -21,7 +22,7 @@ public class IceSkatesEvent {
 
         ItemStack bootsStack = entity.getItemStackFromSlot(EquipmentSlotType.FEET);
 
-        if (!entity.isCrouching()) {
+        if (!entity.isCrouching() && !entity.isPassenger()) {
 
             if (bootsStack.getItem() == InitItems.ICE_SKATES.get()) {
 
@@ -30,17 +31,12 @@ public class IceSkatesEvent {
                 double slipperiness = world.getBlockState(pos).getSlipperiness(world, pos, entity);
 
                 if (slipperiness > 0.7D) {
-
-                    float movementMultiplier = 2;
-
-                    if (entity.isSprinting()) {
-                        movementMultiplier = 4;
-                    }
-
-                    Vector3d movement = new Vector3d(entity.getMotion().x * movementMultiplier, entity.getMotion().y, entity.getMotion().z * movementMultiplier);
-                    entity.move(MoverType.SELF, movement);
+                    Objects.requireNonNull(entity.getAttribute(Attributes.MOVEMENT_SPEED)).setBaseValue(entity.isSprinting() ? 0.4F : 0.2F);
+                    return;
                 }
             }
         }
+
+        Objects.requireNonNull(entity.getAttribute(Attributes.MOVEMENT_SPEED)).setBaseValue(0.1F);
     }
 }

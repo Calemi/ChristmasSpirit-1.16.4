@@ -23,7 +23,7 @@ public class BlockChristmasLights extends BlockBase {
     public static final VoxelShape SHAPE_W = Optional.of(Block.makeCuboidShape(0, 4, 16, 2, 12, 0)).get();
 
     public BlockChristmasLights() {
-        super(Properties.create(Material.IRON).hardnessAndResistance(0).sound(SoundType.LANTERN).notSolid().variableOpacity().doesNotBlockMovement().setLightLevel((state) -> 10));
+        super(Properties.create(Material.IRON).hardnessAndResistance(0.5F).sound(SoundType.LANTERN).notSolid().variableOpacity().doesNotBlockMovement().setLightLevel((state) -> 10));
         setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
     }
 

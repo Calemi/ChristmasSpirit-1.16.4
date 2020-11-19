@@ -20,11 +20,6 @@ public class TileEntityCookieTray extends TileEntityInventoryBase {
     }
 
     @Override
-    public void tick () {
-
-    }
-
-    @Override
     public int getSizeInventory () {
         return 3;
     }
