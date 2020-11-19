@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": {"model": "cspirit:block/star"},
-    "facing=south": {"model": "cspirit:block/star", "y": 180},
-    "facing=west": {"model": "cspirit:block/star", "y": 270},
-    "facing=east": {"model": "cspirit:block/star", "y": 90}
-  }
-}

@@ -9,7 +9,6 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
@@ -22,8 +21,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
 import java.util.List;
-import java.util.Objects;
-import java.util.Random;
 import java.util.UUID;
 
 public class EntityJackFrost extends CreatureEntity implements IAngerable {
@@ -48,8 +45,8 @@ public class EntityJackFrost extends CreatureEntity implements IAngerable {
 
     public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
         return MobEntity.func_233666_p_()
-                .createMutableAttribute(Attributes.MAX_HEALTH, 60D)
-                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 1)
+                .createMutableAttribute(Attributes.MAX_HEALTH, 40D)
+                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.5D)
                 .createMutableAttribute(Attributes.ATTACK_DAMAGE, 5);
     }
 
@@ -69,13 +66,22 @@ public class EntityJackFrost extends CreatureEntity implements IAngerable {
         super.livingTick();
 
         if (world.isDaytime()) addPotionEffect(new EffectInstance(Effects.LEVITATION, 20, 4));
-        else {
-            addPotionEffect(new EffectInstance(Effects.SLOW_FALLING, 20));
-            addPotionEffect(new EffectInstance(Effects.GLOWING, 20));
-        }
+        else addPotionEffect(new EffectInstance(Effects.SLOW_FALLING, 20));
 
         if (getPosY() > 300) {
             remove();
+        }
+
+        if (getItemStackFromSlot(EquipmentSlotType.OFFHAND).getItem() == InitItems.LUMP_OF_COAL.get()) {
+
+            if (this.tradeCooldown > 0) {
+                --this.tradeCooldown;
+            }
+
+            else {
+                setItemStackToSlot(EquipmentSlotType.OFFHAND, ItemStack.EMPTY);
+                ItemHelper.spawnStackAtEntity(world, this, new ItemStack(InitItems.FROST_INGOT.get()));
+            }
         }
 
         if (this.attackTimer > 0) {
@@ -86,24 +92,15 @@ public class EntityJackFrost extends CreatureEntity implements IAngerable {
             this.func_241359_a_((ServerWorld)this.world, true);
         }
 
-        if (!world.isRemote) {
+        int radius = 20;
 
-            if (getAngerTarget() != null && world.getPlayerByUuid(getAngerTarget()) != null) {
-                if (NaughtyListFile.isOnNaughtyList(Objects.requireNonNull(world.getPlayerByUuid(getAngerTarget())))) {
-                    setAngerTarget(null);
-                }
-            }
+        List<PlayerEntity> closePlayers = world.getEntitiesWithinAABB(PlayerEntity.class, new AxisAlignedBB(getPosition().getX() - radius, getPosition().getY() - radius, getPosition().getZ() - radius, getPosition().getX() + radius, getPosition().getY() + radius, getPosition().getZ() + radius));
 
-            int radius = 30;
+        for (PlayerEntity player : closePlayers) {
 
-            List<PlayerEntity> closePlayers = world.getEntitiesWithinAABB(PlayerEntity.class, new AxisAlignedBB(getPosition().getX() - radius, getPosition().getY() - radius, getPosition().getZ() - radius, getPosition().getX() + radius, getPosition().getY() + radius, getPosition().getZ() + radius));
-
-            for (PlayerEntity player : closePlayers) {
-
-                if (!NaughtyListFile.isOnNaughtyList(player)) {
-                    setAngerTarget(player.getUniqueID());
-                    break;
-                }
+            if (!NaughtyListFile.isOnNaughtyList(player)) {
+                setAngerTarget(player.getUniqueID());
+                break;
             }
         }
     }
@@ -111,31 +108,22 @@ public class EntityJackFrost extends CreatureEntity implements IAngerable {
     @Override
     protected ActionResultType func_230254_b_(PlayerEntity player, Hand hand) {
 
-        if (!world.isRemote) {
+        if (NaughtyListFile.isOnNaughtyList(player)) {
 
-            if (hand == Hand.OFF_HAND) {
-                return ActionResultType.FAIL;
-            }
+            if (getItemStackFromSlot(EquipmentSlotType.OFFHAND).isEmpty()) {
 
-            if (NaughtyListFile.isOnNaughtyList(player)) {
+                ItemStack heldStack = player.getHeldItemMainhand();
 
-                if (getItemStackFromSlot(EquipmentSlotType.OFFHAND).isEmpty()) {
+                if (heldStack.getItem() == InitItems.LUMP_OF_COAL.get()) {
 
-                    ItemStack heldStack = player.getHeldItemMainhand();
+                    if (heldStack.getCount() >= 5) {
 
-                    if (heldStack.getItem() == InitItems.LUMP_OF_COAL.get()) {
+                        heldStack.shrink(5);
 
-                        if (heldStack.getCount() >= 5) {
+                        setItemStackToSlot(EquipmentSlotType.OFFHAND, new ItemStack(InitItems.LUMP_OF_COAL.get()));
+                        tradeCooldown = 60;
 
-                            Random random = new Random();
-
-                            heldStack.shrink(5);
-                            ItemEntity itemEntity = ItemHelper.spawnStack(world, (float)getPosX(), (float)getPosY(), (float)getPosZ(), new ItemStack(InitItems.FROST_INGOT.get()));
-
-                            itemEntity.setMotion(2 - random.nextDouble() * 4, 0.5D, 2 - random.nextDouble() * 4);
-
-                            return ActionResultType.SUCCESS;
-                        }
+                        return ActionResultType.SUCCESS;
                     }
                 }
             }

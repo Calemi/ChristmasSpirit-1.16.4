@@ -96,10 +96,6 @@
 
   "_comment" : "OTHER",
 
-  "item.cspirit.sleigh": "Sleigh",
-  "item.cspirit.christmas_tree": "Christmas Tree",
-  "item.cspirit.christmas_tree_white": "White Christmas Tree",
-
   "_comment" : "-----NAUGHTY ITEMS------",
   "item.cspirit.lump_of_coal": "Lump of Coal",
 
@@ -111,8 +107,6 @@
 
   "item.cspirit.frostmourne": "Frostmourne",
 
-  "item.cspirit.candy_cane_cannon": "Candy Cane Cannon",
-
   "_comment" : "-----BLOCKS------",
 
   "block.cspirit.fruitcake": "Fruitcake",
@@ -123,16 +117,22 @@
   "block.cspirit.present_wrapped_green": "Green Present",
   "block.cspirit.present_wrapped_blue": "Blue Present",
 
-  "_comment" : "CROPS",
+  "block.cspirit.stocking_red": "Red Stocking",
+  "block.cspirit.stocking_green": "Green Stocking",
+  "block.cspirit.stocking_blue": "Blue Stocking",
 
+  "_comment" : "CROPS",
   "block.cspirit.ginger": "Ginger Root",
   "block.cspirit.peppermint": "Peppermint Seeds",
 
   "_comment" : "DECORATIONS",
-
-  "block.cspirit.snowy_path": "Snowy Path",
-  "block.cspirit.frosted_glass": "Frosted Glass",
-  "block.cspirit.frosted_glass_pane": "Frosted Glass Pane",
+  "block.cspirit.christmas_lights_multicolor": "Multicolor Christmas Lights",
+  "block.cspirit.christmas_lights_multicolor_flickering": "Flickering Multicolor Christmas Lights",
+  "block.cspirit.christmas_lights_white": "White Christmas Lights",
+  "block.cspirit.christmas_lights_white_flickering": "Flickering White Christmas Lights",
+  "block.cspirit.christmas_lights_red": "Red Christmas Lights",
+  "block.cspirit.christmas_lights_green": "Green Christmas Lights",
+  "block.cspirit.christmas_lights_blue": "Blue Christmas Lights",
 
   "block.cspirit.candy_cane_block_red": "Red Candy Cane Block",
   "block.cspirit.candy_cane_block_green": "Green Candy Cane Block",
@@ -142,32 +142,16 @@
   "block.cspirit.candy_cane_brick_green": "Green Candy Cane Brick",
   "block.cspirit.candy_cane_brick_blue": "Blue Candy Cane Brick",
 
-  "block.cspirit.christmas_lights_multicolor": "Multicolor Christmas Lights",
-  "block.cspirit.christmas_lights_multicolor_flickering": "Flickering Multicolor Christmas Lights",
-  "block.cspirit.christmas_lights_white": "White Christmas Lights",
-  "block.cspirit.christmas_lights_white_flickering": "Flickering White Christmas Lights",
-  "block.cspirit.christmas_lights_red": "Red Christmas Lights",
-  "block.cspirit.christmas_lights_green": "Green Christmas Lights",
-  "block.cspirit.christmas_lights_blue": "Blue Christmas Lights",
-
-  "block.cspirit.ornament_red": "Red Ornament",
-  "block.cspirit.ornament_green": "Green Ornament",
-  "block.cspirit.ornament_blue": "Blue Ornament",
-
-  "block.cspirit.star": "Star",
-
-  "block.cspirit.stocking_red": "Red Stocking",
-  "block.cspirit.stocking_green": "Green Stocking",
-  "block.cspirit.stocking_blue": "Blue Stocking",
-
+  "block.cspirit.cookie_tray": "Cookie Tray",
+  "block.cspirit.snow_globe": "Snow Globe",
+  "block.cspirit.reef": "Garland",
+  "block.cspirit.garland": "Garland",
+  "block.cspirit.gingerbread_house": "Gingerbread House",
+  "block.cspirit.mistletoe": "Mistletoe",
   "block.cspirit.chimney": "Chimney",
   "block.cspirit.icicles": "Icicles",
-  "block.cspirit.snow_globe": "Snow Globe",
-  "block.cspirit.gingerbread_house": "Gingerbread House",
-  "block.cspirit.cookie_tray": "Cookie Tray",
-  "block.cspirit.reef": "Reef",
-  "block.cspirit.garland": "Garland",
-  "block.cspirit.mistletoe": "Mistletoe",
+  "block.cspirit.frosted_glass": "Frosted Glass",
+  "block.cspirit.frosted_glass_pane": "Frosted Glass Pane",
 
   "_comment" : "-----CREATIVE TABS------",
 
@@ -187,6 +171,5 @@
   "disc.sub": "Insert Christmas Disc",
 
   "_comment" : "-----ENTITIES------",
-
   "entity.cspirit.jack_frost" : "Jack Frost"
 }

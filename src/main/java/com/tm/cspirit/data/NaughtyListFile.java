@@ -28,13 +28,10 @@ public class NaughtyListFile {
 
     public static boolean isOnNaughtyList(PlayerEntity player) {
 
-        if (!player.world.isRemote) {
+        for (UUID playerID : naughtyList) {
 
-            for (UUID playerID : naughtyList) {
-
-                if (player.getUniqueID().equals(playerID)) {
-                    return true;
-                }
+            if (player.getUniqueID().equals(playerID)) {
+                return true;
             }
         }
 

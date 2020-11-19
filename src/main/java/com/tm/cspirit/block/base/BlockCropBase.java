@@ -21,13 +21,13 @@ public class BlockCropBase extends CropsBlock {
 
     private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[]{
             Block.makeCuboidShape(0, 0, 0, 16, 2, 16),
-            Block.makeCuboidShape(0, 0, 0, 16, 2, 16),
             Block.makeCuboidShape(0, 0, 0, 16, 4, 16),
-            Block.makeCuboidShape(0, 0, 0, 16, 4, 16),
-            Block.makeCuboidShape(0, 0, 0, 16, 6, 16),
             Block.makeCuboidShape(0, 0, 0, 16, 6, 16),
             Block.makeCuboidShape(0, 0, 0, 16, 8, 16),
-            Block.makeCuboidShape(0, 0, 0, 16, 8, 16)};
+            Block.makeCuboidShape(0, 0, 0, 16, 1, 16),
+            Block.makeCuboidShape(0, 0, 0, 16, 1, 16),
+            Block.makeCuboidShape(0, 0, 0, 16, 1, 16),
+            Block.makeCuboidShape(0, 0, 0, 16, 1, 16)};
 
     private final Supplier<Item> cropItem;
 

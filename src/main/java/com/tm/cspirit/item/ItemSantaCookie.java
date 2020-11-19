@@ -44,7 +44,7 @@ public class ItemSantaCookie extends ItemFoodBase {
             if (NaughtyListFile.isOnNaughtyList(player)) {
 
                 NaughtyListFile.removeFromNaughtyList(player);
-                ChatHelper.printModMessage(TextFormatting.GREEN,"You've been removed from the Naughty List!", player);
+                ChatHelper.printModMessage(TextFormatting.GREEN,"You've been removed from the naughty list!", player);
             }
         }
 
