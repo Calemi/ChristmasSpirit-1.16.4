@@ -7,10 +7,12 @@ import com.tm.cspirit.tileentity.TileEntityPresentWrapped;
 import com.tm.cspirit.util.Location;
 import com.tm.cspirit.util.helper.ItemHelper;
 import com.tm.cspirit.util.helper.PresentHelper;
+import com.tm.cspirit.util.helper.SoundHelper;
 import com.tm.cspirit.util.helper.TimeHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.item.ItemStack;
@@ -111,6 +113,7 @@ public class BlockPresentWrapped extends BlockPresentUnwrapped {
                         location.setBlockToAir();
 
                         player.playSound(InitSounds.PRESENT_UNWRAP.get(), 1, 1);
+                        SoundHelper.sendSoundToClient((ServerPlayerEntity) player, InitSounds.PRESENT_UNWRAP.get());
                     }
 
                     else {

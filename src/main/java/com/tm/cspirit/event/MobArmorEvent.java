@@ -48,7 +48,7 @@ public class MobArmorEvent {
                         mob.setItemStackToSlot(EquipmentSlotType.FEET, new ItemStack(boots));
 
                         ItemStack giftStack = new ItemStack(InitItems.PRESENT_WRAPPED_RED.get());
-                        PresentHelper.getSantaPresent("Anybody").toStack(giftStack);
+                        PresentHelper.getSantaPresent("Anybody", 1).toStack(giftStack);
 
                         mob.setItemStackToSlot(EquipmentSlotType.OFFHAND, giftStack);
 

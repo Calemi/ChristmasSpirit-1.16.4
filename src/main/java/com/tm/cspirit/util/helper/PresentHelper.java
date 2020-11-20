@@ -25,7 +25,7 @@ public class PresentHelper {
     public static void giveSantaPresent(ServerPlayerEntity player, int day) {
 
         World world = player.world;
-        BlockPresentWrapped.spawnPresent(new Location(world, player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ()), getSantaPresent(player.getDisplayName().getString()), ItemStack.EMPTY);
+        BlockPresentWrapped.spawnPresent(new Location(world, player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ()), getSantaPresent(player.getDisplayName().getString(), day), ItemStack.EMPTY);
 
         //Visuals
         FireworkHelper.spawnFirework(player, (byte)1, true, true, DyeColor.RED, DyeColor.GREEN);
@@ -33,9 +33,9 @@ public class PresentHelper {
         ChatHelper.broadcastMessage(world, TextFormatting.GREEN + "" + TextFormatting.BOLD + player.getDisplayName().getString() + " has received their daily present!");
     }
 
-    public static PresentConstructor getSantaPresent(String toPlayerName) {
+    public static PresentConstructor getSantaPresent(String toPlayerName, int day) {
         PresentConstructor constructor = new PresentConstructor();
-        constructor.setDay(TimeHelper.getCurrentDay() - 1);
+        constructor.setDay(day);
         constructor.setFromPlayerName("Santa");
         constructor.setToPlayerName(toPlayerName);
         constructor.setStyleIndex(0);
@@ -77,6 +77,9 @@ public class PresentHelper {
         int fifthRarity = 5 + (spiritEffectStack * 20);
 
         int giftRarityIndex = RandomHelper.getWeightedRandom(firstRarity, secondRarity, thirdRarity, fourthRarity, fifthRarity);
+
+        System.out.println("Stack: " + spiritEffectStack);
+        System.out.println("Rarity: " + giftRarityIndex);
 
         for (SantaGiftListFile.GiftEntry giftEntry : allGiftEntries) {
 

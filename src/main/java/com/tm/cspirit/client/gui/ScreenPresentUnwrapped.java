@@ -4,6 +4,7 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 import com.tm.cspirit.client.gui.base.ButtonRect;
 import com.tm.cspirit.client.gui.base.ContainerScreenBase;
 import com.tm.cspirit.client.gui.base.TextFieldRect;
+import com.tm.cspirit.init.InitSounds;
 import com.tm.cspirit.inventory.ContainerPresentUnwrapped;
 import com.tm.cspirit.main.ChristmasSpirit;
 import com.tm.cspirit.packet.PacketWrapPresent;
@@ -91,6 +92,7 @@ public class ScreenPresentUnwrapped extends ContainerScreenBase<ContainerPresent
             constructor.setFromPlayerName(player.getDisplayName().getString());
             constructor.setToPlayerName(toPlayerNameField.getText());
             ChristmasSpirit.network.sendToServer(new PacketWrapPresent(constructor, present.getPos()));
+            player.playSound(InitSounds.PRESENT_WRAP.get(), 1, 1);
         }
     }
 

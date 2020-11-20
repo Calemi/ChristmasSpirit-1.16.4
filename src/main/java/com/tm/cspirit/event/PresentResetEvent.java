@@ -19,11 +19,7 @@ public class PresentResetEvent {
         ServerPlayerEntity serverPlayer = (ServerPlayerEntity) event.getPlayer();
 
         if (!DailyPresentDataFile.hasReceivedPreset(serverPlayer)) {
-            giveGift(serverPlayer);
+            PresentHelper.giveSantaPresent(serverPlayer, TimeHelper.getCurrentDay() - 1);
         }
-    }
-
-    private void giveGift(ServerPlayerEntity player) {
-        PresentHelper.giveSantaPresent(player, TimeHelper.getCurrentDay());
     }
 }

@@ -29,6 +29,7 @@ public class EntityCandyCaneProjectile extends AbstractArrowEntity {
         super(InitEntityTypes.CANDY_CANE_PROJECTILE.get(), shooter, world);
         dataManager.set(CANDY_TYPE, candyCaneType);
         setDamage(2.5F);
+        ticksExisted -= (20 * 60);
     }
 
     public byte getCandyType() {
@@ -42,20 +43,6 @@ public class EntityCandyCaneProjectile extends AbstractArrowEntity {
         else if (getCandyType() == 2) cane = new ItemStack(InitItems.CANDY_CANE_BLUE.get());
 
         return cane;
-    }
-
-    @Override
-    public void onRemovedFromWorld() {
-        ItemHelper.spawnStackAtEntity(world, this, getCandyCaneStack());
-        super.onRemovedFromWorld();
-    }
-
-    @Override
-    public void onCollideWithPlayer(PlayerEntity entityIn) {
-
-        if (!this.world.isRemote && (this.inGround || this.getNoClip()) && this.arrowShake <= 0) {
-            remove();
-        }
     }
 
     @Override
@@ -83,7 +70,7 @@ public class EntityCandyCaneProjectile extends AbstractArrowEntity {
 
     @Override
     protected ItemStack getArrowStack() {
-        return ItemStack.EMPTY;
+        return getCandyCaneStack();
     }
 
     @Override

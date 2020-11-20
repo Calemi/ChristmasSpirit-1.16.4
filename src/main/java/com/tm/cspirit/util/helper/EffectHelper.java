@@ -14,13 +14,13 @@ public class EffectHelper {
 
     public static void giveFrozenEffect(LivingEntity entity, int seconds) {
 
-        entity.addPotionEffect(new EffectInstance(InitEffects.FROZEN.get(), seconds * 20));
+        entity.addPotionEffect(new EffectInstance(InitEffects.FROZEN.get(), seconds));
 
         if (!entity.world.isRemote) {
             if (entity instanceof PlayerEntity) SoundHelper.sendSoundToClient((ServerPlayerEntity) entity, SoundEvents.ENTITY_ZOMBIE_VILLAGER_CURE);
         }
 
-        else entity.playSound(SoundEvents.ENTITY_ZOMBIE_VILLAGER_CURE, 0.7F, 1);
+        entity.playSound(SoundEvents.ENTITY_ZOMBIE_VILLAGER_CURE, 0.7F, 1);
     }
 
     public static void giveHolidaySpiritStackEffect(PlayerEntity player, int maxStackSize) {
@@ -33,7 +33,6 @@ public class EffectHelper {
             stackEffect(player, InitEffects.HOLIDAY_SPIRIT.get(), seconds, maxStackSize);
         }
     }
-
 
     public static void giveNaughtyStackEffect(PlayerEntity player) {
         player.removePotionEffect(InitEffects.HOLIDAY_SPIRIT.get());
