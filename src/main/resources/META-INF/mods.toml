@@ -5,9 +5,9 @@ license="GNU General Public License v3.0"
 [[mods]]
     modId="cspirit"
     namespace="cspirit"
-    version="1.0.0"
+    version="1.0.1"
     displayName="Christmas Spirit"
-    authors="Calemi, CaptainKray, Kryto627"
+    authors="Calemi, Kryto627, CaptainKray, Jared"
     description='''
     ♫ Deck the mines with boughs of holly! ♫
 

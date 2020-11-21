@@ -17,6 +17,7 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 
 import java.util.List;
@@ -29,11 +30,6 @@ public class ItemCandyCaneCannon extends ItemBase {
 
     public ItemCandyCaneCannon() {
         super(new Properties().group(ChristmasSpirit.TAB_MAIN).maxStackSize(1));
-    }
-
-    @Override
-    public void addInformation(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
-        tooltip.add(new StringTextComponent(TextFormatting.RED + "Naughty Item"));
     }
 
     private boolean isReady(ItemStack stack) {
@@ -133,5 +129,10 @@ public class ItemCandyCaneCannon extends ItemBase {
     @Override
     public int getUseDuration(ItemStack stack) {
         return 72000;
+    }
+
+    @Override
+    public String getTag() {
+        return "naughty";
     }
 }

@@ -188,5 +188,38 @@
 
   "_comment" : "-----ENTITIES------",
 
-  "entity.cspirit.jack_frost" : "Jack Frost"
+  "entity.cspirit.jack_frost" : "Jack Frost",
+
+  "hunger.icon.1"  : "②",
+  "hunger.icon.2"  : "①",
+  "hunger.icon.3"  : "①②",
+  "hunger.icon.4"  : "①①",
+  "hunger.icon.5"  : "①①②",
+  "hunger.icon.6"  : "①①①",
+  "hunger.icon.7"  : "①①①②",
+  "hunger.icon.8"  : "①①①①",
+  "hunger.icon.9"  : "①①①①②",
+  "hunger.icon.10" : "①①①①①",
+  "hunger.icon.11" : "①①①①①②",
+  "hunger.icon.12" : "①①①①①①",
+
+  "saturation.icon.0.1"  : "④",
+  "saturation.icon.0.2"  : "③",
+  "saturation.icon.0.3"  : "③④",
+  "saturation.icon.0.4"  : "③③",
+  "saturation.icon.0.5"  : "③③④",
+  "saturation.icon.0.6"  : "③③③",
+  "saturation.icon.0.7"  : "③③③④",
+  "saturation.icon.0.8"  : "③③③③",
+  "saturation.icon.0.9"  : "③③③③④",
+  "saturation.icon.1.0" : "③③③③③",
+  "saturation.icon.1.1" : "③③③③③④",
+  "saturation.icon.1.2" : "③③③③③③",
+
+  "santa.icon.1" : "⑤ x1",
+  "santa.icon.2" : "⑤ x2",
+  "santa.icon.3" : "⑤ x3",
+  "santa.icon.4" : "⑤ x4",
+  "santa.icon.5" : "⑤ x5",
+  "grinch.icon" : "⑥ Naughty Item"
 }

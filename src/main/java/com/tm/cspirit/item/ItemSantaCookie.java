@@ -19,8 +19,8 @@ import net.minecraft.world.World;
 public class ItemSantaCookie extends ItemFoodBase {
 
     private static final Food SANTA_COOKIE = new Food.Builder()
-            .hunger(40)
-            .saturation(40)
+            .hunger(12)
+            .saturation(1.2F)
             .setAlwaysEdible()
             .effect(() -> new EffectInstance(InitEffects.HOLIDAY_SPIRIT.get(), 400, 4), 1).build();
 

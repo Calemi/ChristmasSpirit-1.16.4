@@ -75,7 +75,7 @@ public class SantaGiftListFile {
         addDefault(ret, "DiscMCChristmas", "cspirit:disc_mcchristmas",                1,  3, 15, 32);
 
         addDefault(ret, "Diamond", "minecraft:diamond",                               16, 4, 0, 15);
-        addDefault(ret, "NetheriteIngot", "minecraft:netherite_ingot",                1,  4, 10, 32);
+        addDefault(ret, "NetheriteIngot", "minecraft:netherite_ingot",                5,  4, 10, 32);
         addDefault(ret, "Elytra", "minecraft:elytra",                                 1,  4, 20, 32);
         addDefault(ret, "Santa Cookie", "cspirit:sugar_cookie_santa",                 1,  4, 0, 32);
 

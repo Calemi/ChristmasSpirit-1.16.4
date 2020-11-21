@@ -2,7 +2,9 @@ package com.tm.cspirit.event;
 
 import com.tm.cspirit.data.NaughtyListFile;
 import com.tm.cspirit.init.InitEffects;
+import com.tm.cspirit.item.base.IItemTag;
 import com.tm.cspirit.util.helper.EffectHelper;
+import com.tm.cspirit.util.helper.ItemHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.merchant.villager.VillagerEntity;
 import net.minecraft.entity.passive.AnimalEntity;
@@ -11,56 +13,80 @@ import net.minecraft.entity.passive.FoxEntity;
 import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.entity.passive.horse.HorseEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.EffectInstance;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
-import net.minecraftforge.event.entity.living.PotionEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+
+import java.util.Random;
 
 public class NaughtyEvent {
 
     @SubscribeEvent
     public void onEntityKill(LivingDeathEvent event) {
 
-        if (event.getSource().getTrueSource() instanceof PlayerEntity) {
+        if (!event.getEntityLiving().world.isRemote) {
 
-            LivingEntity killedEntity = event.getEntityLiving();
-            PlayerEntity killer = (PlayerEntity) event.getSource().getTrueSource();
+            if (event.getSource().getTrueSource() instanceof PlayerEntity) {
 
-            boolean killedPlayer = killedEntity instanceof PlayerEntity;
-            boolean killedWolf = killedEntity instanceof WolfEntity;
-            boolean killedFox = killedEntity instanceof FoxEntity;
-            boolean killedCat = killedEntity instanceof CatEntity;
-            boolean killedHorse = killedEntity instanceof HorseEntity;
-            boolean killedVillager = killedEntity instanceof VillagerEntity;
-            boolean killedBaby = killedEntity instanceof AnimalEntity && killedEntity.isChild();
-            boolean killedNamedAnimal = killedEntity instanceof AnimalEntity && killedEntity.hasCustomName();
+                LivingEntity killedEntity = event.getEntityLiving();
+                PlayerEntity killer = (PlayerEntity) event.getSource().getTrueSource();
 
-            if (killedPlayer || killedWolf || killedFox || killedCat || killedHorse || killedVillager || killedBaby || killedNamedAnimal) {
-                EffectHelper.giveNaughtyStackEffect(killer);
+                boolean killedPlayer = killedEntity instanceof PlayerEntity;
+                boolean killedWolf = killedEntity instanceof WolfEntity;
+                boolean killedFox = killedEntity instanceof FoxEntity;
+                boolean killedCat = killedEntity instanceof CatEntity;
+                boolean killedHorse = killedEntity instanceof HorseEntity;
+                boolean killedVillager = killedEntity instanceof VillagerEntity;
+                boolean killedBaby = killedEntity instanceof AnimalEntity && killedEntity.isChild();
+                boolean killedNamedAnimal = killedEntity instanceof AnimalEntity && killedEntity.hasCustomName();
+
+                if (killedPlayer && NaughtyListFile.isOnNaughtyList((PlayerEntity) killedEntity)) {
+                    killedPlayer = false;
+                }
+
+                if (killedPlayer || killedWolf || killedFox || killedCat || killedHorse || killedVillager || killedBaby || killedNamedAnimal) {
+                    EffectHelper.giveNaughtyStackEffect(killer);
+                }
             }
         }
     }
 
     @SubscribeEvent
-    public void onPotionCured(PotionEvent.PotionRemoveEvent event) {
-        /*if (event.getPotion() == InitEffects.NAUGHTY.get()) {
-            event.setCanceled(true);
-        }*/
-    }
-
-    @SubscribeEvent
     public void onEntityUpdate(LivingEvent.LivingUpdateEvent event) {
 
-        if (event.getEntityLiving().getEntityWorld().getGameTime() % 20 * 60 == 0) {
+        if (!event.getEntityLiving().world.isRemote) {
 
-            if (event.getEntityLiving() instanceof PlayerEntity) {
+            if (event.getEntityLiving().getEntityWorld().getGameTime() % 20 * 60 == 0) {
 
-                PlayerEntity player = (PlayerEntity) event.getEntityLiving();
+                if (event.getEntityLiving() instanceof PlayerEntity) {
 
-                if (NaughtyListFile.isOnNaughtyList(player)) {
+                    PlayerEntity player = (PlayerEntity) event.getEntityLiving();
 
-                    player.addPotionEffect(new EffectInstance(InitEffects.NAUGHTY.get(), 20 * 60 * 10, 0));
+                    if (NaughtyListFile.isOnNaughtyList(player)) {
+                        player.addPotionEffect(new EffectInstance(InitEffects.NAUGHTY.get(), 20 * 60 * 10, 0));
+                    }
+
+                    else {
+
+                        for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
+
+                            ItemStack stackInSlot = player.inventory.getStackInSlot(i);
+
+                            if (stackInSlot.getItem() instanceof IItemTag) {
+
+                                IItemTag tag = (IItemTag) stackInSlot.getItem();
+
+                                if (tag.getTag().equalsIgnoreCase("naughty")) {
+
+                                    Random random = new Random();
+                                    ItemHelper.spawnStack(player.world, player.getPosX(), player.getPosY(), player.getPosZ(), random.nextDouble() - 0.5D, 0.5D, random.nextDouble() - 0.5D, stackInSlot);
+                                    player.inventory.setInventorySlotContents(i, ItemStack.EMPTY);
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

@@ -16,5 +16,6 @@ public class InitEvents {
         MinecraftForge.EVENT_BUS.register(new NaughtyEvent());
         MinecraftForge.EVENT_BUS.register(new FrozenEvent());
         MinecraftForge.EVENT_BUS.register(new JackFrostEvent());
+        MinecraftForge.EVENT_BUS.register(new ItemTooltipOverrideEvent());
     }
 }

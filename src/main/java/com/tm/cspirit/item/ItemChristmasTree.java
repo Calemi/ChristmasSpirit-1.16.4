@@ -1,16 +1,14 @@
 package com.tm.cspirit.item;
 
 import com.tm.cspirit.entity.EntityChristmasTree;
+import com.tm.cspirit.item.base.IItemSpiritSupplier;
 import com.tm.cspirit.item.base.ItemBase;
 import com.tm.cspirit.main.ChristmasSpirit;
-import com.tm.cspirit.util.helper.SoundHelper;
-import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.ItemUseContext;
 import net.minecraft.util.ActionResultType;
-import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 
-public class ItemChristmasTree extends ItemBase {
+public class ItemChristmasTree extends ItemBase implements IItemSpiritSupplier {
 
     private final boolean isWhite;
 
@@ -38,5 +36,10 @@ public class ItemChristmasTree extends ItemBase {
         }
 
         return super.onItemUse(context);
+    }
+
+    @Override
+    public int getMaxStacks() {
+        return 2;
     }
 }

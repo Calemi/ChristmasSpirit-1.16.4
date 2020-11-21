@@ -9,7 +9,6 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
@@ -128,11 +127,9 @@ public class EntityJackFrost extends CreatureEntity implements IAngerable {
                         if (heldStack.getCount() >= 5) {
 
                             Random random = new Random();
+                            ItemHelper.spawnStack(world, getPosX(), getPosY(), getPosZ(), (random.nextDouble() / 2) - 0.25D, 0.2D, (random.nextDouble() / 2) - 0.25D, new ItemStack(InitItems.FROST_INGOT.get()));
 
                             heldStack.shrink(5);
-                            ItemEntity itemEntity = ItemHelper.spawnStack(world, (float)getPosX(), (float)getPosY(), (float)getPosZ(), new ItemStack(InitItems.FROST_INGOT.get()));
-
-                            itemEntity.setMotion(2 - random.nextDouble() * 4, 0.5D, 2 - random.nextDouble() * 4);
 
                             return ActionResultType.SUCCESS;
                         }

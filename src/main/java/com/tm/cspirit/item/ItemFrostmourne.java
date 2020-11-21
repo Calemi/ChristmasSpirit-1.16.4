@@ -1,5 +1,6 @@
 package com.tm.cspirit.item;
 
+import com.tm.cspirit.item.base.IItemTag;
 import com.tm.cspirit.main.ChristmasSpirit;
 import com.tm.cspirit.util.helper.EffectHelper;
 import net.minecraft.client.util.ITooltipFlag;
@@ -9,12 +10,13 @@ import net.minecraft.item.*;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 
 import java.util.List;
 import java.util.Random;
 
-public class ItemFrostmourne extends SwordItem {
+public class ItemFrostmourne extends SwordItem implements IItemTag {
 
     public ItemFrostmourne() {
         super(ItemTier.DIAMOND, 3, -2.4F, new Item.Properties().group(ChristmasSpirit.TAB_MAIN).maxStackSize(1));
@@ -22,7 +24,6 @@ public class ItemFrostmourne extends SwordItem {
 
     @Override
     public void addInformation(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
-        tooltip.add(new StringTextComponent(TextFormatting.RED + "Naughty Item"));
         tooltip.add(new StringTextComponent(TextFormatting.BLUE + "Randomly freezes enemies"));
     }
 
@@ -38,5 +39,10 @@ public class ItemFrostmourne extends SwordItem {
         }
 
         return true;
+    }
+
+    @Override
+    public String getTag() {
+        return "naughty";
     }
 }

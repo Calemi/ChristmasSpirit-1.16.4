@@ -1,5 +1,6 @@
 package com.tm.cspirit.block;
 
+import com.tm.cspirit.item.base.IItemSpiritSupplier;
 import com.tm.cspirit.util.helper.EffectHelper;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
@@ -14,15 +15,14 @@ import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 
 import java.util.List;
 
-public class BlockFruitCake extends CakeBlock {
+public class BlockFruitCake extends CakeBlock implements IItemSpiritSupplier {
 
     protected static final VoxelShape[] SHAPES = new VoxelShape[]{
             Block.makeCuboidShape(1.0D, 0.0D, 4.0D, 15.0D, 8.0D, 12.0D),
@@ -39,7 +39,8 @@ public class BlockFruitCake extends CakeBlock {
 
     @Override
     public void addInformation(ItemStack stack, IBlockReader world, List<ITextComponent> tooltip, ITooltipFlag flag) {
-        tooltip.add(new StringTextComponent("Max Effect Stacking: " + TextFormatting.GOLD + 3));
+        tooltip.add(new TranslationTextComponent("hunger.icon.4"));
+        tooltip.add(new TranslationTextComponent("saturation.icon.0.3"));
     }
 
     @Override
@@ -78,5 +79,10 @@ public class BlockFruitCake extends CakeBlock {
     @Override
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         return SHAPES[state.get(BITES)];
+    }
+
+    @Override
+    public int getMaxStacks() {
+        return 3;
     }
 }

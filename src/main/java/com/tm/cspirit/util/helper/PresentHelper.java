@@ -78,9 +78,6 @@ public class PresentHelper {
 
         int giftRarityIndex = RandomHelper.getWeightedRandom(firstRarity, secondRarity, thirdRarity, fourthRarity, fifthRarity);
 
-        System.out.println("Stack: " + spiritEffectStack);
-        System.out.println("Rarity: " + giftRarityIndex);
-
         for (SantaGiftListFile.GiftEntry giftEntry : allGiftEntries) {
 
             if (day >= giftEntry.minDay && day <= giftEntry.maxDay) {
