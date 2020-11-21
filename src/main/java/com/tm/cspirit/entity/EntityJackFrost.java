@@ -48,7 +48,7 @@ public class EntityJackFrost extends CreatureEntity implements IAngerable {
     public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
         return MobEntity.func_233666_p_()
                 .createMutableAttribute(Attributes.MAX_HEALTH, 60D)
-                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 1)
+                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.4D)
                 .createMutableAttribute(Attributes.ATTACK_DAMAGE, 5);
     }
 
@@ -93,7 +93,7 @@ public class EntityJackFrost extends CreatureEntity implements IAngerable {
                 }
             }
 
-            int radius = 30;
+            int radius = 35;
 
             List<PlayerEntity> closePlayers = world.getEntitiesWithinAABB(PlayerEntity.class, new AxisAlignedBB(getPosition().getX() - radius, getPosition().getY() - radius, getPosition().getZ() - radius, getPosition().getX() + radius, getPosition().getY() + radius, getPosition().getZ() + radius));
 

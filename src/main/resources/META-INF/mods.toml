@@ -5,7 +5,7 @@ license="GNU General Public License v3.0"
 [[mods]]
     modId="cspirit"
     namespace="cspirit"
-    version="1.0.3"
+    version="1.0.4"
     displayName="Christmas Spirit"
     authors="Calemi, Kryto627, CaptainKray, Jared"
     description='''
