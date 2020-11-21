@@ -11,10 +11,14 @@ import java.util.UUID;
 
 public class DailyPresentDataFile {
 
+    private static final UUID dailyGiftUUID = UUID.fromString("dc4787f8-2bac-11eb-adc1-0242ac120002");
+
     public static Map<UUID, Integer> receivedGiftList;
 
     public static void init() {
-        receivedGiftList = FileHelper.readFileOrCreate("DailyPresentData", new HashMap<>(), new TypeToken<Map<UUID, Integer>>(){});
+        Map<UUID, Integer> map = new HashMap<>();
+        map.put(dailyGiftUUID, 0);
+        receivedGiftList = FileHelper.readFileOrCreate("DailyPresentData", map, new TypeToken<Map<UUID, Integer>>(){});
     }
 
     public static void clearEntries() {
@@ -35,6 +39,21 @@ public class DailyPresentDataFile {
 
         receivedGiftList.put(player.getUniqueID(), TimeHelper.getCurrentDay());
         FileHelper.saveToFile("DailyPresentData", receivedGiftList);
+
+        return false;
+    }
+
+    public static void enableDailyGifts(boolean state) {
+        receivedGiftList.clear();
+        receivedGiftList.put(dailyGiftUUID, state ? 1 : 0);
+        FileHelper.saveToFile("DailyPresentData", receivedGiftList);
+    }
+
+    public static boolean areDailyGiftsEnabled() {
+
+        if (receivedGiftList.containsKey(dailyGiftUUID)) {
+            return receivedGiftList.get(dailyGiftUUID) == 1;
+        }
 
         return false;
     }

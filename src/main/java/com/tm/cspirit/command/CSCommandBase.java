@@ -29,8 +29,32 @@ public class CSCommandBase {
         csCommand.requires(commandSource -> true)
                 .then(gift().requires((player) -> player.hasPermissionLevel(2)))
                 .then(reloadSantaGifts().requires((player) -> player.hasPermissionLevel(2)))
+                .then(startDailyGiftEvent().requires((player) -> player.hasPermissionLevel(2)))
+                .then(stopDailyGiftEvent().requires((player) -> player.hasPermissionLevel(2)))
                 .then(removePresentData().requires((player) -> player.hasPermissionLevel(2)));
         dispatcher.register(csCommand);
+    }
+
+    private static ArgumentBuilder<CommandSource, ?> startDailyGiftEvent () {
+
+        return Commands.literal("startDailyGiftEvent").executes(ctx -> {
+
+            DailyPresentDataFile.enableDailyGifts(true);
+            ChatHelper.broadcastMessage(ctx.getSource().getWorld(), TextFormatting.GREEN + "" + TextFormatting.BOLD + "All players can now receive daily gifts! (Re-log to receive your gift!)");
+
+            return Command.SINGLE_SUCCESS;
+        });
+    }
+
+    private static ArgumentBuilder<CommandSource, ?> stopDailyGiftEvent () {
+
+        return Commands.literal("stopDailyGiftEvent").executes(ctx -> {
+
+            DailyPresentDataFile.enableDailyGifts(false);
+            ChatHelper.broadcastMessage(ctx.getSource().getWorld(), TextFormatting.GREEN + "" + TextFormatting.BOLD + "All players won't receive daily gifts anymore.");
+
+            return Command.SINGLE_SUCCESS;
+        });
     }
 
     private static ArgumentBuilder<CommandSource, ?> gift () {
