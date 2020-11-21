@@ -21,6 +21,8 @@ public class InitFreezeWorld {
 
         for (Biome biome : ForgeRegistries.BIOMES) {
 
+            System.out.println(biome.getRegistryName());
+
             if (!CSConfig.worldGen.freezeOceans.get()) {
 
                 if (biome.getRegistryName() != null && biome.getRegistryName().toString().contains("ocean")) {

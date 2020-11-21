@@ -35,6 +35,6 @@ public class ItemHelper {
     }
 
     public static ItemEntity spawnStack(World world, double x, double y, double z, ItemStack stack) {
-        return spawnStack(world, x, y, z, stack);
+        return spawnStack(world, x, y, z, 0, 0.2D, 0, stack);
     }
 }
