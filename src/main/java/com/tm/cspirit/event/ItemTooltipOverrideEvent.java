@@ -1,9 +1,10 @@
 package com.tm.cspirit.event;
 
 import com.tm.cspirit.item.base.IItemSpiritSupplier;
-import com.tm.cspirit.item.base.IItemTag;
+import com.tm.cspirit.util.helper.ItemHelper;
 import net.minecraft.item.Item;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -22,14 +23,14 @@ public class ItemTooltipOverrideEvent {
             event.getToolTip().add(new TranslationTextComponent("saturation.icon." + item.getFood().getSaturation()));
         }
 
-        if (item instanceof IItemTag) {
+        if (ItemHelper.hasTag(item, "naughty")) {
+            event.getToolTip().add(new StringTextComponent(""));
+            event.getToolTip().add(new TranslationTextComponent("grinch.icon"));
+        }
 
-            IItemTag tag = (IItemTag) item;
-
-            if (tag.getTag().equalsIgnoreCase("naughty")) {
-                event.getToolTip().add(new StringTextComponent(""));
-                event.getToolTip().add(new TranslationTextComponent("grinch.icon"));
-            }
+        if (ItemHelper.hasTag(item, "disabled")) {
+            event.getToolTip().add(new StringTextComponent(""));
+            event.getToolTip().add(new StringTextComponent(TextFormatting.RED + "Disabled by config!"));
         }
 
         if (item instanceof IItemSpiritSupplier) {

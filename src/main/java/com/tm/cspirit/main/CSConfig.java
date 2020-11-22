@@ -32,12 +32,16 @@ public class CSConfig {
     public static class CategoryMisc {
 
         public final ForgeConfigSpec.ConfigValue<Integer> mobArmorRarity;
+        public final ForgeConfigSpec.ConfigValue<Boolean> naughtyItems;
+        public final ForgeConfigSpec.ConfigValue<Boolean> reindeerFlying;
 
         public CategoryMisc (ForgeConfigSpec.Builder builder) {
 
             builder.push("Misc");
 
             mobArmorRarity = builder.comment("Mob Armor Rarity", NEEDED_FOR_SERVERS, "Determines how rare of a chance for Zombies & Skeletons to wear warm cloths", "The higher the value, the more rare").defineInRange("mobArmorRarity", 50, 0, 256);
+            naughtyItems = builder.comment("Naughty Items", NEEDED_FOR_SERVERS, "When false, any Naughty Item in a player's inventory will be deleted.").define("naughtyItems", true);
+            reindeerFlying = builder.comment("Reindeer Flying", NEEDED_FOR_SERVERS, "When false, can't fly.").define("reindeerFlying", true);
 
             builder.pop();
         }

@@ -133,7 +133,7 @@ public class RenderChristmasTree extends EntityRenderer<EntityChristmasTree> {
         matrixStack.scale(-1.0F, -1.0F, 1.0F);
 
         IVertexBuilder ivertexbuilder = buffer.getBuffer(christmasTree.getRenderType(getEntityTexture(entity)));
-        this.christmasTree.render(matrixStack, ivertexbuilder, combinedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+        christmasTree.render(matrixStack, ivertexbuilder, combinedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
 
         matrixStack.pop();
     }

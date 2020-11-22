@@ -8,14 +8,15 @@ public class InitEvents {
 
     public static void init() {
         MinecraftForge.EVENT_BUS.register(ChristmasSpirit.instance);
-        MinecraftForge.EVENT_BUS.register(new JaredDiscEvent());
+        MinecraftForge.EVENT_BUS.register(new DisableItemsEvent());
+        MinecraftForge.EVENT_BUS.register(new ItemTooltipOverrideEvent());
         MinecraftForge.EVENT_BUS.register(new PresentResetEvent());
+        MinecraftForge.EVENT_BUS.register(new NaughtyEvent());
+        MinecraftForge.EVENT_BUS.register(new JackFrostEvent());
         MinecraftForge.EVENT_BUS.register(new IceSkatesEvent());
         MinecraftForge.EVENT_BUS.register(new MobArmorEvent());
         MinecraftForge.EVENT_BUS.register(new SpriteCranberryEvent());
-        MinecraftForge.EVENT_BUS.register(new NaughtyEvent());
         MinecraftForge.EVENT_BUS.register(new FrozenEvent());
-        MinecraftForge.EVENT_BUS.register(new JackFrostEvent());
-        MinecraftForge.EVENT_BUS.register(new ItemTooltipOverrideEvent());
+        MinecraftForge.EVENT_BUS.register(new JaredDiscEvent());
     }
 }

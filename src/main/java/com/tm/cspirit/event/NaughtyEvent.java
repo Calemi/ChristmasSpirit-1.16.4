@@ -74,16 +74,11 @@ public class NaughtyEvent {
 
                             ItemStack stackInSlot = player.inventory.getStackInSlot(i);
 
-                            if (stackInSlot.getItem() instanceof IItemTag) {
+                            if (ItemHelper.hasTag(stackInSlot.getItem(), "naughty")) {
 
-                                IItemTag tag = (IItemTag) stackInSlot.getItem();
-
-                                if (tag.getTag().equalsIgnoreCase("naughty")) {
-
-                                    Random random = new Random();
-                                    ItemHelper.spawnStack(player.world, player.getPosX(), player.getPosY(), player.getPosZ(), random.nextDouble() - 0.5D, 0.5D, random.nextDouble() - 0.5D, stackInSlot);
-                                    player.inventory.setInventorySlotContents(i, ItemStack.EMPTY);
-                                }
+                                Random random = new Random();
+                                ItemHelper.spawnStack(player.world, player.getPosX(), player.getPosY(), player.getPosZ(), random.nextDouble() - 0.5D, 0.5D, random.nextDouble() - 0.5D, stackInSlot);
+                                player.inventory.setInventorySlotContents(i, ItemStack.EMPTY);
                             }
                         }
                     }

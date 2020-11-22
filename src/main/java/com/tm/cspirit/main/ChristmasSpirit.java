@@ -8,8 +8,11 @@ import com.tm.cspirit.data.DailyPresentDataFile;
 import com.tm.cspirit.data.NaughtyListFile;
 import com.tm.cspirit.data.SantaGiftListFile;
 import com.tm.cspirit.entity.EntityJackFrost;
+import com.tm.cspirit.entity.EntityReindeer;
 import com.tm.cspirit.entity.data.CSDataSerializers;
+import com.tm.cspirit.event.SpawnEggRegisterEvent;
 import com.tm.cspirit.init.*;
+import com.tm.cspirit.packet.PacketReindeerJump;
 import com.tm.cspirit.packet.PacketWrapPresent;
 import com.tm.cspirit.tab.CSTabBaking;
 import com.tm.cspirit.tab.CSTabDecoration;
@@ -19,6 +22,7 @@ import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DeferredWorkQueue;
@@ -74,10 +78,14 @@ public class ChristmasSpirit {
 
         network = NetworkRegistry.newSimpleChannel(new ResourceLocation(CSReference.MOD_ID, CSReference.MOD_ID), () -> "1.0", s -> true, s -> true);
         network.registerMessage(0, PacketWrapPresent.class, PacketWrapPresent::toBytes, PacketWrapPresent::new, PacketWrapPresent::handle);
+        network.registerMessage(1, PacketReindeerJump.class, PacketReindeerJump::toBytes, PacketReindeerJump::new, PacketReindeerJump::handle);
 
         InitEvents.init();
 
-        DeferredWorkQueue.runLater(() -> GlobalEntityTypeAttributes.put(InitEntityTypes.JACK_FROST.get(), EntityJackFrost.setCustomAttributes().create()));
+        DeferredWorkQueue.runLater(() -> {
+            GlobalEntityTypeAttributes.put(InitEntityTypes.JACK_FROST.get(), EntityJackFrost.setCustomAttributes().create());
+            GlobalEntityTypeAttributes.put(InitEntityTypes.REINDEER.get(), EntityReindeer.setCustomAttributes().create());
+        });
     }
 
     private void onClientSetup(final FMLClientSetupEvent event) {
@@ -87,11 +95,14 @@ public class ChristmasSpirit {
         ScreenManager.registerFactory(InitContainerTypes.COOKIE_TRAY.get(), ScreenCookieTray::new);
 
         RenderingRegistry.registerEntityRenderingHandler(InitEntityTypes.JACK_FROST.get(), RenderJackFrost::new);
+        RenderingRegistry.registerEntityRenderingHandler(InitEntityTypes.REINDEER.get(), RenderReindeer::new);
         RenderingRegistry.registerEntityRenderingHandler(InitEntityTypes.CANDY_CANE_PROJECTILE.get(), RenderCandyCaneProjectile::new);
         RenderingRegistry.registerEntityRenderingHandler(InitEntityTypes.SLEIGH.get(), RenderSleigh::new);
         RenderingRegistry.registerEntityRenderingHandler(InitEntityTypes.CHRISTMAS_TREE.get(), RenderChristmasTree::new);
 
         ClientRegistry.bindTileEntityRenderer(InitTileEntityTypes.COOKIE_TRAY.get(), RenderCookieTray::new);
+
+        MinecraftForge.EVENT_BUS.register(new SpawnEggRegisterEvent());
     }
 
     private void onLoadComplete(final FMLLoadCompleteEvent event) {

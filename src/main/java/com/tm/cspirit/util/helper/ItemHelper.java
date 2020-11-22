@@ -1,13 +1,32 @@
 package com.tm.cspirit.util.helper;
 
+import com.tm.cspirit.item.base.IItemTag;
 import com.tm.cspirit.util.Location;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.ItemEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.world.World;
 
 public class ItemHelper {
+
+    public static boolean hasTag(Item item, String tag) {
+
+        if (item instanceof IItemTag) {
+
+            IItemTag itemTag = (IItemTag) item;
+
+            for (String string : itemTag.getItemTags()) {
+
+                if (string.equalsIgnoreCase(tag)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
 
     public static CompoundNBT getNBT (ItemStack is) {
 

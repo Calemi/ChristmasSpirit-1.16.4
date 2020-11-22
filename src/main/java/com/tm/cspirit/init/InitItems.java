@@ -6,6 +6,7 @@ import com.tm.cspirit.item.*;
 import com.tm.cspirit.item.base.ItemArmorBase;
 import com.tm.cspirit.item.base.ItemBase;
 import com.tm.cspirit.item.base.ItemFoodBase;
+import com.tm.cspirit.item.base.ItemSpawnEggBase;
 import com.tm.cspirit.item.tier.CSArmorTiers;
 import com.tm.cspirit.main.CSReference;
 import com.tm.cspirit.main.ChristmasSpirit;
@@ -119,11 +120,14 @@ public class InitItems {
     public static final RegistryObject<Item> CHRISTMAS_TREE =              regItem("christmas_tree", () -> new ItemChristmasTree(false));
     public static final RegistryObject<Item> CHRISTMAS_TREE_WHITE =        regItem("christmas_tree_white", () -> new ItemChristmasTree(true));
 
+    public static final RegistryObject<Item> SPAWN_EGG_JACK_FROST =        regItem("spawn_egg_jack_frost", () -> new ItemSpawnEggBase(InitEntityTypes.JACK_FROST));
+    public static final RegistryObject<Item> SPAWN_EGG_REINDEER =          regItem("spawn_egg_reindeer", () -> new ItemSpawnEggBase(InitEntityTypes.REINDEER));
+
     //------NAUGHTY ITEMS------\\
 
-    public static final RegistryObject<Item> LUMP_OF_COAL =                regItem("lump_of_coal", () -> new ItemBase().setTag("naughty"));
+    public static final RegistryObject<Item> LUMP_OF_COAL =                regItem("lump_of_coal", () -> new ItemBase().addTag("naughty"));
 
-    public static final RegistryObject<Item> FROST_INGOT =                 regItem("frost_ingot", () -> new ItemBase().setTag("naughty"));
+    public static final RegistryObject<Item> FROST_INGOT =                 regItem("frost_ingot", () -> new ItemBase().addTag("naughty"));
     public static final RegistryObject<Item> FROST_HELMET =                regItem("frost_helmet", () -> new ItemFrostArmor(EquipmentSlotType.HEAD));
     public static final RegistryObject<Item> FROST_CHESTPLATE =            regItem("frost_chestplate", () -> new ItemFrostArmor(EquipmentSlotType.CHEST));
     public static final RegistryObject<Item> FROST_LEGGINGS =              regItem("frost_leggings", () -> new ItemFrostArmor(EquipmentSlotType.LEGS));

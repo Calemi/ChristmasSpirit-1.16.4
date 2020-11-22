@@ -8,7 +8,6 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MoverType;
 import net.minecraft.entity.item.BoatEntity;
-import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.WaterMobEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -23,6 +22,8 @@ import net.minecraftforge.fml.network.NetworkHooks;
 import java.util.List;
 
 public class EntitySleigh extends BoatEntity {
+
+    private static final int MAX_PASSENGERS = 4;
 
     public EntitySleigh(EntityType<? extends BoatEntity> type, World world) {
         super(type, world);
@@ -42,7 +43,7 @@ public class EntitySleigh extends BoatEntity {
     public void tick() {
 
         if (this.canPassengerSteer()) {
-            this.move(MoverType.SELF, this.getMotion().mul(5, 1, 5));
+            this.move(MoverType.SELF, this.getMotion().mul(4, 1, 4));
         }
 
         else {
@@ -61,7 +62,7 @@ public class EntitySleigh extends BoatEntity {
 
                 if (!entity.isPassenger(this)) {
 
-                    if (flag && this.getPassengers().size() < 4 && !entity.isPassenger() && entity.getWidth() < this.getWidth() && entity instanceof LivingEntity && !(entity instanceof WaterMobEntity) && !(entity instanceof PlayerEntity)) {
+                    if (flag && this.getPassengers().size() < MAX_PASSENGERS && !entity.isPassenger() && entity.getWidth() < this.getWidth() && entity instanceof LivingEntity && !(entity instanceof WaterMobEntity) && !(entity instanceof PlayerEntity)) {
                         entity.startRiding(this);
                     }
 
@@ -75,32 +76,37 @@ public class EntitySleigh extends BoatEntity {
 
         if (this.isPassenger(passenger)) {
 
-            float f = 0.0F;
+            double passengerOffsetX = 0.0F;
+            double passengerOffsetZ = 0.0F;
             float f1 = (float)((this.removed ? (double)0.01F : this.getMountedYOffset()) + passenger.getYOffset());
 
-            if (getPassengers().size() > 1) {
+            if (getPassengers().indexOf(passenger) == 0) passengerOffsetX = -0.39D;
+            if (getPassengers().size() > 1 && getPassengers().indexOf(passenger) == 1) passengerOffsetX = 0.39D;
 
-                if (getPassengers().indexOf(passenger) == 0) f = 0.2F;
-                else if (getPassengers().indexOf(passenger) == 1) f = -0.6F;
-                else if (getPassengers().indexOf(passenger) == 2) f = -1.2F;
-                else f = -2F;
-
-                if (passenger instanceof AnimalEntity) {
-                    f = (float)((double)f + 0.2D);
-                }
+            if (getPassengers().size() > 2 && getPassengers().indexOf(passenger) == 2) {
+                passengerOffsetX = -0.39D;
+                f1 += 0.4D;
+                passengerOffsetZ = -1.0D;
+            }
+            if (getPassengers().size() > 3 && getPassengers().indexOf(passenger) == 3) {
+                passengerOffsetX = 0.39D;
+                f1 += 0.4D;
+                passengerOffsetZ = -1.0D;
             }
 
-            Vector3d vector3d = (new Vector3d(f, 0.0D, 0.0D)).rotateYaw(-this.rotationYaw * ((float)Math.PI / 180F) - ((float)Math.PI / 2F));
+            Vector3d vector3d = (new Vector3d(-0.5D + passengerOffsetZ, 0D, passengerOffsetX)).rotateYaw(-this.rotationYaw * ((float)Math.PI / 180F) - ((float)Math.PI / 2F));
             passenger.setPosition(this.getPosX() + vector3d.x, this.getPosY() + (double)f1, this.getPosZ() + vector3d.z);
-            //passenger.rotationYaw += this.deltaRotation;
-            //passenger.setRotationYawHead(passenger.getRotationYawHead() + this.deltaRotation);
+
+            passenger.rotationYaw += (rotationYaw - prevRotationYaw);
+            passenger.setRotationYawHead(passenger.getRotationYawHead() + (rotationYaw - prevRotationYaw));
+
             this.applyYawToEntity(passenger);
-            if (passenger instanceof AnimalEntity && this.getPassengers().size() > 1) {
-                int j = passenger.getEntityId() % 2 == 0 ? 90 : 270;
-                passenger.setRenderYawOffset(((AnimalEntity)passenger).renderYawOffset + (float)j);
-                passenger.setRotationYawHead(passenger.getRotationYawHead() + (float)j);
-            }
         }
+    }
+
+    @Override
+    public double getMountedYOffset() {
+        return 0.85D;
     }
 
     @Override
@@ -125,7 +131,7 @@ public class EntitySleigh extends BoatEntity {
 
     @Override
     protected boolean canFitPassenger(Entity passenger) {
-        return this.getPassengers().size() < 4 && !this.areEyesInFluid(FluidTags.WATER);
+        return this.getPassengers().size() < MAX_PASSENGERS && !this.areEyesInFluid(FluidTags.WATER);
     }
 
     @Override

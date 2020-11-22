@@ -6,7 +6,7 @@ import net.minecraft.item.ItemGroup;
 
 public class ItemBase extends Item implements IItemTag {
 
-    private String tag = "";
+    private String[] tags = new String[] {};
 
     public ItemBase(Properties properties) {
         super(properties);
@@ -20,13 +20,14 @@ public class ItemBase extends Item implements IItemTag {
         super(new Item.Properties().group(ChristmasSpirit.TAB_MAIN));
     }
 
-    public ItemBase setTag(String tag) {
-        this.tag = tag;
+    public ItemBase addTag(String tag) {
+        tags = new String[tags.length + 1];
+        tags[tags.length - 1] = tag;
         return this;
     }
 
     @Override
-    public String getTag() {
-        return tag;
+    public String[] getItemTags() {
+        return tags;
     }
 }

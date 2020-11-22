@@ -3,8 +3,8 @@ package com.tm.cspirit.item;
 import com.tm.cspirit.entity.EntityCandyCaneProjectile;
 import com.tm.cspirit.init.InitItems;
 import com.tm.cspirit.item.base.ItemBase;
+import com.tm.cspirit.main.CSConfig;
 import com.tm.cspirit.main.ChristmasSpirit;
-import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -14,13 +14,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.SoundEvents;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
-
-import java.util.List;
 
 public class ItemCandyCaneCannon extends ItemBase {
 
@@ -132,7 +126,7 @@ public class ItemCandyCaneCannon extends ItemBase {
     }
 
     @Override
-    public String getTag() {
-        return "naughty";
+    public String[] getItemTags() {
+        return new String[] {CSConfig.misc.naughtyItems.get() ? "naughty" : "disabled"};
     }
 }

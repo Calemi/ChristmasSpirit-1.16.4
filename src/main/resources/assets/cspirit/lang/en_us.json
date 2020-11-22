@@ -100,6 +100,9 @@
   "item.cspirit.christmas_tree": "Christmas Tree",
   "item.cspirit.christmas_tree_white": "White Christmas Tree",
 
+  "item.cspirit.spawn_egg_jack_frost": "Jack Frost Spawn Egg",
+  "item.cspirit.spawn_egg_reindeer": "Reindeer Spawn Egg",
+
   "_comment" : "-----NAUGHTY ITEMS------",
   "item.cspirit.lump_of_coal": "Lump of Coal",
 
@@ -110,7 +113,6 @@
   "item.cspirit.frost_boots": "Frostbourne Boots",
 
   "item.cspirit.frostmourne": "Frostmourne",
-
   "item.cspirit.candy_cane_cannon": "Candy Cane Cannon",
 
   "_comment" : "-----BLOCKS------",
@@ -189,6 +191,7 @@
   "_comment" : "-----ENTITIES------",
 
   "entity.cspirit.jack_frost" : "Jack Frost",
+  "entity.cspirit.reindeer" : "Reindeer",
 
   "hunger.icon.1"  : "②",
   "hunger.icon.2"  : "①",
