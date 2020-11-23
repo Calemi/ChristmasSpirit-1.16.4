@@ -2,7 +2,6 @@ package com.tm.cspirit.event;
 
 import com.tm.cspirit.data.NaughtyListFile;
 import com.tm.cspirit.init.InitEffects;
-import com.tm.cspirit.item.base.IItemTag;
 import com.tm.cspirit.util.helper.EffectHelper;
 import com.tm.cspirit.util.helper.ItemHelper;
 import net.minecraft.entity.LivingEntity;
