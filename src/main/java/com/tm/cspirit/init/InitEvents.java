@@ -9,7 +9,6 @@ public class InitEvents {
     public static void init() {
         MinecraftForge.EVENT_BUS.register(ChristmasSpirit.instance);
         MinecraftForge.EVENT_BUS.register(new DisableItemsEvent());
-        MinecraftForge.EVENT_BUS.register(new ItemTooltipOverrideEvent());
         MinecraftForge.EVENT_BUS.register(new PresentResetEvent());
         MinecraftForge.EVENT_BUS.register(new NaughtyEvent());
         MinecraftForge.EVENT_BUS.register(new JackFrostEvent());

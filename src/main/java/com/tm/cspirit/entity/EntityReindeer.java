@@ -102,7 +102,7 @@ public class EntityReindeer extends HorseEntity implements IFlyingAnimal {
     @Override
     public boolean onLivingFall(float distance, float damageMultiplier) {
 
-        if (!CSConfig.misc.reindeerFlying.get()) {
+        if (CSConfig.misc.reindeerFlying.get()) {
 
             if (distance > 1.0F) {
                 playSound(SoundEvents.ENTITY_HORSE_LAND, 0.4F, 1.0F);

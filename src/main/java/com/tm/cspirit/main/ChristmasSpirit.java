@@ -10,6 +10,7 @@ import com.tm.cspirit.data.SantaGiftListFile;
 import com.tm.cspirit.entity.EntityJackFrost;
 import com.tm.cspirit.entity.EntityReindeer;
 import com.tm.cspirit.entity.data.CSDataSerializers;
+import com.tm.cspirit.event.ItemTooltipOverrideEvent;
 import com.tm.cspirit.event.SpawnEggRegisterEvent;
 import com.tm.cspirit.init.*;
 import com.tm.cspirit.packet.PacketReindeerJump;
@@ -103,6 +104,7 @@ public class ChristmasSpirit {
         ClientRegistry.bindTileEntityRenderer(InitTileEntityTypes.COOKIE_TRAY.get(), RenderCookieTray::new);
 
         MinecraftForge.EVENT_BUS.register(new SpawnEggRegisterEvent());
+        MinecraftForge.EVENT_BUS.register(new ItemTooltipOverrideEvent());
     }
 
     private void onLoadComplete(final FMLLoadCompleteEvent event) {
