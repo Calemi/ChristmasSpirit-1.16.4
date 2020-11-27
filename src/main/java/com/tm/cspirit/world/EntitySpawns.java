@@ -1,6 +1,7 @@
 package com.tm.cspirit.world;
 
 import com.tm.cspirit.init.InitEntityTypes;
+import com.tm.cspirit.main.CSConfig;
 import com.tm.cspirit.main.CSReference;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.world.biome.Biome;
@@ -19,8 +20,8 @@ public class EntitySpawns {
 
         List<MobSpawnInfo.Spawners> spawner = event.getSpawns().getSpawner(EntityClassification.CREATURE);
 
-        if(event.getCategory() != Biome.Category.NETHER && event.getCategory() != Biome.Category.THEEND && event.getCategory() != Biome.Category.OCEAN) {
-            spawner.add(new MobSpawnInfo.Spawners(InitEntityTypes.REINDEER.get(), 3, 2, 4));
+        if (event.getCategory() == Biome.Category.FOREST || event.getCategory() == Biome.Category.PLAINS) {
+            spawner.add(new MobSpawnInfo.Spawners(InitEntityTypes.REINDEER.get(), CSConfig.misc.reindeerSpawnWeight.get(), 2, 4));
         }
     }
 }
