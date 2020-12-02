@@ -191,6 +191,8 @@
   "_comment" : "-----ENTITIES------",
 
   "entity.cspirit.jack_frost" : "Jack Frost",
+  "entity.cspirit.sleigh" : "Sleigh",
+  "entity.cspirit.christmas_tree" : "Christmas Tree",
   "entity.cspirit.reindeer" : "Reindeer",
 
   "hunger.icon.1"  : "②",

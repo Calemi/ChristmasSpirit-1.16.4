@@ -15,6 +15,8 @@ public class InitRenderLayers {
         RenderTypeLookup.setRenderLayer(InitItems.PRESENT_WRAPPED_RED.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(InitItems.PRESENT_WRAPPED_GREEN.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(InitItems.PRESENT_WRAPPED_BLUE.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(InitItems.PRESENT_WRAPPED_ORANGE.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(InitItems.PRESENT_WRAPPED_PINK.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(InitItems.STOCKING_RED.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(InitItems.STOCKING_GREEN.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(InitItems.STOCKING_BLUE.get(), RenderType.getCutout());

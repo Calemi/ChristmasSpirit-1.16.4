@@ -24,8 +24,8 @@ public class SantaGiftListFile {
         addDefault(ret, "WoodLogs", "minecraft:oak_log",                              32, 0, 0, 5);
         addDefault(ret, "Leather", "minecraft:leather",                               16, 0, 0, 15);
         addDefault(ret, "IronIngot", "minecraft:iron_ingot",                          16, 0, 0, 15);
-        addDefault(ret, "PeppermintSeeds", "cspirit:peppermint",                      8,  0, 0, 5);
-        addDefault(ret, "Ginger", "cspirit:ginger",                                   8,  0, 0, 5);
+        addDefault(ret, "PeppermintSeeds", "cspirit:peppermint",                      8,  0, 0, 10);
+        addDefault(ret, "Ginger", "cspirit:ginger",                                   8,  0, 0, 10);
         addDefault(ret, "ChristmasTree", "cspirit:christmas_tree",                    1,  0, 0, 8);
         addDefault(ret, "ChristmasTreeWhite", "cspirit:christmas_tree_white",         1,  0, 0, 8);
         addDefault(ret, "SugarCookieCircle", "cspirit:sugar_cookie_circle",           8,  0, 3, 15);
@@ -67,11 +67,12 @@ public class SantaGiftListFile {
         addDefault(ret, "LMultiFlicker", "cspirit:christmas_lights_multicolor_flickering", 16, 2, 15, 31);
         addDefault(ret, "LWhiteFlickering", "cspirit:christmas_lights_white_flickering",   16, 2, 15, 31);
 
-        addDefault(ret, "Gold", "minecraft:gold_ingot",                                 16, 3, 0,  32);
-        addDefault(ret, "Redstone", "minecraft:redstone",                               64, 3, 0,  32);
+        addDefault(ret, "Gold", "minecraft:gold_ingot",                               16, 3, 0,  32);
+        addDefault(ret, "Redstone", "minecraft:redstone",                             64, 3, 0,  32);
         addDefault(ret, "SnowGlobe", "cspirit:snow_globe",                            1,  3, 0,  32);
         addDefault(ret, "CookieCutterSnowman", "cspirit:cookie_cutter_snowman",       1,  3, 8, 15);
         addDefault(ret, "DiscWishBackground", "cspirit:disc_wishbackground",          1,  3, 0, 15);
+        addDefault(ret, "Sleigh", "cspirit:sleigh",                                   1,  3, 10, 20);
         addDefault(ret, "DiscMCChristmas", "cspirit:disc_mcchristmas",                1,  3, 15, 32);
 
         addDefault(ret, "Diamond", "minecraft:diamond",                               16, 4, 0, 15);

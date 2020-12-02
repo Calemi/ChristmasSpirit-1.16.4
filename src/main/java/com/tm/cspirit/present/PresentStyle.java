@@ -7,7 +7,9 @@ public enum PresentStyle {
 
     RED (0, "Red", InitItems.PRESENT_WRAPPED_RED.get()),
     GREEN (1, "Green", InitItems.PRESENT_WRAPPED_GREEN.get()),
-    BLUE (2, "Blue", InitItems.PRESENT_WRAPPED_BLUE.get());
+    BLUE (2, "Blue", InitItems.PRESENT_WRAPPED_BLUE.get()),
+    ORANGE (3, "Orange", InitItems.PRESENT_WRAPPED_ORANGE.get()),
+    PINK (4, "Pink", InitItems.PRESENT_WRAPPED_PINK.get());
 
     private final int index;
     private final String name;

@@ -149,6 +149,10 @@ public class InitItems {
     public static final RegistryObject<Item> PRESENT_WRAPPED_GREEN_ITEM =      regItem("present_wrapped_green", () -> new BlockItemPresentWrapped(PRESENT_WRAPPED_GREEN.get()));
     public static final RegistryObject<Block> PRESENT_WRAPPED_BLUE =          regBlock("present_wrapped_blue", BlockPresentWrapped::new);
     public static final RegistryObject<Item> PRESENT_WRAPPED_BLUE_ITEM =       regItem("present_wrapped_blue", () -> new BlockItemPresentWrapped(PRESENT_WRAPPED_BLUE.get()));
+    public static final RegistryObject<Block> PRESENT_WRAPPED_ORANGE =        regBlock("present_wrapped_orange", BlockPresentWrapped::new);
+    public static final RegistryObject<Item> PRESENT_WRAPPED_ORANGE_ITEM =     regItem("present_wrapped_orange", () -> new BlockItemPresentWrapped(PRESENT_WRAPPED_ORANGE.get()));
+    public static final RegistryObject<Block> PRESENT_WRAPPED_PINK =          regBlock("present_wrapped_pink", BlockPresentWrapped::new);
+    public static final RegistryObject<Item> PRESENT_WRAPPED_PINK_ITEM =       regItem("present_wrapped_pink", () -> new BlockItemPresentWrapped(PRESENT_WRAPPED_PINK.get()));
 
     //CROPS
     public static final RegistryObject<Block> GINGER =                 regBlockAndItem("ginger", ChristmasSpirit.TAB_BAKING, BlockCropBase::new);

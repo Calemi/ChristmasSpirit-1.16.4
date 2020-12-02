@@ -5,6 +5,7 @@ import com.tm.cspirit.main.CSConfig;
 import com.tm.cspirit.main.ChristmasSpirit;
 import com.tm.cspirit.packet.PacketReindeerJump;
 import net.minecraft.client.entity.player.ClientPlayerEntity;
+import net.minecraft.client.entity.player.RemoteClientPlayerEntity;
 import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
@@ -58,7 +59,7 @@ public class EntityReindeer extends HorseEntity implements IFlyingAnimal {
 
             addPotionEffect(new EffectInstance(Effects.SLOW_FALLING, 20, 0, true, false));
             
-            if (world.isRemote && getControllingPassenger() != null && getControllingPassenger() instanceof PlayerEntity) {
+            if (world.isRemote && getControllingPassenger() != null && getControllingPassenger() instanceof ClientPlayerEntity) {
 
                 ClientPlayerEntity player = (ClientPlayerEntity) getControllingPassenger();
 

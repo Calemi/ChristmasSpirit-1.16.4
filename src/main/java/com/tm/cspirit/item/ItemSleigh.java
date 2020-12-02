@@ -20,6 +20,7 @@ public class ItemSleigh extends ItemBase {
             EntitySleigh sleigh = new EntitySleigh(context.getWorld(), context.getHitVec().x, context.getHitVec().y, context.getHitVec().z);
             sleigh.rotationYaw = context.getPlayer().rotationYaw;
             context.getWorld().addEntity(sleigh);
+            context.getItem().shrink(1);
 
             return ActionResultType.SUCCESS;
         }
