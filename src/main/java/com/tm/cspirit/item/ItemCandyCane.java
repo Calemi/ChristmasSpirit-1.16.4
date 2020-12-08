@@ -21,7 +21,7 @@ import java.util.List;
 public class ItemCandyCane extends BlockItemBase implements IItemSpiritSupplier {
 
     public ItemCandyCane(Block block) {
-        super(block, new Item.Properties().group(ChristmasSpirit.TAB_BAKING).food(new Food.Builder().hunger(3).saturation(0.4F).setAlwaysEdible().build()));
+        super(block, new Item.Properties().group(ChristmasSpirit.TAB_BAKING).food(new Food.Builder().hunger(7).saturation(0.8F).setAlwaysEdible().build()));
     }
 
     @Override

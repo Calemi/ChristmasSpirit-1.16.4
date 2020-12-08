@@ -5,7 +5,6 @@ import com.tm.cspirit.main.CSConfig;
 import com.tm.cspirit.main.ChristmasSpirit;
 import com.tm.cspirit.packet.PacketReindeerJump;
 import net.minecraft.client.entity.player.ClientPlayerEntity;
-import net.minecraft.client.entity.player.RemoteClientPlayerEntity;
 import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
@@ -14,7 +13,6 @@ import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.passive.IFlyingAnimal;
 import net.minecraft.entity.passive.horse.AbstractHorseEntity;
 import net.minecraft.entity.passive.horse.HorseEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.IPacket;
 import net.minecraft.network.datasync.DataParameter;
@@ -59,27 +57,51 @@ public class EntityReindeer extends HorseEntity implements IFlyingAnimal {
 
             addPotionEffect(new EffectInstance(Effects.SLOW_FALLING, 20, 0, true, false));
             
-            if (world.isRemote && getControllingPassenger() != null && getControllingPassenger() instanceof ClientPlayerEntity) {
+            if (world.isRemote) {
 
-                ClientPlayerEntity player = (ClientPlayerEntity) getControllingPassenger();
+                if (getControllingPassenger() != null) {
 
-                if (isHorseSaddled()) {
+                    if (getControllingPassenger() instanceof ClientPlayerEntity) {
 
-                    if (player.movementInput.jump && !dataManager.get(JUMP_KEY)) {
-                        ChristmasSpirit.network.sendToServer(new PacketReindeerJump(true));
-                        dataManager.set(JUMP_KEY, true);
+                        ClientPlayerEntity player = (ClientPlayerEntity) getControllingPassenger();
+
+                        if (isHorseSaddled()) {
+
+                            if (player.movementInput.jump && !dataManager.get(JUMP_KEY)) {
+                                ChristmasSpirit.network.sendToServer(new PacketReindeerJump(true));
+                                dataManager.set(JUMP_KEY, true);
+                            }
+
+                            else if (dataManager.get(JUMP_KEY)) {
+                                ChristmasSpirit.network.sendToServer(new PacketReindeerJump(false));
+                                dataManager.set(JUMP_KEY, false);
+                            }
+                        }
                     }
+                }
 
-                    else if (dataManager.get(JUMP_KEY)) {
-                        ChristmasSpirit.network.sendToServer(new PacketReindeerJump(false));
+                else if (dataManager.get(JUMP_KEY)) {
+                    ChristmasSpirit.network.sendToServer(new PacketReindeerJump(false));
+                    dataManager.set(JUMP_KEY, false);
+                }
+            }
+
+            else {
+
+                if (getControllingPassenger() == null) {
+
+                    if (dataManager.get(JUMP_KEY)) {
                         dataManager.set(JUMP_KEY, false);
                     }
                 }
             }
 
             if (dataManager.get(JUMP_KEY)) {
+                System.out.println("ADD VEL");
                 addVelocity(0, 0.2F, 0);
             }
+
+            System.out.println("JUMP: " + dataManager.get(JUMP_KEY));
         }
 
         super.tick();

@@ -58,12 +58,12 @@ public class InitItems {
     public static final RegistryObject<Item> CHRISTMAS_LIGHT_BLUE =        regItem("christmas_light_blue", ItemBase::new);
 
     //FOOD
-    public static final RegistryObject<Item> CHOCOLATE_BAR =               regItem("chocolate_bar", () -> new ItemFoodBase(2, 0.2F, 1, false));
-    public static final RegistryObject<Item> PEPPERMINT_BARK =             regItem("peppermint_bark", () -> new ItemFoodBase(4, 0.3F, 2, false));
+    public static final RegistryObject<Item> CHOCOLATE_BAR =               regItem("chocolate_bar", () -> new ItemFoodBase(4, 0.4F, 1, false));
+    public static final RegistryObject<Item> PEPPERMINT_BARK =             regItem("peppermint_bark", () -> new ItemFoodBase(6, 0.6F, 2, false));
 
-    public static final RegistryObject<Item> PEPPERMINT_CANDY_RED =        regItem("peppermint_candy_red", () -> new ItemFoodBase(2, 0.4F, 2, false));
-    public static final RegistryObject<Item> PEPPERMINT_CANDY_GREEN =      regItem("peppermint_candy_green", () -> new ItemFoodBase(2, 0.4F, 2, false));
-    public static final RegistryObject<Item> PEPPERMINT_CANDY_BLUE =       regItem("peppermint_candy_blue", () -> new ItemFoodBase(2, 0.4F, 2, false));
+    public static final RegistryObject<Item> PEPPERMINT_CANDY_RED =        regItem("peppermint_candy_red", () -> new ItemFoodBase(4, 0.4F, 2, false));
+    public static final RegistryObject<Item> PEPPERMINT_CANDY_GREEN =      regItem("peppermint_candy_green", () -> new ItemFoodBase(4, 0.4F, 2, false));
+    public static final RegistryObject<Item> PEPPERMINT_CANDY_BLUE =       regItem("peppermint_candy_blue", () -> new ItemFoodBase(4, 0.4F, 2, false));
 
     public static final RegistryObject<Block> CANDY_CANE_POST_RED =       regBlock("candy_cane_red", BlockCandyCanePost::new);
     public static final RegistryObject<Block> CANDY_CANE_POST_GREEN =     regBlock("candy_cane_green", BlockCandyCanePost::new);
@@ -75,24 +75,24 @@ public class InitItems {
 
     public static final RegistryObject<Item> SUGAR_COOKIE_SANTA =          regItem("sugar_cookie_santa", ItemSantaCookie::new);
 
-    public static final RegistryObject<Item> SUGAR_COOKIE_CIRCLE =         regItem("sugar_cookie_circle", () -> new ItemFoodBase(5, 0.2F, 2, false));
-    public static final RegistryObject<Item> SUGAR_COOKIE_ORNAMENT =       regItem("sugar_cookie_ornament", () -> new ItemFoodBase(6, 0.3F, 2, false));
-    public static final RegistryObject<Item> SUGAR_COOKIE_STAR =           regItem("sugar_cookie_star", () -> new ItemFoodBase(7, 0.4F, 2, false));
-    public static final RegistryObject<Item> SUGAR_COOKIE_MAN =            regItem("sugar_cookie_man", () -> new ItemFoodBase(8, 0.5F, 3, false));
-    public static final RegistryObject<Item> SUGAR_COOKIE_SNOWMAN =        regItem("sugar_cookie_snowman", () -> new ItemFoodBase(9, 0.6F, 3, false));
+    public static final RegistryObject<Item> SUGAR_COOKIE_CIRCLE =         regItem("sugar_cookie_circle", () -> new ItemFoodBase(6, 0.6F, 2, false));
+    public static final RegistryObject<Item> SUGAR_COOKIE_ORNAMENT =       regItem("sugar_cookie_ornament", () -> new ItemFoodBase(7, 0.7F, 2, false));
+    public static final RegistryObject<Item> SUGAR_COOKIE_STAR =           regItem("sugar_cookie_star", () -> new ItemFoodBase(8, 0.8F, 2, false));
+    public static final RegistryObject<Item> SUGAR_COOKIE_MAN =            regItem("sugar_cookie_man", () -> new ItemFoodBase(9, 0.9F, 3, false));
+    public static final RegistryObject<Item> SUGAR_COOKIE_SNOWMAN =        regItem("sugar_cookie_snowman", () -> new ItemFoodBase(10, 0.10F, 3, false));
 
-    public static final RegistryObject<Item> GINGERBREAD_COOKIE_CIRCLE =   regItem("gingerbread_cookie_circle", () -> new ItemFoodBase(6, 0.3F, 2, false));
-    public static final RegistryObject<Item> GINGERBREAD_COOKIE_ORNAMENT = regItem("gingerbread_cookie_ornament", () -> new ItemFoodBase(7, 0.4F, 2, false));
-    public static final RegistryObject<Item> GINGERBREAD_COOKIE_STAR =     regItem("gingerbread_cookie_star", () -> new ItemFoodBase(8, 0.5F, 2, false));
-    public static final RegistryObject<Item> GINGERBREAD_COOKIE_MAN =      regItem("gingerbread_cookie_man", () -> new ItemFoodBase(9, 0.6F, 3, false));
-    public static final RegistryObject<Item> GINGERBREAD_COOKIE_SNOWMAN =  regItem("gingerbread_cookie_snowman", () -> new ItemFoodBase(10, 0.6F, 3, false));
+    public static final RegistryObject<Item> GINGERBREAD_COOKIE_CIRCLE =   regItem("gingerbread_cookie_circle", () -> new ItemFoodBase(7, 0.7F, 2, false));
+    public static final RegistryObject<Item> GINGERBREAD_COOKIE_ORNAMENT = regItem("gingerbread_cookie_ornament", () -> new ItemFoodBase(8, 0.8F, 2, false));
+    public static final RegistryObject<Item> GINGERBREAD_COOKIE_STAR =     regItem("gingerbread_cookie_star", () -> new ItemFoodBase(9, 0.9F, 2, false));
+    public static final RegistryObject<Item> GINGERBREAD_COOKIE_MAN =      regItem("gingerbread_cookie_man", () -> new ItemFoodBase(10, 0.10F, 3, false));
+    public static final RegistryObject<Item> GINGERBREAD_COOKIE_SNOWMAN =  regItem("gingerbread_cookie_snowman", () -> new ItemFoodBase(11, 0.11F, 3, false));
 
-    public static final RegistryObject<Item> MUG_MILK =                    regItem("mug_milk", () -> new ItemFoodBase(3, 0.4F, 2, true));
-    public static final RegistryObject<Item> MUG_HOT_CHOCOLATE =           regItem("mug_hot_chocolate", () -> new ItemFoodBase(6, 0.5F, 2, true));
-    public static final RegistryObject<Item> MUG_EGGNOG =                  regItem("mug_eggnog", () -> new ItemFoodBase(6, 0.6F, 2, true));
+    public static final RegistryObject<Item> MUG_MILK =                    regItem("mug_milk", () -> new ItemFoodBase(4, 0.6F, 2, true));
+    public static final RegistryObject<Item> MUG_HOT_CHOCOLATE =           regItem("mug_hot_chocolate", () -> new ItemFoodBase(7, 0.7F, 2, true));
+    public static final RegistryObject<Item> MUG_EGGNOG =                  regItem("mug_eggnog", () -> new ItemFoodBase(7, 0.8F, 2, true));
 
-    public static final RegistryObject<Item> SODA_COLA =                   regItem("soda_cola", () -> new ItemSoda(5, 0.4F));
-    public static final RegistryObject<Item> SODA_GINGER_ALE =             regItem("soda_ginger_ale", () -> new ItemSoda(6, 0.6F));
+    public static final RegistryObject<Item> SODA_COLA =                   regItem("soda_cola", () -> new ItemSoda(6, 0.6F));
+    public static final RegistryObject<Item> SODA_GINGER_ALE =             regItem("soda_ginger_ale", () -> new ItemSoda(7, 0.7F));
     public static final RegistryObject<Item> SODA_SPRITE_CRANBERRY =       regItem("soda_sprite_cranberry", () -> new ItemSoda(8, 0.8F));
 
     //WEARABLES

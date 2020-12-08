@@ -30,7 +30,7 @@ public class InitEntityTypes {
 
     public static final RegistryObject<EntityType<EntitySleigh>> SLEIGH = ENTITY_TYPES.register("sleigh",
             () -> EntityType.Builder.<EntitySleigh>create(EntitySleigh::new, EntityClassification.MISC)
-                    .size(2.5F, 2.2F)
+                    .size(1.95F, 1.95F)
                     .build(new ResourceLocation(CSReference.MOD_ID, "sleigh").toString()));
 
     public static final RegistryObject<EntityType<EntityChristmasTree>> CHRISTMAS_TREE = ENTITY_TYPES.register("christmas_tree",

@@ -1,13 +1,17 @@
 package com.tm.cspirit.item.tier;
 
+import com.tm.cspirit.init.InitItems;
 import com.tm.cspirit.main.CSReference;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.util.LazyValue;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+
+import java.util.function.Supplier;
 
 public enum CSArmorTiers implements IArmorMaterial {
 
@@ -21,22 +25,24 @@ public enum CSArmorTiers implements IArmorMaterial {
     WINTER_JEANS("winter_jeans", ArmorMaterial.LEATHER,150),
     WINTER_BOOTS("winter_boots", ArmorMaterial.LEATHER,150),
     ICE_SKATES("ice_skates", ArmorMaterial.LEATHER, 200),
-    FROST("frost_armor", ArmorMaterial.DIAMOND, 250, 1);
+    FROST("frost_armor", ArmorMaterial.DIAMOND, () -> {return Ingredient.fromItems(InitItems.FROST_INGOT.get());}, 250, 1);
 
     private final IArmorMaterial base;
     private final String name;
+    private final LazyValue<Ingredient> repairMaterial;
     private final int durabilityAddition;
     private final int protectionAddition;
 
-    CSArmorTiers(String name, IArmorMaterial base, int durabilityAddition, int protectionAddition) {
+    CSArmorTiers(String name, IArmorMaterial base, Supplier<Ingredient> repairMaterial, int durabilityAddition, int protectionAddition) {
         this.base = base;
         this.name = name;
+        this.repairMaterial = new LazyValue<>(repairMaterial);
         this.durabilityAddition = durabilityAddition;
         this.protectionAddition = protectionAddition;
     }
 
     CSArmorTiers(String name, IArmorMaterial base, int durabilityAddition) {
-        this(name, base, durabilityAddition, 0);
+        this(name, base, base::getRepairMaterial, durabilityAddition, 0);
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -67,7 +73,7 @@ public enum CSArmorTiers implements IArmorMaterial {
 
     @Override
     public Ingredient getRepairMaterial() {
-        return base.getRepairMaterial();
+        return repairMaterial.getValue();
     }
 
     @Override
