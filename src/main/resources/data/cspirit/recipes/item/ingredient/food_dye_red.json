@@ -2,10 +2,14 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {"item": "minecraft:sugar"},
+    {"item": "minecraft:red_dye"},
+    {"item": "minecraft:sugar"},
+    {"item": "minecraft:red_dye"},
+    {"item": "minecraft:sugar"},
     {"item": "minecraft:red_dye"}
   ],
   "result": {
     "item": "cspirit:food_dye_red",
-    "count": 1
+    "count": 3
   }
 }
