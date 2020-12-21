@@ -2,18 +2,17 @@ package com.tm.cspirit.event;
 
 import com.tm.cspirit.data.NaughtyListFile;
 import com.tm.cspirit.init.InitEffects;
+import com.tm.cspirit.util.helper.ChatHelper;
 import com.tm.cspirit.util.helper.EffectHelper;
 import com.tm.cspirit.util.helper.ItemHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.merchant.villager.VillagerEntity;
-import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.entity.passive.CatEntity;
-import net.minecraft.entity.passive.FoxEntity;
-import net.minecraft.entity.passive.WolfEntity;
-import net.minecraft.entity.passive.horse.HorseEntity;
+import net.minecraft.entity.passive.*;
+import net.minecraft.entity.passive.horse.AbstractHorseEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.EffectInstance;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -36,7 +35,8 @@ public class NaughtyEvent {
                 boolean killedWolf = killedEntity instanceof WolfEntity;
                 boolean killedFox = killedEntity instanceof FoxEntity;
                 boolean killedCat = killedEntity instanceof CatEntity;
-                boolean killedHorse = killedEntity instanceof HorseEntity;
+                boolean killedHorse = killedEntity instanceof AbstractHorseEntity;
+                boolean killedDolphin = killedEntity instanceof DolphinEntity;
                 boolean killedVillager = killedEntity instanceof VillagerEntity;
                 boolean killedBaby = killedEntity instanceof AnimalEntity && killedEntity.isChild();
                 boolean killedNamedAnimal = killedEntity instanceof AnimalEntity && killedEntity.hasCustomName();
@@ -45,7 +45,7 @@ public class NaughtyEvent {
                     killedPlayer = false;
                 }
 
-                if (killedPlayer || killedWolf || killedFox || killedCat || killedHorse || killedVillager || killedBaby || killedNamedAnimal) {
+                if (killedPlayer || killedWolf || killedFox || killedCat || killedHorse || killedDolphin || killedVillager || killedBaby || killedNamedAnimal) {
                     EffectHelper.giveNaughtyStackEffect(killer);
                 }
             }
@@ -67,7 +67,9 @@ public class NaughtyEvent {
                         player.addPotionEffect(new EffectInstance(InitEffects.NAUGHTY.get(), 20 * 60 * 10, 0));
                     }
 
-                    else {
+                    else if (!player.isCreative()) {
+
+                        boolean foundNaughtyItem = false;
 
                         for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
 
@@ -78,7 +80,12 @@ public class NaughtyEvent {
                                 Random random = new Random();
                                 ItemHelper.spawnStack(player.world, player.getPosX(), player.getPosY(), player.getPosZ(), random.nextDouble() - 0.5D, 0.5D, random.nextDouble() - 0.5D, stackInSlot);
                                 player.inventory.setInventorySlotContents(i, ItemStack.EMPTY);
+                                foundNaughtyItem = true;
                             }
+                        }
+
+                        if (foundNaughtyItem) {
+                            ChatHelper.printModMessage(TextFormatting.RED, "You are not on the Naughty List, so you cannot use \"Naughty Items\"!", player);
                         }
                     }
                 }
