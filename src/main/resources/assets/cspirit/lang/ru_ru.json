@@ -1,0 +1,230 @@
+{
+  "_comment" : "ДЕКОРАЦИИ",
+
+  "_comment" : "-----ПРЕДМЕТЫ------",
+
+  "_comment" : "ЗАГОТОВКИ",
+
+  "item.cspirit.flour": "Мука",
+  "item.cspirit.icing": "Декоративная глазурь",
+
+  "item.cspirit.food_dye_red": "Красный пищевой краситель",
+  "item.cspirit.food_dye_green": "Зеленый пищевой краситель",
+  "item.cspirit.food_dye_blue": "Синий пищевой краситель",
+
+  "item.cspirit.peppermint_leaf": "Лист мяты",
+  "item.cspirit.peppermint_candy_mix": "Мятная конфетная смесь",
+
+  "item.cspirit.sugar_cookie_dough": "Тесто для сахарного печенья",
+  "item.cspirit.sugar_cookie_sheet": "Заготовка для сахорного печенья",
+  "item.cspirit.ginger_ground": "Молотый имбирь",
+  "item.cspirit.gingerbread_dough": "Тесто для пряников",
+  "item.cspirit.gingerbread_sheet": "Имбирный пряник",
+
+
+  "item.cspirit.cookie_cutter_circle": "Форма для печенья (Круг)",
+  "item.cspirit.cookie_cutter_ornament": "Форма для печенья (Ёлочная игрушка)",
+  "item.cspirit.cookie_cutter_star": "Форма для печенья (Звезда)",
+  "item.cspirit.cookie_cutter_man": "Форма для печенья (Человечек)",
+  "item.cspirit.cookie_cutter_snowman": "Форма для печенья (Снеговик)",
+
+  "item.cspirit.christmas_light_white": "Белый светодиот",
+  "item.cspirit.christmas_light_red": "Красный светодиот",
+  "item.cspirit.christmas_light_green": "Зеленый светодиот",
+  "item.cspirit.christmas_light_blue": "Синий светодиот",
+
+
+  "_comment" : "ЕДА",
+
+  "item.cspirit.chocolate_bar": "Плитка шоколада",
+  "item.cspirit.peppermint_bark": "Шоколадка с мятной конфетой",
+
+  "item.cspirit.peppermint_candy_red": "Мятная конфета",
+  "item.cspirit.peppermint_candy_green": "Зеленая мятная конфета",
+  "item.cspirit.peppermint_candy_blue": "Синяя мятная конфета",
+
+  "block.cspirit.candy_cane_red": "Мятный конфетный ледянец",
+  "block.cspirit.candy_cane_green": "Зеленый конфетный ледянец",
+  "block.cspirit.candy_cane_blue": "Синий конфетный ледянец",
+
+  "item.cspirit.sugar_cookie_santa": "Печенье в форме санты",
+
+  "item.cspirit.sugar_cookie_circle": "Печенье",
+  "item.cspirit.sugar_cookie_ornament": "Печенье в форме ёлочной игрушки",
+  "item.cspirit.sugar_cookie_star": "Печенье в форме звезды",
+  "item.cspirit.sugar_cookie_man": "Печенье в форме человечка",
+  "item.cspirit.sugar_cookie_snowman": "Печенье в форме снеговика",
+
+  "item.cspirit.gingerbread_cookie_circle": "Имбирное печенье",
+  "item.cspirit.gingerbread_cookie_ornament": "Имбирное печенье в форме ёлочной игрушки",
+  "item.cspirit.gingerbread_cookie_star": "Имбирное печенье в форме звезды",
+  "item.cspirit.gingerbread_cookie_man": "Имбирное печенье в форме человечка",
+  "item.cspirit.gingerbread_cookie_snowman": "Имбирное печенье в форме снеговика",
+
+  "item.cspirit.mug_milk": "Теплое молоко",
+  "item.cspirit.mug_hot_chocolate": "Горячий шоколад",
+  "item.cspirit.mug_eggnog": "Гоголь-моголь",
+
+  "item.cspirit.soda_cola": "Коко-кола",
+  "item.cspirit.soda_ginger_ale": "Имбирный эль",
+  "item.cspirit.soda_sprite_cranberry": "Спрайт со вкусом клюквы",
+
+  "_comment" : "ДОСПЕХИ",
+
+  "item.cspirit.christmas_hat": "Рождественская шапка",
+  "item.cspirit.beanie_black": "Черная шапка",
+  "item.cspirit.beanie_red": "Красная шапка",
+  "item.cspirit.beanie_green": "Зеленая шапка",
+
+  "item.cspirit.sweater_black": "Черный свитер",
+  "item.cspirit.sweater_red": "Красный свитер",
+  "item.cspirit.sweater_green": "Зеленый свитер",
+
+  "item.cspirit.winter_jeans": "Зимние джинсы",
+
+  "item.cspirit.winter_boots": "Зимние сапоги",
+  "item.cspirit.ice_skates": "Коньки",
+
+  "_comment" : "ПЛАСТИНКИ",
+
+  "item.cspirit.disc_wishbackground": "Праздничная музыкальная пластинка",
+  "item.cspirit.disc_wishbackground.desc": "Wish Background - Кевин Маклауд",
+  "item.cspirit.disc_jared": "Праздничная музыкальная пластинка",
+  "item.cspirit.disc_jared.desc": "It's Beginning to Look a Lot Like Christmas - Wilfred The Pig",
+  "item.cspirit.disc_mcchristmas": "Праздничная музыкальная пластинка",
+  "item.cspirit.disc_mcchristmas.desc": "Minecraft Christmas - Area 11 feat Simon",
+
+  "_comment" : "РАЗНОЕ",
+
+  "item.cspirit.sleigh": "Сани",
+  "item.cspirit.christmas_tree": "Рождественская елка",
+  "item.cspirit.christmas_tree_white": "Белая рождественская елка",
+
+  "item.cspirit.spawn_egg_jack_frost": "Яйцо призыва Джека Мороза",
+  "item.cspirit.spawn_egg_reindeer": "Яйцо призыва Северного оленя",
+
+  "_comment" : "-----НЕПОСЛУШНЫЕ ПРЕДМЕТЫ------",
+  "item.cspirit.lump_of_coal": "Кусок угля",
+
+  "item.cspirit.frost_ingot": "Ледяной слиток",
+  "item.cspirit.frost_helmet": "Ледяной шлем",
+  "item.cspirit.frost_chestplate": "Ледяной нагрудник",
+  "item.cspirit.frost_leggings": "Ледяной поножи",
+  "item.cspirit.frost_boots": "Ледяные ботинки",
+
+  "item.cspirit.frostmourne": "Ледяная Скорбь",
+  "item.cspirit.candy_cane_cannon": "Конфетная пушка",
+
+  "_comment" : "-----БЛОКИ------",
+
+  "block.cspirit.fruitcake": "Рождественский кекс",
+
+  "block.cspirit.present_unwrapped": "Неупакованный подарок",
+
+  "block.cspirit.present_wrapped_red": "Красный подарок",
+  "block.cspirit.present_wrapped_green": "Зеленый подарок",
+  "block.cspirit.present_wrapped_blue": "Синий подарок",
+
+  "_comment" : "КРУПЫ",
+
+  "block.cspirit.ginger": "Корень имбиря",
+  "block.cspirit.peppermint": "Семена мяты",
+
+  "_comment" : "УКРАШЕНИЯ",
+
+  "block.cspirit.snowy_path": "Снежная тропа",
+  "block.cspirit.frosted_glass": "Ляденое стекло",
+  "block.cspirit.frosted_glass_pane": "Ледяное панельное стекло",
+
+  "block.cspirit.candy_cane_block_red": "Блок красного конфетного леденца",
+  "block.cspirit.candy_cane_block_green": "Блок зеленого конфетного леденца",
+  "block.cspirit.candy_cane_block_blue": "Блок синего конфетного леденца",
+
+  "block.cspirit.candy_cane_brick_red": "Красный конфетный кирпич",
+  "block.cspirit.candy_cane_brick_green": "Зеленый конфетный кирпич",
+  "block.cspirit.candy_cane_brick_blue": "Синий конфетный кирпич",
+
+  "block.cspirit.christmas_lights_multicolor": "Разноцветные рождественские огни",
+  "block.cspirit.christmas_lights_multicolor_flickering": "Мерцающие разноцветные рождественские огни",
+  "block.cspirit.christmas_lights_white": "Белые рождественские огни",
+  "block.cspirit.christmas_lights_white_flickering": "Мерцающие белые рождественские огни",
+  "block.cspirit.christmas_lights_red": "Красные рождественские огни",
+  "block.cspirit.christmas_lights_green": "Зеленые рождественские огни",
+  "block.cspirit.christmas_lights_blue": "Синие рождественские огни",
+
+  "block.cspirit.ornament_red": "Красная ёлочная игрушка",
+  "block.cspirit.ornament_green": "Зеленая ёлочная игрушка",
+  "block.cspirit.ornament_blue": "Синяя ёлочная игрушка",
+
+  "block.cspirit.star": "Звезда",
+
+  "block.cspirit.stocking_red": "Красный носок",
+  "block.cspirit.stocking_green": "Зеленый носок",
+  "block.cspirit.stocking_blue": "Синий носок",
+
+  "block.cspirit.chimney": "Дымоход",
+  "block.cspirit.icicles": "Сосульки",
+  "block.cspirit.snow_globe": "Снежный шар",
+  "block.cspirit.gingerbread_house": "Пряничный домик",
+  "block.cspirit.cookie_tray": "Поднос для печенья",
+  "block.cspirit.reef": "Венок",
+  "block.cspirit.garland": "Гирлянда",
+  "block.cspirit.mistletoe": "Омела",
+
+  "_comment" : "-----ТВОРЧЕСКИЕ ВКЛАДКИ------",
+
+  "itemGroup.cspirit.tabMain": "Christmas Spirit - Главная",
+  "itemGroup.cspirit.tabDecoration": "Christmas Spirit - Украшения",
+  "itemGroup.cspirit.tabBaking": "Christmas Spirit - Выпечка",
+
+  "_comment" : "-----ЗВУКИ------",
+
+
+  "congrats": "Поздравляю!",
+  "present.wrap": "Упаковка подарка",
+  "present.unwrap": "Распаковка подарка",
+  "can.open": "Открытие банки",
+  "wanna.sprite.cranberry" : "Хотите Спрайт со вкусом Клюквы",
+  "the.answer.is.clear" : "Ответ ясен!",
+  "disc.sub": "Вставление Рождественской пластинки",
+
+  "_comment" : "-----СУЩЕСТВА------",
+
+  "entity.cspirit.jack_frost" : "Джек Мороз",
+  "entity.cspirit.sleigh" : "Сани",
+  "entity.cspirit.christmas_tree" : "Рождественская елка",
+  "entity.cspirit.reindeer" : "Олень",
+
+  "hunger.icon.1"  : "②",
+  "hunger.icon.2"  : "①",
+  "hunger.icon.3"  : "①②",
+  "hunger.icon.4"  : "①①",
+  "hunger.icon.5"  : "①①②",
+  "hunger.icon.6"  : "①①①",
+  "hunger.icon.7"  : "①①①②",
+  "hunger.icon.8"  : "①①①①",
+  "hunger.icon.9"  : "①①①①②",
+  "hunger.icon.10" : "①①①①①",
+  "hunger.icon.11" : "①①①①①②",
+  "hunger.icon.12" : "①①①①①①",
+
+  "saturation.icon.0.1"  : "④",
+  "saturation.icon.0.2"  : "③",
+  "saturation.icon.0.3"  : "③④",
+  "saturation.icon.0.4"  : "③③",
+  "saturation.icon.0.5"  : "③③④",
+  "saturation.icon.0.6"  : "③③③",
+  "saturation.icon.0.7"  : "③③③④",
+  "saturation.icon.0.8"  : "③③③③",
+  "saturation.icon.0.9"  : "③③③③④",
+  "saturation.icon.1.0" : "③③③③③",
+  "saturation.icon.1.1" : "③③③③③④",
+  "saturation.icon.1.2" : "③③③③③③",
+
+  "santa.icon.1" : "⑤ x1",
+  "santa.icon.2" : "⑤ x2",
+  "santa.icon.3" : "⑤ x3",
+  "santa.icon.4" : "⑤ x4",
+  "santa.icon.5" : "⑤ x5",
+  "grinch.icon" : "⑥ Непослушные Предметы"
+}

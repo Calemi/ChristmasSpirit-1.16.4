@@ -97,11 +97,8 @@ public class EntityReindeer extends HorseEntity implements IFlyingAnimal {
             }
 
             if (dataManager.get(JUMP_KEY)) {
-                System.out.println("ADD VEL");
                 addVelocity(0, 0.2F, 0);
             }
-
-            System.out.println("JUMP: " + dataManager.get(JUMP_KEY));
         }
 
         super.tick();

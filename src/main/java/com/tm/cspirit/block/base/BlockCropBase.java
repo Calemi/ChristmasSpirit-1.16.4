@@ -65,8 +65,6 @@ public class BlockCropBase extends CropsBlock {
                 seedAmount = 1 + (state.get(AGE) == 7 ? random.nextInt(2) + 1 : 0);
             }
 
-            System.out.println(getSeedsItem());
-
             ItemHelper.spawnStack(world, pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F, new ItemStack(getSeedsItem(), seedAmount));
             if (cropItem != null) ItemHelper.spawnStack(world, pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F, new ItemStack(cropItem.get(), cropAmount));
 

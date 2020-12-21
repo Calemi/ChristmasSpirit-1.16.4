@@ -18,7 +18,7 @@ public class InitTileEntityTypes {
             "present_unwrapped", () -> new TileEntityType<>(TileEntityPresentUnwrapped::new, Sets.newHashSet(InitItems.PRESENT_UNWRAPPED.get()), null));
 
     public static final RegistryObject<TileEntityType<TileEntityPresentWrapped>> PRESENT_WRAPPED = TILE_ENTITY_TYPES.register(
-            "present_wrapped", () -> new TileEntityType<>(TileEntityPresentWrapped::new, Sets.newHashSet(InitItems.PRESENT_WRAPPED_RED.get(), InitItems.PRESENT_WRAPPED_GREEN.get(), InitItems.PRESENT_WRAPPED_BLUE.get()), null));
+            "present_wrapped", () -> new TileEntityType<>(TileEntityPresentWrapped::new, Sets.newHashSet(InitItems.PRESENT_WRAPPED_RED.get(), InitItems.PRESENT_WRAPPED_GREEN.get(), InitItems.PRESENT_WRAPPED_BLUE.get(), InitItems.PRESENT_WRAPPED_ORANGE.get(), InitItems.PRESENT_WRAPPED_PINK.get()), null));
 
     public static final RegistryObject<TileEntityType<TileEntityCookieTray>> COOKIE_TRAY = TILE_ENTITY_TYPES.register(
             "cookie_tray", () -> new TileEntityType<>(TileEntityCookieTray::new, Sets.newHashSet(InitItems.COOKIE_TRAY.get()), null));
