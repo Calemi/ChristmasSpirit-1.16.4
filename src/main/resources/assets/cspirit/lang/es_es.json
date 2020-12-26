@@ -1,0 +1,232 @@
+{
+  "_comment" : "DECORACIONES",
+
+  "_comment" : "-----ARTÍCULOS------",
+
+  "_comment" : "INGREDIENTES",
+
+  "item.cspirit.flour": "Harina",
+  "item.cspirit.icing": "Glaseado de decoración",
+
+  "item.cspirit.food_dye_red": "Colorante alimentario rojo",
+  "item.cspirit.food_dye_green": "Colorante alimentario verde",
+  "item.cspirit.food_dye_blue": "Colorante alimentario azul",
+
+  "item.cspirit.peppermint_leaf": "Hoja de menta",
+  "item.cspirit.peppermint_candy_mix": "Mezcla acaramelada de menta",
+
+  "item.cspirit.sugar_cookie_dough": "Masa de galleta azucarada",
+  "item.cspirit.sugar_cookie_sheet": "Hoja de galleta azucarada",
+  "item.cspirit.ginger_ground": "Jengibre molido",
+  "item.cspirit.gingerbread_dough": "Masa de jengibre",
+  "item.cspirit.gingerbread_sheet": "Hoja de jengibre",
+
+
+  "item.cspirit.cookie_cutter_circle": "Cortador de galletas (Círculo)",
+  "item.cspirit.cookie_cutter_ornament": "Cortador de galletas (Ornamento)",
+  "item.cspirit.cookie_cutter_star": "Cortador de galletas (Estrella)",
+  "item.cspirit.cookie_cutter_man": "Cortador de galletas (Monigote)",
+  "item.cspirit.cookie_cutter_snowman": "Cortador de galletas (Monigote nevado)",
+
+  "item.cspirit.christmas_light_white": "Luz de navidad blanca",
+  "item.cspirit.christmas_light_red": "Luz de navidad roja",
+  "item.cspirit.christmas_light_green": "Luz de navidad verde",
+  "item.cspirit.christmas_light_blue": "Luz de navidad azul",
+
+
+  "_comment" : "COMIDA",
+
+  "item.cspirit.chocolate_bar": "Barra de chocolate",
+  "item.cspirit.peppermint_bark": "Corteza de menta",
+
+  "item.cspirit.peppermint_candy_red": "Caramelo de menta roja",
+  "item.cspirit.peppermint_candy_green": "Caramelo de menta verde",
+  "item.cspirit.peppermint_candy_blue": "Caramelo de menta azul",
+
+  "block.cspirit.candy_cane_red": "Bastón de caramelo rojo",
+  "block.cspirit.candy_cane_green": "Bastón de caramelo verde",
+  "block.cspirit.candy_cane_blue": "Bastón de caramelo azul",
+
+  "item.cspirit.sugar_cookie_santa": "Galleta de santa",
+
+  "item.cspirit.sugar_cookie_circle": "Circulo de galleta azucarada",
+  "item.cspirit.sugar_cookie_ornament": "Ornamento de galleta azucarada",
+  "item.cspirit.sugar_cookie_star": "Estrella de galleta azucarada",
+  "item.cspirit.sugar_cookie_man": "Monigote de galleta azucarada",
+  "item.cspirit.sugar_cookie_snowman": "Monigote nevado de galleta azucarada",
+
+  "item.cspirit.gingerbread_cookie_circle": "Circulo de galleta de jengibre",
+  "item.cspirit.gingerbread_cookie_ornament": "Ornamento de galleta de jengibre",
+  "item.cspirit.gingerbread_cookie_star": "Estrella de galleta de jengibre",
+  "item.cspirit.gingerbread_cookie_man": "Monigote de galleta de jengibre",
+  "item.cspirit.gingerbread_cookie_snowman": "Monigote nevado de galleta de jengibre",
+
+  "item.cspirit.mug_milk": "Taza con leche caliente",
+  "item.cspirit.mug_hot_chocolate": "Taza con chocolate caliente",
+  "item.cspirit.mug_eggnog": "Ponche de huevo",
+
+  "item.cspirit.soda_cola": "Gaseosa de cola",
+  "item.cspirit.soda_ginger_ale": "Gaseosa de jengibre",
+  "item.cspirit.soda_sprite_cranberry": "Gaseosa de arándano",
+
+  "_comment" : "UTILIZABLES",
+
+  "item.cspirit.christmas_hat": "Gorro navideño",
+  "item.cspirit.beanie_black": "Gorro negro",
+  "item.cspirit.beanie_red": "Gorro rojo",
+  "item.cspirit.beanie_green": "Gorro verde",
+
+  "item.cspirit.sweater_black": "Suéter negro",
+  "item.cspirit.sweater_red": "Suéter rojo",
+  "item.cspirit.sweater_green": "Suéter verde",
+
+  "item.cspirit.winter_jeans": "Pantalones de invierno",
+
+  "item.cspirit.winter_boots": "Botas de invierno",
+  "item.cspirit.ice_skates": "Patines de hielo",
+
+  "_comment" : "DISCOS",
+
+  "item.cspirit.disc_wishbackground": "Disco de música navideña",
+  "item.cspirit.disc_wishbackground.desc": "Wish Background - Kevin Macleod",
+  "item.cspirit.disc_jared": "Disco de música navideña",
+  "item.cspirit.disc_jared.desc": "It's Beginning to Look a Lot Like Christmas - Wilfred The Pig",
+  "item.cspirit.disc_mcchristmas": "Disco de música navideña",
+  "item.cspirit.disc_mcchristmas.desc": "Minecraft Christmas - Area 11 feat Simon",
+
+  "_comment" : "OTRO",
+
+  "item.cspirit.sleigh": "Trineo",
+  "item.cspirit.christmas_tree": "Árbol de navidad",
+  "item.cspirit.christmas_tree_white": "Árbol de navidad blanco",
+
+  "item.cspirit.spawn_egg_jack_frost": "Generar jack helado",
+  "item.cspirit.spawn_egg_reindeer": "Generar reno",
+
+  "_comment" : "-----ARTÍCULOS TRAVIESOS------",
+  "item.cspirit.lump_of_coal": "Trozo de carbón",
+
+  "item.cspirit.frost_ingot": "Lingote de agonía escarchado",
+  "item.cspirit.frost_helmet": "Casco de agonía escarchado",
+  "item.cspirit.frost_chestplate": "Peto de agonía escarchado",
+  "item.cspirit.frost_leggings": "Grebas de agonía escarchada",
+  "item.cspirit.frost_boots": "Botas de agonía escarchada",
+
+  "item.cspirit.frostmourne": "Agonía de escarcha",
+  "item.cspirit.candy_cane_cannon": "Cañón de caramelo",
+
+  "_comment" : "-----BLOQUES------",
+
+  "block.cspirit.fruitcake": "Pastel de frutas",
+
+  "block.cspirit.present_unwrapped": "Regalo desenvuelto",
+
+  "block.cspirit.present_wrapped_red": "Regalo rojo",
+  "block.cspirit.present_wrapped_green": "Regalo verde",
+  "block.cspirit.present_wrapped_blue": "Regalo azul",
+  "block.cspirit.present_wrapped_orange": "Regalo naranja",
+  "block.cspirit.present_wrapped_pink": "Regalo rosa",
+
+  "_comment" : "CULTIVOS",
+
+  "block.cspirit.ginger": "Raíz de jengibre",
+  "block.cspirit.peppermint": "Semillas de menta",
+
+  "_comment" : "DECORACIONES",
+
+  "block.cspirit.snowy_path": "Camino nevado",
+  "block.cspirit.frosted_glass": "Cristal escarchado",
+  "block.cspirit.frosted_glass_pane": "Panel de cristal escarchado",
+
+  "block.cspirit.candy_cane_block_red": "Bloque de bastón de caramelo rojo",
+  "block.cspirit.candy_cane_block_green": "Bloque de bastón de caramelo verde",
+  "block.cspirit.candy_cane_block_blue": "Bloque de bastón de caramelo azul",
+
+  "block.cspirit.candy_cane_brick_red": "Ladrillo de bastón de caramelo rojo",
+  "block.cspirit.candy_cane_brick_green": "Ladrillo de bastón de caramelo verde",
+  "block.cspirit.candy_cane_brick_blue": "Ladrillo de bastón de caramelo azul",
+
+  "block.cspirit.christmas_lights_multicolor": "Luces navideñas multicolores",
+  "block.cspirit.christmas_lights_multicolor_flickering": "Luces navideñas multicolores intermitentes",
+  "block.cspirit.christmas_lights_white": "Luces navideñas blancas",
+  "block.cspirit.christmas_lights_white_flickering": "Luces navideñas blancas intermitentes",
+  "block.cspirit.christmas_lights_red": "Luces navideñas rojas",
+  "block.cspirit.christmas_lights_green": "Luces navideñas verdes",
+  "block.cspirit.christmas_lights_blue": "Luces navideñas azules",
+
+  "block.cspirit.ornament_red": "Ornamento rojo",
+  "block.cspirit.ornament_green": "Ornamento verde",
+  "block.cspirit.ornament_blue": "Ornamento azul",
+
+  "block.cspirit.star": "Estrella",
+
+  "block.cspirit.stocking_red": "Calcetín rojo",
+  "block.cspirit.stocking_green": "Calcetín verde",
+  "block.cspirit.stocking_blue": "Calcetín azul",
+
+  "block.cspirit.chimney": "Chimenea",
+  "block.cspirit.icicles": "Carámbano",
+  "block.cspirit.snow_globe": "Globo de nieve",
+  "block.cspirit.gingerbread_house": "Casa de jengibre",
+  "block.cspirit.cookie_tray": "Bandeja de galletas",
+  "block.cspirit.reef": "Corona",
+  "block.cspirit.garland": "Guirnalda",
+  "block.cspirit.mistletoe": "Muérdago",
+
+  "_comment" : "-----PESTAÑAS CREATIVAS------",
+
+  "itemGroup.cspirit.tabMain": "Espíritu navideño - Principal",
+  "itemGroup.cspirit.tabDecoration": "Espíritu navideño - Decoraciones",
+  "itemGroup.cspirit.tabBaking": "Espíritu navideño - Horneado",
+
+  "_comment" : "-----SONIDOS------",
+
+
+  "congrats": "¡Felicidades!",
+  "present.wrap": "Regalo envuelto",
+  "present.unwrap": "Regalo desenvuelto",
+  "can.open": "Abriendo",
+  "wanna.sprite.cranberry" : "Quieres gaseosa de arándano?",
+  "the.answer.is.clear" : "¡La respuesta es clara!",
+  "disc.sub": "Insertar disco de música navideña",
+
+  "_comment" : "-----ENTIDADES------",
+
+  "entity.cspirit.jack_frost" : "Jack helado",
+  "entity.cspirit.sleigh" : "Trineo",
+  "entity.cspirit.christmas_tree" : "Árbol de navidad",
+  "entity.cspirit.reindeer" : "Reno",
+
+  "hunger.icon.1"  : "②",
+  "hunger.icon.2"  : "①",
+  "hunger.icon.3"  : "①②",
+  "hunger.icon.4"  : "①①",
+  "hunger.icon.5"  : "①①②",
+  "hunger.icon.6"  : "①①①",
+  "hunger.icon.7"  : "①①①②",
+  "hunger.icon.8"  : "①①①①",
+  "hunger.icon.9"  : "①①①①②",
+  "hunger.icon.10" : "①①①①①",
+  "hunger.icon.11" : "①①①①①②",
+  "hunger.icon.12" : "①①①①①①",
+
+  "saturation.icon.0.1"  : "④",
+  "saturation.icon.0.2"  : "③",
+  "saturation.icon.0.3"  : "③④",
+  "saturation.icon.0.4"  : "③③",
+  "saturation.icon.0.5"  : "③③④",
+  "saturation.icon.0.6"  : "③③③",
+  "saturation.icon.0.7"  : "③③③④",
+  "saturation.icon.0.8"  : "③③③③",
+  "saturation.icon.0.9"  : "③③③③④",
+  "saturation.icon.1.0" : "③③③③③",
+  "saturation.icon.1.1" : "③③③③③④",
+  "saturation.icon.1.2" : "③③③③③③",
+
+  "santa.icon.1" : "⑤ x1",
+  "santa.icon.2" : "⑤ x2",
+  "santa.icon.3" : "⑤ x3",
+  "santa.icon.4" : "⑤ x4",
+  "santa.icon.5" : "⑤ x5",
+  "grinch.icon" : "⑥ Artículo travieso"
+}
