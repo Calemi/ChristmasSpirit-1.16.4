@@ -14,7 +14,7 @@ public class EffectHelper {
 
     public static void giveFrozenEffect(LivingEntity entity, int seconds) {
 
-        entity.addPotionEffect(new EffectInstance(InitEffects.FROZEN.get(), seconds));
+        entity.addPotionEffect(new EffectInstance(InitEffects.FROZEN.get(), 20 * seconds));
 
         if (!entity.world.isRemote) {
             if (entity instanceof PlayerEntity) SoundHelper.sendSoundToClient((ServerPlayerEntity) entity, SoundEvents.ENTITY_ZOMBIE_VILLAGER_CURE);

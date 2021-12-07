@@ -99,7 +99,7 @@ public class BlockPresentWrapped extends BlockPresentUnwrapped {
                     present.getUnitName(player).printMessage(TextFormatting.WHITE, "Open on the " + TimeHelper.getFormattedDay(present.getConstructor().getActualDay()));
                 }
 
-                else if (player.getDisplayName().getString().equalsIgnoreCase(present.getConstructor().getToPlayerName()) || present.getConstructor().getToPlayerName().equalsIgnoreCase("anybody")) {
+                else if (player.getName().getString().equalsIgnoreCase(present.getConstructor().getToPlayerName()) || present.getConstructor().getToPlayerName().equalsIgnoreCase("anybody")) {
 
                     if (TimeHelper.getCurrentDay() >= present.getConstructor().getActualDay()) {
 

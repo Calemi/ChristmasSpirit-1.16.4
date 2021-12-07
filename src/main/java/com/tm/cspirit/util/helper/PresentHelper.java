@@ -25,7 +25,7 @@ public class PresentHelper {
     public static void giveSantaPresent(ServerPlayerEntity player, int day) {
 
         World world = player.world;
-        BlockPresentWrapped.spawnPresent(new Location(world, player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ()), getSantaPresent(player.getDisplayName().getString(), day), ItemStack.EMPTY);
+        BlockPresentWrapped.spawnPresent(new Location(world, player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ()), getSantaPresent(player.getName().getString(), day), ItemStack.EMPTY);
 
         //Visuals
         FireworkHelper.spawnFirework(player, (byte)1, true, true, DyeColor.RED, DyeColor.GREEN);
