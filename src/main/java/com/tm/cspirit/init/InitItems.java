@@ -157,6 +157,7 @@ public class InitItems {
     //CROPS
     public static final RegistryObject<Block> GINGER =                 regBlockAndItem("ginger", ChristmasSpirit.TAB_BAKING, BlockCropBase::new);
     public static final RegistryObject<Block> PEPPERMINT =             regBlockAndItem("peppermint", ChristmasSpirit.TAB_BAKING, () -> new BlockCropBase(PEPPERMINT_LEAF));
+    public static final RegistryObject<Block> WINTER_GARDEN = regBlockAndItem("winter_garden", ChristmasSpirit.TAB_BAKING, BlockWinterGarden::new);
 
     //DECORATIONS
     public static final RegistryObject<Block> SNOWY_PATH =             regBlockAndItem("snowy_path", ChristmasSpirit.TAB_DECORATION, BlockSnowyPath::new);
