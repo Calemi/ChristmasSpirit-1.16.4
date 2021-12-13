@@ -108,7 +108,7 @@ public class ChristmasSpirit {
     }
 
     private void onLoadComplete(final FMLLoadCompleteEvent event) {
-        InitFreezeWorld.init();
+        InitWorldGen.init();
     }
 
     @SubscribeEvent

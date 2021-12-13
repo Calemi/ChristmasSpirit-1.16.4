@@ -17,5 +17,6 @@ public class InitEvents {
         MinecraftForge.EVENT_BUS.register(new SpriteCranberryEvent());
         MinecraftForge.EVENT_BUS.register(new FrozenEvent());
         MinecraftForge.EVENT_BUS.register(new JaredDiscEvent());
+        MinecraftForge.EVENT_BUS.register(new WorldGenEvents());
     }
 }
